@@ -10,9 +10,9 @@ public interface UserService {
 
     User register(RegistrationRequest registrationRequest);
 
-    User findByUsername(String username);
-
     List<User> getAll();
 
     void delete(UUID id);
+
+    void verifyUser(UUID id);
 }

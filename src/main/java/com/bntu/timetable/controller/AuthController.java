@@ -3,6 +3,7 @@ package com.bntu.timetable.controller;
 import com.bntu.timetable.dto.AuthenticationRequest;
 import com.bntu.timetable.dto.RegistrationRequest;
 import com.bntu.timetable.entity.User;
+import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.UserRepository;
 import com.bntu.timetable.security.JwtTokenProvider;
 import com.bntu.timetable.service.UserService;
@@ -48,7 +49,7 @@ public class AuthController {
             response.put("token", token);
             return ResponseEntity.ok(response);
         } catch (AuthenticationException e) {
-            return new ResponseEntity<>("Invalid email/password combination", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(ErrorMessage.INVALID_CREDENTIALS, HttpStatus.FORBIDDEN);
         }
     }
 
@@ -56,8 +57,8 @@ public class AuthController {
     public ResponseEntity<?> registerUser(@Valid @RequestBody RegistrationRequest registrationRequest) {
         try {
             return ResponseEntity.ok(userService.register(registrationRequest));
-        } catch (Exception e) {
-            return new ResponseEntity<>("Invalid request", HttpStatus.BAD_REQUEST);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
 
     }
