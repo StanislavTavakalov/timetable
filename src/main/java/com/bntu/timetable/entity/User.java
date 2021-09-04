@@ -1,5 +1,6 @@
 package com.bntu.timetable.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,9 +13,6 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "users")
 public class User extends BaseEntity {
-
-    @Column(name = "username")
-    private String username;
 
     @Column(name = "first_name")
     private String firstName;
@@ -36,5 +34,6 @@ public class User extends BaseEntity {
     private Status status;
 
     @Column(name = "password")
+    @JsonIgnore
     private String password;
 }
