@@ -24,8 +24,11 @@ public class Role extends BaseEntity {
     private List<User> users;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "role_permissions", joinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "permission_id", referencedColumnName = "id")})
+    @JoinTable(name = "role_permissions",
+            joinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "permission_id", referencedColumnName = "id")},
+            uniqueConstraints = @UniqueConstraint(columnNames = {
+                    "role_id", "permission_id"}))
     private List<Permission> permissions;
 
     @JsonIgnore
