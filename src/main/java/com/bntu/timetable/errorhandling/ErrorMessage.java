@@ -6,6 +6,8 @@ public class ErrorMessage {
     public static final String TOKEN_EXPIRED = "Token was expired with id: ";
     public static final String REGISTRATION_TOKEN_NOT_FOUND = "No token was found with id: ";
     public static final String USER_NOT_FOUND = "User wasn't found with id: ";
+    public static final String USER_NOT_ACTIVATED = "User hasn't activated yet, please check verification link at email";
+    public static final String USER_BLOCKED = "User was blocked, please contact administrator for details";
 
 }
 

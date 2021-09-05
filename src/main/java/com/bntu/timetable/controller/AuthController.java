@@ -2,6 +2,7 @@ package com.bntu.timetable.controller;
 
 import com.bntu.timetable.dto.AuthenticationRequest;
 import com.bntu.timetable.dto.RegistrationRequest;
+import com.bntu.timetable.entity.Status;
 import com.bntu.timetable.entity.User;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.UserRepository;
@@ -43,6 +44,11 @@ public class AuthController {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
             User user = userRepository.findByEmail(request.getEmail()).orElseThrow(() -> new UsernameNotFoundException("User doesn't exists"));
+            if (Status.NOT_ACTIVE.equals(user.getStatus())) {
+                return new ResponseEntity<>(ErrorMessage.USER_NOT_ACTIVATED, HttpStatus.FORBIDDEN);
+            } else if (Status.BLOCKED.equals(user.getStatus())) {
+                return new ResponseEntity<>(ErrorMessage.USER_BLOCKED, HttpStatus.FORBIDDEN);
+            }
             String token = jwtTokenProvider.createToken(request.getEmail(), user.getRole().getName());
             Map<Object, Object> response = new HashMap<>();
             response.put("email", request.getEmail());
