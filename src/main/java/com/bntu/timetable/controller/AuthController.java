@@ -11,6 +11,7 @@ import com.bntu.timetable.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,6 +24,7 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("api/v1/auth")
 public class AuthController {
@@ -44,16 +46,13 @@ public class AuthController {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
             User user = userRepository.findByEmail(request.getEmail()).orElseThrow(() -> new UsernameNotFoundException("User doesn't exists"));
-            if (Status.NOT_ACTIVE.equals(user.getStatus())) {
-                return new ResponseEntity<>(ErrorMessage.USER_NOT_ACTIVATED, HttpStatus.FORBIDDEN);
-            } else if (Status.BLOCKED.equals(user.getStatus())) {
-                return new ResponseEntity<>(ErrorMessage.USER_BLOCKED, HttpStatus.FORBIDDEN);
-            }
             String token = jwtTokenProvider.createToken(request.getEmail(), user.getRole().getName());
             Map<Object, Object> response = new HashMap<>();
-            response.put("email", request.getEmail());
-            response.put("token", token);
+            response.put("user", user);
+            response.put("token", "Bearer " + token);
             return ResponseEntity.ok(response);
+        } catch (LockedException e) {
+            return new ResponseEntity<>(ErrorMessage.USER_NOT_ACTIVE, HttpStatus.FORBIDDEN);
         } catch (AuthenticationException e) {
             return new ResponseEntity<>(ErrorMessage.INVALID_CREDENTIALS, HttpStatus.FORBIDDEN);
         }
