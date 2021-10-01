@@ -15,4 +15,10 @@ public interface UserService {
     void delete(UUID id);
 
     void verifyUser(UUID id);
+
+    List<User> getUsers();
+
+    User updateUser(User user);
+
+    User changeStatus(UUID id, boolean isNeedToBlock);
 }

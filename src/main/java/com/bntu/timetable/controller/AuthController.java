@@ -49,7 +49,7 @@ public class AuthController {
             String token = jwtTokenProvider.createToken(request.getEmail(), user.getRole().getName());
             Map<Object, Object> response = new HashMap<>();
             response.put("user", user);
-            response.put("token", "Bearer " + token);
+            response.put("token", token);
             return ResponseEntity.ok(response);
         } catch (LockedException e) {
             return new ResponseEntity<>(ErrorMessage.USER_NOT_ACTIVE, HttpStatus.FORBIDDEN);

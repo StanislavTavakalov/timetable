@@ -16,10 +16,14 @@ public class EmailServiceImpl implements EmailService {
     private static final String accountActivationMessage =
             "<html> To complete your account set-up, click this link: \n <a href=http://localhost:8080/api/v1/users/verifyUser?id=";
     private static final String accountActivationTitle = "Verify registration ";
-    private static final String htmlMessageEnd = "> Verify </a>  </html>";
+    private static final String htmlMessageEnd = "> Verify </a>  </html>\n";
+    private static final String defaultPasswordMessage = "Your password is: ";
 
     @Value("${spring.mail.username}")
     private String timetableEmailAddress;
+
+    @Value("${default.password}")
+    private String defaultPassword;
 
     private final JavaMailSender javaMailSender;
 
@@ -30,7 +34,7 @@ public class EmailServiceImpl implements EmailService {
     @Override
     public void sendAccountActivationEmail(String tokenId, User user) {
         log.debug("Sending email to: {}", user.getEmail());
-        javaMailSender.send(constructEmail(accountActivationMessage + tokenId + htmlMessageEnd, user));
+        javaMailSender.send(constructEmail(accountActivationMessage + tokenId + htmlMessageEnd + defaultPasswordMessage + defaultPassword, user));
     }
 
     private SimpleMailMessage constructEmail(String body, User user) {

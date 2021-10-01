@@ -14,6 +14,7 @@ import com.bntu.timetable.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,9 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
     private final EmailService emailService;
     private final RegistrationTokenRepository registrationTokenRepository;
+
+    @Value("${default.password}")
+    private String defaultPassword;
 
     // Time in minutes
     private final static int EXPIRATION_TIME = 24 * 60;
@@ -74,13 +78,13 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setEmail(registrationRequest.getEmail());
         user.setStatus(Status.NOT_ACTIVE);
-        user.setRole(getDefaultRole());
+        user.setRole(registrationRequest.getRole());
         user.setFirstName(registrationRequest.getFirstName());
         user.setLastName(registrationRequest.getLastName());
         user.setPatronymic(registrationRequest.getPatronymic());
         user.setCreatedWhen(new Date());
         user.setUpdatedWhen(new Date());
-        user.setPassword(passwordEncoder.encode(registrationRequest.getPassword()));
+        user.setPassword(passwordEncoder.encode(defaultPassword));
         return user;
     }
 
@@ -145,4 +149,41 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException(ErrorMessage.USER_NOT_FOUND + id);
         }
     }
+
+    @Override
+    public List<User> getUsers() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public User updateUser(User userToUpdate) {
+        User user = getUserById(userToUpdate.getId());
+        user.setEmail(userToUpdate.getEmail());
+        user.setLastName(userToUpdate.getLastName());
+        user.setPatronymic(userToUpdate.getPatronymic());
+        user.setFirstName(userToUpdate.getFirstName());
+        user.setRole(userToUpdate.getRole());
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User changeStatus(UUID id, boolean isNeedToBlock) {
+        User user = getUserById(id);
+        if (isNeedToBlock) {
+            user.setStatus(Status.BLOCKED);
+        } else {
+            user.setStatus(Status.ACTIVE);
+        }
+        return userRepository.save(user);
+    }
+
+    private User getUserById(UUID id) {
+        Optional<User> user = userRepository.findById(id);
+        if (user.isEmpty()) {
+            throw new RuntimeException(ErrorMessage.USER_NOT_FOUND + id);
+        }
+        return user.get();
+    }
+
+
 }

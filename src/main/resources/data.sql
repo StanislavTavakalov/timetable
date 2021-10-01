@@ -1,17 +1,25 @@
 insert into permisson (id, name)
 values ('c86a4f8d-9f9a-4569-9945-85168652552b', 'users:read'),
-       ('c86a4f8d-9f9a-4569-9945-85168652555b', 'users:delete')
+       ('c86a4f8d-9f9a-4569-9945-85168652555b', 'users:delete'),
+       ('c86a4f8d-9f9a-4569-9945-85168652551b', 'users:update'),
+       ('c86a4f8d-9f9a-4569-9945-85168652553b', 'users:block'),
+       ('c83a4f8d-9f9a-4569-9945-85168652555b', 'roles:read')
 ON CONFLICT DO NOTHING;
 
 
 insert into role (id, created_when, updated_when, name)
-VALUES ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', null, null, 'ADMIN')
+VALUES ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', null, null, 'ADMIN'),
+       ('ea7a09ea-ba86-4d24-82f2-1a18174541f2', null, null, 'USER')
+
 ON CONFLICT DO NOTHING;
 
 
 insert into role_permissions(role_id, permission_id)
 VALUES ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652552b'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652555b')
+       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652555b'),
+       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652551b'),
+       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652553b'),
+       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c83a4f8d-9f9a-4569-9945-85168652555b')
 ON CONFLICT DO NOTHING;
 
 INSERT INTO users (id, created_when, updated_when, email, first_name, last_name, password, patronymic, status,
