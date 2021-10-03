@@ -3,7 +3,8 @@ values ('c86a4f8d-9f9a-4569-9945-85168652552b', 'users:read'),
        ('c86a4f8d-9f9a-4569-9945-85168652555b', 'users:delete'),
        ('c86a4f8d-9f9a-4569-9945-85168652551b', 'users:update'),
        ('c86a4f8d-9f9a-4569-9945-85168652553b', 'users:block'),
-       ('c83a4f8d-9f9a-4569-9945-85168652555b', 'roles:read')
+       ('c83a4f8d-9f9a-4569-9945-85168652555b', 'roles:read'),
+       ('c83a4f8d-9f8a-4569-9945-85168652555b', 'roles:write')
 ON CONFLICT DO NOTHING;
 
 
@@ -19,7 +20,8 @@ VALUES ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-8516865
        ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652555b'),
        ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652551b'),
        ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652553b'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c83a4f8d-9f9a-4569-9945-85168652555b')
+       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c83a4f8d-9f9a-4569-9945-85168652555b'),
+       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c83a4f8d-9f8a-4569-9945-85168652555b')
 ON CONFLICT DO NOTHING;
 
 INSERT INTO users (id, created_when, updated_when, email, first_name, last_name, password, patronymic, status,

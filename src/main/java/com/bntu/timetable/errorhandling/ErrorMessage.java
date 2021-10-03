@@ -7,6 +7,7 @@ public class ErrorMessage {
     public static final String TOKEN_EXPIRED = "Token was expired with id: ";
     public static final String REGISTRATION_TOKEN_NOT_FOUND = "No token was found with id: ";
     public static final String USER_NOT_FOUND = "User wasn't found with id: ";
+    public static final String ROLE_NOT_FOUND = "Role wasn't found with id: ";
 }
 
 

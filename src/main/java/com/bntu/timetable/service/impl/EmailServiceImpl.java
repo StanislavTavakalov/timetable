@@ -5,6 +5,7 @@ import com.bntu.timetable.service.EmailService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.MailSendException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,12 @@ public class EmailServiceImpl implements EmailService {
     @Override
     public void sendAccountActivationEmail(String tokenId, User user) {
         log.debug("Sending email to: {}", user.getEmail());
-        javaMailSender.send(constructEmail(accountActivationMessage + tokenId + htmlMessageEnd + defaultPasswordMessage + defaultPassword, user));
+        try {
+            javaMailSender.send(constructEmail(accountActivationMessage + tokenId + htmlMessageEnd + defaultPasswordMessage + defaultPassword, user));
+        } catch (MailSendException exception) {
+            log.debug("Couldn't send mail to: {}", user.getEmail());
+            throw exception;
+        }
     }
 
     private SimpleMailMessage constructEmail(String body, User user) {

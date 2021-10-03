@@ -163,6 +163,7 @@ public class UserServiceImpl implements UserService {
         user.setPatronymic(userToUpdate.getPatronymic());
         user.setFirstName(userToUpdate.getFirstName());
         user.setRole(userToUpdate.getRole());
+        user.setUpdatedWhen(new Date());
         return userRepository.save(user);
     }
 
@@ -174,6 +175,7 @@ public class UserServiceImpl implements UserService {
         } else {
             user.setStatus(Status.ACTIVE);
         }
+        user.setUpdatedWhen(new Date());
         return userRepository.save(user);
     }
 
