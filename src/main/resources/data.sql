@@ -8,9 +8,9 @@ values ('c86a4f8d-9f9a-4569-9945-85168652552b', 'users:read'),
 ON CONFLICT DO NOTHING;
 
 
-insert into role (id, created_when, updated_when, name)
-VALUES ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', null, null, 'ADMIN'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f2', null, null, 'USER')
+insert into role (id, created_when, updated_when, name, role_category)
+VALUES ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', null, null, 'ADMIN', 'ADMIN'),
+       ('ea7a09ea-ba86-4d24-82f2-1a18174541f2', null, null, 'DISPATCHER', 'DISPATCHER')
 
 ON CONFLICT DO NOTHING;
 

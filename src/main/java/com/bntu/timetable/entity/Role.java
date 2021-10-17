@@ -23,6 +23,10 @@ public class Role extends BaseEntity {
     @JsonIgnore
     private List<User> users;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role_category")
+    private RoleCategory roleCategory;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "role_permissions",
             joinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")},

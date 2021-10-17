@@ -52,7 +52,7 @@ public class RoleController {
         return roleService.updateRole(role);
     }
 
-    @GetMapping
+    @GetMapping("/permissions")
     @PreAuthorize("hasAuthority('roles:read')")
     public List<Permission> getPermissions() {
         return permissionService.getPermissions();

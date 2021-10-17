@@ -26,7 +26,7 @@ public class User extends BaseEntity {
     @Column(name = "email")
     private String email;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
@@ -36,4 +36,12 @@ public class User extends BaseEntity {
     @Column(name = "password")
     @JsonIgnore
     private String password;
+    
+    @ManyToOne
+    @JoinColumn(name = "deanery_id")
+    private Deanery deanery;
+
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Deanery department;
 }
