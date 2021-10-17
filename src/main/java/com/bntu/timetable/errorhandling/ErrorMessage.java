@@ -10,6 +10,13 @@ public class ErrorMessage {
     public static final String ROLE_NOT_FOUND = "Role wasn't found with id: ";
     public static final String DEPARTMENT_NOT_FOUND = "Department wasn't found with id: ";
     public static final String DEANERY_NOT_FOUND = "Deanery wasn't found with id: ";
+    public static final String BUILDING_NOT_FOUND = "Building wasn't found with id: ";
+    public static final String FLOOR_NOT_FOUND = "Floor wasn't found with id: ";
+    public static final String WING_NOT_FOUND = "Wing wasn't found with id: ";
+    public static final String CLASSROOM_NOT_FOUND = "Classroom  wasn't found with id: ";
+    public static final String CLASSROOM_TYPE_NOT_FOUND = "Classroom type wasn't found with id: ";
+    public static final String TEACHER_NOT_FOUND = "Teacher wasn't found with id: ";
+
 }
 
 
