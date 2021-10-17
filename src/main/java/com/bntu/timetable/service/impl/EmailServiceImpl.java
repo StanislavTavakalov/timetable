@@ -14,10 +14,15 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class EmailServiceImpl implements EmailService {
 
+//    private static final String accountActivationMessage =
+//            "<html> To complete your account set-up, click this link: \n <a href=http://localhost:8080/api/v1/users/verifyUser?id=";
+//    private static final String accountActivationTitle = "Verify registration ";
+//    private static final String htmlMessageEnd = "> Verify </a>  </html>\n";
+//    private static final String defaultPasswordMessage = "Your password is: ";
+
     private static final String accountActivationMessage =
-            "<html> To complete your account set-up, click this link: \n <a href=http://localhost:8080/api/v1/users/verifyUser?id=";
+            "To complete your account set-up, click this link: \n http://localhost:8080/api/v1/users/verifyUser?id=";
     private static final String accountActivationTitle = "Verify registration ";
-    private static final String htmlMessageEnd = "> Verify </a>  </html>\n";
     private static final String defaultPasswordMessage = "Your password is: ";
 
     @Value("${spring.mail.username}")
@@ -36,7 +41,7 @@ public class EmailServiceImpl implements EmailService {
     public void sendAccountActivationEmail(String tokenId, User user) {
         log.debug("Sending email to: {}", user.getEmail());
         try {
-            javaMailSender.send(constructEmail(accountActivationMessage + tokenId + htmlMessageEnd + defaultPasswordMessage + defaultPassword, user));
+            javaMailSender.send(constructEmail(accountActivationMessage + tokenId  + "\n" + defaultPasswordMessage + defaultPassword, user));
         } catch (MailSendException exception) {
             log.debug("Couldn't send mail to: {}", user.getEmail());
             throw exception;

@@ -1,27 +1,29 @@
 package com.bntu.timetable.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "flow")
-public class Flow extends BaseEntity {
+@Table(name = "subgroup")
+public class Subgroup extends BaseEntity {
+
     @Column(name = "name")
-    private String name;
+    private int name;
+
+    @Column(name = "count")
+    private int count;
 
     @ManyToOne
-    @JoinColumn(name = "deanery_id", nullable = false)
-    private Deanery deanery;
-
-    @OneToMany(mappedBy = "flow")
-    private List<Group> groups;
+    @JoinColumn(name = "group_id", nullable = false)
+    @JsonIgnore
+    private Group group;
 }

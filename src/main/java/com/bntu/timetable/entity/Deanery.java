@@ -31,6 +31,7 @@ public class Deanery extends BaseEntity {
     @OneToMany(mappedBy = "deanery")
     private List<Department> departments;
 
-
+    @OneToMany(mappedBy = "deanery")
+    private List<Flow> flows;
 
 }

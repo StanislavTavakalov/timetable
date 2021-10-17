@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -30,5 +31,8 @@ public class Department extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "deanery_id", nullable = false)
     private Deanery deanery;
+
+    @OneToMany(mappedBy = "department")
+    private List<Speciality> specialities;
 
 }

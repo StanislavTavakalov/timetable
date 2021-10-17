@@ -12,10 +12,14 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@Table(name = "classroom")
 public class Classroom extends BaseEntity {
 
     @Column(name = "number")
     private String number;
+
+    @Column(name = "capacity")
+    private String capacity;
 
     @ManyToOne
     @JoinColumn(name = "wing_id", nullable = false)
@@ -24,6 +28,10 @@ public class Classroom extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "classroom_type_id", nullable = false)
     private ClassroomType classroomType;
+
+    @ManyToOne
+    @JoinColumn(name = "classroom_specialization_id", nullable = false)
+    private ClassroomSpecialization classroomSpecialization;
 
     @Column(name = "start_point_x")
     private int startPointX;

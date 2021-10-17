@@ -5,23 +5,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "flow")
-public class Flow extends BaseEntity {
+@Table(name = "specialization")
+public class Specialization extends BaseEntity {
+
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "deanery_id", nullable = false)
-    private Deanery deanery;
+    @Column(name = "code")
+    private String code;
 
-    @OneToMany(mappedBy = "flow")
-    private List<Group> groups;
 }
