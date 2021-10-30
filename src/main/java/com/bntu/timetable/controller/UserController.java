@@ -1,8 +1,9 @@
 package com.bntu.timetable.controller;
 
 
-import com.bntu.timetable.dto.RegistrationRequest;
-import com.bntu.timetable.entity.User;
+import com.bntu.timetable.converters.UserConverter;
+
+import com.bntu.timetable.dto.UserDto;
 import com.bntu.timetable.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -32,7 +33,7 @@ public class UserController {
     @PreAuthorize("hasAuthority('users:read')")
     public ResponseEntity<?> getUser(@PathVariable UUID id) {
         try {
-            return ResponseEntity.ok(userService.findById(id));
+            return ResponseEntity.ok(UserConverter.convertUserToDto(userService.findById(id)));
         } catch (RuntimeException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
@@ -40,8 +41,8 @@ public class UserController {
 
     @GetMapping
     @PreAuthorize("hasAuthority('users:read')")
-    public ResponseEntity<List<User>> getUsers() {
-        return ResponseEntity.ok(userService.getUsers());
+    public ResponseEntity<List<UserDto>> getUsers() {
+        return ResponseEntity.ok(UserConverter.convertUsersToDto(userService.getUsers()));
     }
 
     @DeleteMapping("/{id}")
@@ -59,7 +60,7 @@ public class UserController {
 
     @PutMapping
     @PreAuthorize("hasAuthority('users:update')")
-    public ResponseEntity<?> updateUser(@RequestBody User user) {
+    public ResponseEntity<?> updateUser(@RequestBody UserDto user) {
         try {
             return ResponseEntity.ok(userService.updateUser(user));
         } catch (RuntimeException e) {

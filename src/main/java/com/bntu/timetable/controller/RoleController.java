@@ -4,6 +4,7 @@ import com.bntu.timetable.entity.Permission;
 import com.bntu.timetable.entity.Role;
 import com.bntu.timetable.service.PermissionService;
 import com.bntu.timetable.service.RoleService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.UUID;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("api/v1/roles")
+@Slf4j
 public class RoleController {
 
     @Autowired
@@ -51,6 +53,20 @@ public class RoleController {
     public Role updateRole(@RequestBody Role role) {
         return roleService.updateRole(role);
     }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('roles:delete')")
+    public ResponseEntity<?> deleteRole(@PathVariable UUID id) {
+        try {
+            roleService.deleteRole(id);
+        } catch (RuntimeException exception) {
+            log.error(exception.getMessage());
+            return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+
+        return ResponseEntity.ok(true);
+    }
+
 
     @GetMapping("/permissions")
     @PreAuthorize("hasAuthority('roles:read')")

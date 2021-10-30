@@ -21,7 +21,7 @@ public class Floor extends BaseEntity{
     private String number;
 
     @ManyToOne
-    @JoinColumn(name = "building_id", nullable = false)
+    @JoinColumn(name = "building_id")
     private Building building;
 
     @OneToMany(mappedBy = "floor")

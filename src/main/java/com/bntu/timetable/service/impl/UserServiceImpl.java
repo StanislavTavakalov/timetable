@@ -1,14 +1,14 @@
 package com.bntu.timetable.service.impl;
 
 import com.bntu.timetable.dto.RegistrationRequest;
-import com.bntu.timetable.entity.RegistrationToken;
-import com.bntu.timetable.entity.Role;
-import com.bntu.timetable.entity.Status;
-import com.bntu.timetable.entity.User;
+import com.bntu.timetable.dto.UserDto;
+import com.bntu.timetable.entity.*;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.RegistrationTokenRepository;
 import com.bntu.timetable.repository.RoleRepository;
 import com.bntu.timetable.repository.UserRepository;
+import com.bntu.timetable.service.DeaneryService;
+import com.bntu.timetable.service.DepartmentService;
 import com.bntu.timetable.service.EmailService;
 import com.bntu.timetable.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +31,8 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
     private final EmailService emailService;
     private final RegistrationTokenRepository registrationTokenRepository;
+    private final DeaneryService deaneryService;
+    private final DepartmentService departmentService;
 
     @Value("${default.password}")
     private String defaultPassword;
@@ -40,12 +42,15 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder,
-                           EmailService emailService, RegistrationTokenRepository registrationTokenRepository) {
+                           EmailService emailService, RegistrationTokenRepository registrationTokenRepository,
+                           DeaneryService deaneryService, DepartmentService departmentService) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
         this.emailService = emailService;
         this.registrationTokenRepository = registrationTokenRepository;
+        this.deaneryService = deaneryService;
+        this.departmentService = departmentService;
     }
 
     @Override
@@ -85,6 +90,11 @@ public class UserServiceImpl implements UserService {
         user.setCreatedWhen(new Date());
         user.setUpdatedWhen(new Date());
         user.setPassword(passwordEncoder.encode(defaultPassword));
+        if (registrationRequest.getDeaneryId() != null) {
+            user.setDeanery(deaneryService.getDeanery(registrationRequest.getDeaneryId()));
+        } else if (registrationRequest.getDepartmentId() != null) {
+            user.setDepartment(departmentService.getDepartment(registrationRequest.getDepartmentId()));
+        }
         return user;
     }
 
@@ -156,14 +166,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUser(User userToUpdate) {
-        User user = getUserById(userToUpdate.getId());
-        user.setEmail(userToUpdate.getEmail());
-        user.setLastName(userToUpdate.getLastName());
-        user.setPatronymic(userToUpdate.getPatronymic());
-        user.setFirstName(userToUpdate.getFirstName());
-        user.setRole(userToUpdate.getRole());
+    public User updateUser(UserDto userDto) {
+        User user = getUserById(userDto.getId());
+        user.setEmail(userDto.getEmail());
+        user.setLastName(userDto.getLastName());
+        user.setPatronymic(userDto.getPatronymic());
+        user.setFirstName(userDto.getFirstName());
+        user.setRole(userDto.getRole());
         user.setUpdatedWhen(new Date());
+        if (userDto.getDeanery() != null) {
+            user.setDeanery(deaneryService.getDeanery(userDto.getDeanery().getId()));
+        } else if (userDto.getDepartment() != null) {
+            user.setDepartment(departmentService.getDepartment(userDto.getDepartment().getId()));
+        }
         return userRepository.save(user);
     }
 

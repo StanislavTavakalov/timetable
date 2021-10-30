@@ -1,6 +1,7 @@
 package com.bntu.timetable.service;
 
 import com.bntu.timetable.dto.RegistrationRequest;
+import com.bntu.timetable.dto.UserDto;
 import com.bntu.timetable.entity.User;
 import java.util.List;
 import java.util.UUID;
@@ -18,7 +19,7 @@ public interface UserService {
 
     List<User> getUsers();
 
-    User updateUser(User user);
+    User updateUser(UserDto user);
 
     User changeStatus(UUID id, boolean isNeedToBlock);
 }

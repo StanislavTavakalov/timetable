@@ -21,13 +21,14 @@ public class Wing extends BaseEntity{
     private String number;
 
     @ManyToOne
-    @JoinColumn(name = "floor_id", nullable = false)
+    @JoinColumn(name = "floor_id")
     private Floor floor;
 
     @OneToMany(mappedBy = "wing")
     @JsonIgnore
     private List<Classroom> classrooms;
 
-    //TODO: implement image field
+    @Column(name = "plan_id")
+    private String planId;
 
 }

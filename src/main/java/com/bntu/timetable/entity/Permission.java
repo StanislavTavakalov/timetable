@@ -15,7 +15,7 @@ import java.util.UUID;
 @Setter
 @EqualsAndHashCode
 @Table(name = "permisson")
-public class Permission{
+public class Permission {
 
     @Id
     @GeneratedValue(generator = "UUID")

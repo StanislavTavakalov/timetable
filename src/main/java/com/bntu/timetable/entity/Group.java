@@ -14,7 +14,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "group")
+@Table(name = "study_group")
 public class Group extends BaseEntity {
 
     @Column(name = "number")
@@ -27,7 +27,7 @@ public class Group extends BaseEntity {
     private int enterYear;
 
     @ManyToOne
-    @JoinColumn(name = "flow_id", nullable = false)
+    @JoinColumn(name = "flow_id")
     @JsonIgnore
     private Flow flow;
 
