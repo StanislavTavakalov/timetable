@@ -1,7 +1,7 @@
 package com.bntu.timetable.service;
 
 import com.bntu.timetable.dto.RegistrationRequest;
-import com.bntu.timetable.dto.UserDto;
+import com.bntu.timetable.dto.user.UserDto;
 import com.bntu.timetable.entity.User;
 import java.util.List;
 import java.util.UUID;

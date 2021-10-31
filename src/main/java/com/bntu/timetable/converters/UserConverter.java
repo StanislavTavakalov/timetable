@@ -1,10 +1,11 @@
 package com.bntu.timetable.converters;
 
 
-import com.bntu.timetable.dto.DeaneryShortDto;
-import com.bntu.timetable.dto.DepartmentShortDto;
-import com.bntu.timetable.dto.UserDto;
-import com.bntu.timetable.entity.User;
+import com.bntu.timetable.dto.user.DeaneryShortDto;
+import com.bntu.timetable.dto.user.DepartmentShortDto;
+import com.bntu.timetable.dto.user.RoleShortDto;
+import com.bntu.timetable.dto.user.UserDto;
+import com.bntu.timetable.entity.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,30 +17,49 @@ public class UserConverter {
         UserDto userDto = new UserDto();
 
         if (user.getDeanery() != null) {
-            DeaneryShortDto deaneryShortDto = new DeaneryShortDto();
-            deaneryShortDto.setId(user.getDeanery().getId());
-            deaneryShortDto.setFullName(user.getDeanery().getFullName());
-            deaneryShortDto.setShortname(user.getDeanery().getShortName());
-            userDto.setDeanery(deaneryShortDto);
+            userDto.setDeanery(convertDeaneryToDto(user.getDeanery()));
         }
 
         if (user.getDepartment() != null) {
-            DepartmentShortDto departmentShortDto = new DepartmentShortDto();
-            departmentShortDto.setId(user.getDepartment().getId());
-            departmentShortDto.setFullName(user.getDepartment().getFullName());
-            departmentShortDto.setShortname(user.getDepartment().getShortName());
-            userDto.setDepartment(departmentShortDto);
+            userDto.setDepartment(convertDepartmentToDto(user.getDepartment()));
         }
+
+        userDto.setRole(convertRoleToDto(user.getRole()));
 
         userDto.setId(user.getId());
         userDto.setEmail(user.getEmail());
         userDto.setFirstName(user.getFirstName());
         userDto.setLastName(user.getLastName());
         userDto.setPatronymic(user.getPatronymic());
-        userDto.setRole(user.getRole());
         userDto.setStatus(user.getStatus());
 
         return userDto;
+    }
+
+
+    private static DepartmentShortDto convertDepartmentToDto(Department department) {
+        DepartmentShortDto departmentShortDto = new DepartmentShortDto();
+        departmentShortDto.setId(department.getId());
+        departmentShortDto.setFullName(department.getFullName());
+        departmentShortDto.setShortname(department.getShortName());
+        return departmentShortDto;
+    }
+
+    private static DeaneryShortDto convertDeaneryToDto(Deanery deanery) {
+        DeaneryShortDto deaneryShortDto = new DeaneryShortDto();
+        deaneryShortDto.setId(deanery.getId());
+        deaneryShortDto.setFullName(deanery.getFullName());
+        deaneryShortDto.setShortname(deanery.getShortName());
+        return deaneryShortDto;
+    }
+
+    private static RoleShortDto convertRoleToDto(Role role) {
+        RoleShortDto roleShortDto = new RoleShortDto();
+        roleShortDto.setId(role.getId());
+        roleShortDto.setName(role.getName());
+        roleShortDto.setRoleCategory(role.getRoleCategory());
+        roleShortDto.setPermissions(role.getPermissions().stream().map(Permission::getName).collect(Collectors.toList()));
+        return roleShortDto;
     }
 
     public static List<UserDto> convertUsersToDto(List<User> users) {

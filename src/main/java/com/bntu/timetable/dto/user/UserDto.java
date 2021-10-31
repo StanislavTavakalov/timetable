@@ -1,7 +1,5 @@
-package com.bntu.timetable.dto;
+package com.bntu.timetable.dto.user;
 
-
-import com.bntu.timetable.entity.Role;
 import com.bntu.timetable.entity.Status;
 import lombok.Data;
 
@@ -19,7 +17,7 @@ public class UserDto {
 
     private String email;
 
-    private Role role;
+    private RoleShortDto role;
 
     private Status status;
 

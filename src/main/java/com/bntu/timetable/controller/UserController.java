@@ -3,7 +3,7 @@ package com.bntu.timetable.controller;
 
 import com.bntu.timetable.converters.UserConverter;
 
-import com.bntu.timetable.dto.UserDto;
+import com.bntu.timetable.dto.user.UserDto;
 import com.bntu.timetable.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,16 +1,13 @@
 package com.bntu.timetable.service.impl;
 
 import com.bntu.timetable.dto.RegistrationRequest;
-import com.bntu.timetable.dto.UserDto;
+import com.bntu.timetable.dto.user.UserDto;
 import com.bntu.timetable.entity.*;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.RegistrationTokenRepository;
 import com.bntu.timetable.repository.RoleRepository;
 import com.bntu.timetable.repository.UserRepository;
-import com.bntu.timetable.service.DeaneryService;
-import com.bntu.timetable.service.DepartmentService;
-import com.bntu.timetable.service.EmailService;
-import com.bntu.timetable.service.UserService;
+import com.bntu.timetable.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -33,6 +30,7 @@ public class UserServiceImpl implements UserService {
     private final RegistrationTokenRepository registrationTokenRepository;
     private final DeaneryService deaneryService;
     private final DepartmentService departmentService;
+    private final RoleService roleService;
 
     @Value("${default.password}")
     private String defaultPassword;
@@ -43,7 +41,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder,
                            EmailService emailService, RegistrationTokenRepository registrationTokenRepository,
-                           DeaneryService deaneryService, DepartmentService departmentService) {
+                           DeaneryService deaneryService, DepartmentService departmentService, RoleService roleService) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
@@ -51,6 +49,7 @@ public class UserServiceImpl implements UserService {
         this.registrationTokenRepository = registrationTokenRepository;
         this.deaneryService = deaneryService;
         this.departmentService = departmentService;
+        this.roleService = roleService;
     }
 
     @Override
@@ -172,7 +171,7 @@ public class UserServiceImpl implements UserService {
         user.setLastName(userDto.getLastName());
         user.setPatronymic(userDto.getPatronymic());
         user.setFirstName(userDto.getFirstName());
-        user.setRole(userDto.getRole());
+        user.setRole(roleService.getRole(userDto.getRole().getId()));
         user.setUpdatedWhen(new Date());
         if (userDto.getDeanery() != null) {
             user.setDeanery(deaneryService.getDeanery(userDto.getDeanery().getId()));

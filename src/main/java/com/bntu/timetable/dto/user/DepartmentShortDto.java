@@ -1,4 +1,4 @@
-package com.bntu.timetable.dto;
+package com.bntu.timetable.dto.user;
 
 import lombok.Data;
 
