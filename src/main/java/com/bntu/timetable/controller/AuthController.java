@@ -2,7 +2,6 @@ package com.bntu.timetable.controller;
 
 import com.bntu.timetable.dto.AuthenticationRequest;
 import com.bntu.timetable.dto.RegistrationRequest;
-import com.bntu.timetable.entity.Status;
 import com.bntu.timetable.entity.User;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.UserRepository;

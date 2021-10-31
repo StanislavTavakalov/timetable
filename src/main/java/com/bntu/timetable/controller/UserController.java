@@ -1,7 +1,6 @@
 package com.bntu.timetable.controller;
 
 
-import com.bntu.timetable.dto.RegistrationRequest;
 import com.bntu.timetable.entity.User;
 import com.bntu.timetable.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 

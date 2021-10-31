@@ -4,7 +4,8 @@ values ('c86a4f8d-9f9a-4569-9945-85168652552b', 'users:read'),
        ('c86a4f8d-9f9a-4569-9945-85168652551b', 'users:update'),
        ('c86a4f8d-9f9a-4569-9945-85168652553b', 'users:block'),
        ('c83a4f8d-9f9a-4569-9945-85168652555b', 'roles:read'),
-       ('c83a4f8d-9f8a-4569-9945-85168652555b', 'roles:write')
+       ('c83a4f8d-9f8a-4569-9945-85168652555b', 'roles:write'),
+       ('c83a4f8d-9f8a-4569-9945-85168652557b', 'directions:read')
 ON CONFLICT DO NOTHING;
 
 
