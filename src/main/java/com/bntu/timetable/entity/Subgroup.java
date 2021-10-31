@@ -23,7 +23,7 @@ public class Subgroup extends BaseEntity {
     private int count;
 
     @ManyToOne
-    @JoinColumn(name = "group_id", nullable = false)
+    @JoinColumn(name = "group_id")
     @JsonIgnore
     private Group group;
 }

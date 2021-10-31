@@ -19,7 +19,7 @@ public class ClassroomType extends BaseEntity {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "color_id", nullable = false)
+    @JoinColumn(name = "color_id")
     private Color color;
 
 }

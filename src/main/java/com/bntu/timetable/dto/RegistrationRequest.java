@@ -3,6 +3,8 @@ package com.bntu.timetable.dto;
 import com.bntu.timetable.entity.Role;
 import lombok.Data;
 
+import java.util.UUID;
+
 @Data
 public class RegistrationRequest {
     private String email;
@@ -10,4 +12,6 @@ public class RegistrationRequest {
     private String lastName;
     private String patronymic;
     private Role role;
+    private UUID departmentId;
+    private UUID deaneryId;
 }

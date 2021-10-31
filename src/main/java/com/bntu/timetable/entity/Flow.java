@@ -19,7 +19,7 @@ public class Flow extends BaseEntity {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "deanery_id", nullable = false)
+    @JoinColumn(name = "deanery_id")
     private Deanery deanery;
 
     @OneToMany(mappedBy = "flow")

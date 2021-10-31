@@ -40,6 +40,7 @@ public class RoleServiceImpl implements RoleService {
         Role role = getRoleById(roleUpdateInfo.getId());
         role.setName(roleUpdateInfo.getName());
         role.setPermissions(roleUpdateInfo.getPermissions());
+        role.setRoleCategory(roleUpdateInfo.getRoleCategory());
         role.setUpdatedWhen(new Date());
         return roleRepository.save(role);
     }

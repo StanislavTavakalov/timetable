@@ -27,7 +27,7 @@ public class User extends BaseEntity {
     private String email;
 
     @ManyToOne
-    @JoinColumn(name = "role_id", nullable = false)
+    @JoinColumn(name = "role_id")
     private Role role;
 
     @Enumerated(EnumType.STRING)
@@ -43,5 +43,5 @@ public class User extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "department_id")
-    private Deanery department;
+    private Department department;
 }

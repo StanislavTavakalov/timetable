@@ -22,15 +22,15 @@ public class Classroom extends BaseEntity {
     private String capacity;
 
     @ManyToOne
-    @JoinColumn(name = "wing_id", nullable = false)
+    @JoinColumn(name = "wing_id")
     private Wing wing;
 
     @ManyToOne
-    @JoinColumn(name = "classroom_type_id", nullable = false)
+    @JoinColumn(name = "classroom_type_id")
     private ClassroomType classroomType;
 
     @ManyToOne
-    @JoinColumn(name = "classroom_specialization_id", nullable = false)
+    @JoinColumn(name = "classroom_specialization_id")
     private ClassroomSpecialization classroomSpecialization;
 
     @Column(name = "start_point_x")
