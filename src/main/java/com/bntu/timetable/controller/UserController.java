@@ -1,6 +1,7 @@
 package com.bntu.timetable.controller;
 
 
+import com.bntu.timetable.converters.UserConverter;
 import com.bntu.timetable.entity.User;
 import com.bntu.timetable.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -59,7 +60,7 @@ public class UserController {
     @PreAuthorize("hasAuthority('users:update')")
     public ResponseEntity<?> updateUser(@RequestBody User user) {
         try {
-            return ResponseEntity.ok(userService.updateUser(user));
+            return ResponseEntity.ok(userService.updateUser(UserConverter.convertUserToDto(user)));
         } catch (RuntimeException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
