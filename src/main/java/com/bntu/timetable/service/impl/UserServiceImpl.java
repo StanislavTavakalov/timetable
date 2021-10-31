@@ -91,8 +91,10 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(defaultPassword));
         if (registrationRequest.getDeaneryId() != null) {
             user.setDeanery(deaneryService.getDeanery(registrationRequest.getDeaneryId()));
+            user.setDepartment(null);
         } else if (registrationRequest.getDepartmentId() != null) {
             user.setDepartment(departmentService.getDepartment(registrationRequest.getDepartmentId()));
+            user.setDeanery(null);
         }
         return user;
     }
@@ -175,8 +177,10 @@ public class UserServiceImpl implements UserService {
         user.setUpdatedWhen(new Date());
         if (userDto.getDeanery() != null) {
             user.setDeanery(deaneryService.getDeanery(userDto.getDeanery().getId()));
+            user.setDepartment(null);
         } else if (userDto.getDepartment() != null) {
             user.setDepartment(departmentService.getDepartment(userDto.getDepartment().getId()));
+            user.setDeanery(null);
         }
         return userRepository.save(user);
     }
