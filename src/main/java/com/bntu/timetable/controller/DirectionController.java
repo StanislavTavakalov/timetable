@@ -25,7 +25,6 @@ public class DirectionController {
     @GetMapping
     @PreAuthorize("hasAuthority('directions:read')")
     public List<Direction> getDirections() {
-        System.out.println(directionService.getDirections().get(0));
         return directionService.getDirections();
     }
 }
