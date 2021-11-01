@@ -43,7 +43,7 @@ public class RoleController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAuthority('roles:write')")
+    @PreAuthorize("hasAuthority('roles:create')")
     public Role createRole(@RequestBody Role role) {
         return roleService.createRole(role);
     }
