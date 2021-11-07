@@ -25,8 +25,14 @@ public class DeaneryServiceImpl implements DeaneryService {
     }
 
     @Override
-    public Deanery updateDeanery(Deanery deanery) {
+    public Deanery updateDeanery(Deanery deaneryDto) {
+        Deanery deanery = getDeaneryById(deaneryDto.getId());
+        deanery.setFullName(deaneryDto.getFullName());
+        deanery.setShortName(deaneryDto.getShortName());
+        deanery.setDescription(deaneryDto.getDescription());
         deanery.setUpdatedWhen(new Date());
+        deanery.setDepartments(deaneryDto.getDepartments());
+        deanery.setFlows(deaneryDto.getFlows());
         return deaneryRepository.save(deanery);
     }
 

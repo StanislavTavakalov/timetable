@@ -1,6 +1,6 @@
 package com.bntu.timetable.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +23,7 @@ public class Department extends BaseEntity {
     @Column(name = "full_name")
     private String fullName;
 
-    @Column(name = "description")
+    @Column(name = "description", length = 10000)
     private String description;
 
     @Column(name = "code")
@@ -31,7 +31,7 @@ public class Department extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "deanery_id")
-    @JsonIgnore
+    @JsonIgnoreProperties(value = {"departments", "flows"}, allowSetters = true)
     private Deanery deanery;
 
     @OneToMany(mappedBy = "department")

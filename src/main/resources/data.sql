@@ -15,7 +15,6 @@ values ('c86a4f8d-9f9a-4569-9945-85168652552b', 'users:read'),
        ('220091a6-2701-49a8-a0a3-cb503fe8174f', 'deanery:read'),
        ('fb574d01-5c74-40d0-ab7c-72cc7a530823', 'deanery:update'),
        ('bfc1e1af-4795-41e4-b8ec-823a34495426', 'deanery:delete'),
-       ('ab4da700-d30a-4187-a979-936c09f4bacd', 'deanery:update'),
        ('6f6c1f55-8980-46eb-8d82-02d3ed35de87', 'department:create'),
        ('e7832793-8632-4f10-85f8-39137012e0a5', 'department:delete'),
        ('7e5caf55-bae8-4b56-b7e2-bc1e24d39f1e', 'department:read'),
@@ -46,45 +45,96 @@ ON CONFLICT DO NOTHING;
 
 
 insert into role_permissions(role_id, permission_id)
-VALUES ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652552b'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652555b'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652551b'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652553b'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c83a4f8d-9f9a-4569-9945-85168652555b'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'feed8656-8798-4472-a55e-35059d44ab79'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '6f0f7970-025d-49ea-ac23-617051cf8b5f'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c4b46f9d-1148-4c07-90c7-4f2aab5aee2a'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '565c7c6c-4d04-4bf3-b9c0-70d0de3a81a7'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '01b69dce-6da8-4369-8135-0e3c9ce65931'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '6e8b8f03-27b0-465b-ab60-c83f9ab7c847'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'efe7a483-e8dc-48ba-b149-2a4cefacf136'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'eb93a437-0273-4858-8fbf-1280ccad0610'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '220091a6-2701-49a8-a0a3-cb503fe8174f'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'fb574d01-5c74-40d0-ab7c-72cc7a530823'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'bfc1e1af-4795-41e4-b8ec-823a34495426'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'ab4da700-d30a-4187-a979-936c09f4bacd'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '6f6c1f55-8980-46eb-8d82-02d3ed35de87'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'e7832793-8632-4f10-85f8-39137012e0a5'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '7e5caf55-bae8-4b56-b7e2-bc1e24d39f1e'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '9ab531e6-bd70-4713-a229-210ea34e1921'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'b01e494f-2931-481a-8472-30ec6dfcb987'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'de0d9a9e-166f-4227-81af-757dcc741761'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'd2fefa3b-3c54-4f18-92ff-26796834aa3c'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '9276f185-7d2f-48cb-8d4d-57f3457fcc78'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c48e6b4f-0238-4a83-8a70-e1dc8c25c311'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '162493eb-98c5-4e8b-9ae9-772bacfb0eeb'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'cf42336a-fbcd-4aaa-82f7-b6b43b4bc141'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '66637b02-4138-4ba9-b2fd-df3404b9a69d'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'aadb350d-c72b-4b81-93eb-a787bcd7f31e'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '50808631-99a0-4683-8185-e515527f0718'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'a192e83e-d027-4cb9-9f00-6176993165d7'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'b466b63d-20f8-4c2c-b8c9-fdda9d1b4ea0'),
-       ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c83a4f8d-9f8a-4569-9945-85168652557b')
+VALUES
+    -- Admin role
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652552b'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652555b'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652551b'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652553b'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c83a4f8d-9f9a-4569-9945-85168652555b'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'feed8656-8798-4472-a55e-35059d44ab79'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '6f0f7970-025d-49ea-ac23-617051cf8b5f'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c4b46f9d-1148-4c07-90c7-4f2aab5aee2a'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '565c7c6c-4d04-4bf3-b9c0-70d0de3a81a7'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '01b69dce-6da8-4369-8135-0e3c9ce65931'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '6e8b8f03-27b0-465b-ab60-c83f9ab7c847'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'efe7a483-e8dc-48ba-b149-2a4cefacf136'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'eb93a437-0273-4858-8fbf-1280ccad0610'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '220091a6-2701-49a8-a0a3-cb503fe8174f'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'fb574d01-5c74-40d0-ab7c-72cc7a530823'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'bfc1e1af-4795-41e4-b8ec-823a34495426'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '6f6c1f55-8980-46eb-8d82-02d3ed35de87'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'e7832793-8632-4f10-85f8-39137012e0a5'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '7e5caf55-bae8-4b56-b7e2-bc1e24d39f1e'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '9ab531e6-bd70-4713-a229-210ea34e1921'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'b01e494f-2931-481a-8472-30ec6dfcb987'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'de0d9a9e-166f-4227-81af-757dcc741761'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'd2fefa3b-3c54-4f18-92ff-26796834aa3c'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '9276f185-7d2f-48cb-8d4d-57f3457fcc78'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c48e6b4f-0238-4a83-8a70-e1dc8c25c311'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '162493eb-98c5-4e8b-9ae9-772bacfb0eeb'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'cf42336a-fbcd-4aaa-82f7-b6b43b4bc141'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '66637b02-4138-4ba9-b2fd-df3404b9a69d'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'aadb350d-c72b-4b81-93eb-a787bcd7f31e'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '50808631-99a0-4683-8185-e515527f0718'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'a192e83e-d027-4cb9-9f00-6176993165d7'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'b466b63d-20f8-4c2c-b8c9-fdda9d1b4ea0'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c83a4f8d-9f8a-4569-9945-85168652557b'),
+    -- Admin role end
+
+    -- Dispatcher role start
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f2', 'aadb350d-c72b-4b81-93eb-a787bcd7f31e'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f2', '50808631-99a0-4683-8185-e515527f0718'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f2', 'a192e83e-d027-4cb9-9f00-6176993165d7'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f2', 'b466b63d-20f8-4c2c-b8c9-fdda9d1b4ea0'),
+    -- Dispatcher role end
+
+    -- Department role start
+    ('ad1858e1-610f-4a6a-97f8-2500c73c5d74', '7e5caf55-bae8-4b56-b7e2-bc1e24d39f1e'),
+    -- Department role end
+
+    -- Deanery role start
+    ('0468f355-99df-4b6e-bfa0-7c15f319baf1', '220091a6-2701-49a8-a0a3-cb503fe8174f')
+    -- Deanery role end
 ON CONFLICT DO NOTHING;
 
-INSERT INTO users (id, created_when, updated_when, email, first_name, last_name, password, patronymic, status,
-                   role_id)
-VALUES ('1485272a-809c-42c7-9e5c-61077e299811', now(), now(),
-        'admin@gmail.com', 'admin', 'admin', '$2a$12$7UNAZOZvrLMugXU34YuMeOHNaWW5YvDvV2PxWUUpJQ4UKgD3F6JgS', 'admin',
-        'ACTIVE', 'ea7a09ea-ba86-4d24-82f2-1a18174541f3')
+insert into deanery (id, created_when, updated_when, full_name, short_name, description)
+VALUES ('e04dcd25-ed60-4fe2-91d6-9b3ee339a3e0', now(), now(),
+        'Энергетический факультет', 'ЭФ',
+        'Энергетический факультет – один из старейших ведущих факультетов университета, имеющий богатейший опыт в подготовке инженерных и научно-педагогических кадров в области электро- и теплоэнергетики.'),
+       ('67f2bc24-2eba-4c48-b75e-07c82716192a', now(), now(),
+        'Факультет технологий управления и гуманитаризации', 'ФТУГ',
+        'Факультет технологий управления и гуманитаризации - уникальный факультет в Республике Беларусь, ведущий подготовку специалистов инженерного, экономического, управленческого и дизайнерского профиля. Наши выпускники получают двойную квалификацию и имеют широкое поле для профессиональной самореализации.'),
+       ('9db1aeb3-550d-4d59-b652-0a11aa968fb5', now(), now(),
+        'Факультет информационных технологий и робототехники', 'ФИТР',
+        'Сегодня большая часть выпускников работает в области разработки современных компьютерных систем и информационных технологий. На кафедре имеются учебные классы и лаборатории, оснащенные современными компьютерами и техническими средствами.')
 ON CONFLICT DO NOTHING;
+
+
+INSERT INTO department (id, created_when, updated_when, code, full_name, short_name, deanery_id, description)
+VALUES ('79f61b01-11c6-43f8-9f8c-2e60a5aacb26', now(), now(), 'ФИТР-47',
+        'Программное обеспечение информационных систем и технологий', 'ПОИСиТ', '9db1aeb3-550d-4d59-b652-0a11aa968fb5',
+        'Сегодня большая часть выпускников работает в области разработки современных компьютерных систем и информационных технологий.'),
+       ('67f2bc24-2eba-4c48-b75e-07c82716191a', now(), now(), 'ФИТР-53',
+        'Робототехнические системы', 'РТС', '9db1aeb3-550d-4d59-b652-0a11aa968fb5',
+        'История кафедры начинается с 1980г., на базе кафедры "Металлорежущие станки и инструменты" на машиностроительном факультете была образована кафедра "Автоматизация и комплексная механизация машиностроения", для подготовки инженеров по специальности под этим же названием. ')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO users
+(id, created_when, updated_when, email, first_name, last_name, password, patronymic, status, deanery_id, role_id,
+ department_id)
+VALUES ('1485272a-809c-42c7-9e5c-61077e299811', now(), now(), 'admin@gmail.com', 'Станислав', 'Тавакалов',
+        '$2a$12$7UNAZOZvrLMugXU34YuMeOHNaWW5YvDvV2PxWUUpJQ4UKgD3F6JgS', 'Сергеевич', 'ACTIVE', null,
+        'ea7a09ea-ba86-4d24-82f2-1a18174541f3', null),
+       ('4e8db6fd-1fe6-4e62-99ca-32fdff36e78b', now(), now(), 'polit99254@cyadp.com', 'Иван', 'Иванов',
+        '$2a$12$F/jYX4lkdQ54/FQlTxS.femJPVcRmpMnQpNiJeLWjO50gXzsZWo7y', 'Иванович', 'ACTIVE', null,
+        'ea7a09ea-ba86-4d24-82f2-1a18174541f2', null),
+       ('d7a8cdd8-96c1-4fed-8f71-5889bdd97f7a', now(), now(), 'safita3425@ingfix.com', 'Юрий', 'Полозков',
+        '$2a$12$BBwUjaoH4DGtd512TrI2jekdTHYgtixmFae8j8nYhbiYgLTbC0Xn.', 'Владимирович', 'ACTIVE', null,
+        'ad1858e1-610f-4a6a-97f8-2500c73c5d74', '79f61b01-11c6-43f8-9f8c-2e60a5aacb26'),
+       ('e28b5564-f5f5-4f37-b776-c6992e91d20e', now(), now(), 'rojej79013@datakop.com', 'Андрей', 'Авсиевич',
+        '$2a$12$3B4bHjEOayFV4wKXbMacYOKF9y1j4IP0MAD784.uRMs5BUBOWzbjO', 'Михайлович', 'ACTIVE',
+        '9db1aeb3-550d-4d59-b652-0a11aa968fb5', '0468f355-99df-4b6e-bfa0-7c15f319baf1', null)
+ON CONFLICT DO NOTHING;
+
+

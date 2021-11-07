@@ -44,7 +44,7 @@ public class EmailServiceImpl implements EmailService {
             javaMailSender.send(constructEmail(accountActivationMessage + tokenId  + "\n" + defaultPasswordMessage + defaultPassword, user));
         } catch (MailSendException exception) {
             log.debug("Couldn't send mail to: {}", user.getEmail());
-            throw exception;
+//            throw exception;
         }
     }
 

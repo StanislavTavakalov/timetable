@@ -2,7 +2,6 @@ package com.bntu.timetable.controller;
 
 import com.bntu.timetable.converters.UserConverter;
 import com.bntu.timetable.dto.AuthenticationRequest;
-import com.bntu.timetable.dto.RegistrationRequest;
 import com.bntu.timetable.entity.User;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.UserRepository;
@@ -60,9 +59,9 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody RegistrationRequest registrationRequest) {
+    public ResponseEntity<?> registerUser(@Valid @RequestBody User user) {
         try {
-            return ResponseEntity.ok(userService.register(registrationRequest));
+            return ResponseEntity.ok(UserConverter.convertUserToDto(userService.register(user)));
         } catch (MailSendException e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         } catch (RuntimeException e) {

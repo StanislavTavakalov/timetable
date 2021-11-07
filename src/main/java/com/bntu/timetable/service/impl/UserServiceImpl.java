@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User register(RegistrationRequest registrationRequest) {
+    public User register(User registrationRequest) {
         if (isEmailAlreadyInUse(registrationRequest.getEmail())) {
             throw new RuntimeException(ErrorMessage.EMAIL_IS_ALREADY_EXIST);
         }
@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
         return user.isPresent();
     }
 
-    private User createUser(RegistrationRequest registrationRequest) {
+    private User createUser(User registrationRequest) {
         User user = new User();
         user.setEmail(registrationRequest.getEmail());
         user.setStatus(Status.NOT_ACTIVE);
@@ -89,11 +89,11 @@ public class UserServiceImpl implements UserService {
         user.setCreatedWhen(new Date());
         user.setUpdatedWhen(new Date());
         user.setPassword(passwordEncoder.encode(defaultPassword));
-        if (registrationRequest.getDeaneryId() != null) {
-            user.setDeanery(deaneryService.getDeanery(registrationRequest.getDeaneryId()));
+        if (registrationRequest.getDeanery() != null) {
+            user.setDeanery(deaneryService.getDeanery(registrationRequest.getDeanery().getId()));
             user.setDepartment(null);
-        } else if (registrationRequest.getDepartmentId() != null) {
-            user.setDepartment(departmentService.getDepartment(registrationRequest.getDepartmentId()));
+        } else if (registrationRequest.getDepartment() != null) {
+            user.setDepartment(departmentService.getDepartment(registrationRequest.getDepartment().getId()));
             user.setDeanery(null);
         }
         return user;

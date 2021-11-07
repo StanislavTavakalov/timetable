@@ -29,7 +29,7 @@ public class Speciality extends BaseEntity{
     @Column(name = "full_code")
     private String fullCode;
 
-    @Column(name = "description")
+    @Column(name = "description", length = 10000)
     private String description;
 
     @ManyToOne

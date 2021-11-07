@@ -22,11 +22,8 @@ public class Deanery extends BaseEntity {
     @Column(name = "full_name")
     private String fullName;
 
-    @Column(name = "description")
+    @Column(name = "description", length = 10000)
     private String description;
-
-    @Column(name = "faculty_code")
-    private String facultyCode;
 
     @OneToMany(mappedBy = "deanery")
     private List<Department> departments;

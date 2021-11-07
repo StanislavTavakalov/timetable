@@ -9,7 +9,7 @@ import java.util.UUID;
 public interface UserService {
     User findById(UUID id);
 
-    User register(RegistrationRequest registrationRequest);
+    User register(User registrationRequest);
 
     List<User> getAll();
 
