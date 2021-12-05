@@ -1,7 +1,6 @@
 package com.bntu.timetable.controller;
 
 import com.bntu.timetable.entity.Direction;
-import com.bntu.timetable.entity.Role;
 import com.bntu.timetable.service.DirectionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

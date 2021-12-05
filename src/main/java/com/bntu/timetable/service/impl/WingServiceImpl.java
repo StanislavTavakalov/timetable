@@ -28,7 +28,7 @@ public class WingServiceImpl implements WingService {
         Wing wing = new Wing();
         wing.setCreatedWhen(new Date());
         wing.setUpdatedWhen(new Date());
-        wing.setNumber(wingDto.getNumber());
+        wing.setName(wingDto.getName());
         wing.setPlanId(wingDto.getPlanId());
         return wingRepository.save(wing);
     }

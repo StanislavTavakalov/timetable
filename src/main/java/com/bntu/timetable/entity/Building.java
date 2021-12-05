@@ -24,8 +24,10 @@ public class Building extends BaseEntity{
     @Column(name = "number")
     private String number;
 
+    @Column(name = "description", length = 10000)
+    private String description;
+
     @OneToMany(mappedBy = "building")
-    @JsonIgnore
     private List<Floor> floors;
 
 

@@ -1,7 +1,5 @@
 package com.bntu.timetable.controller;
 
-import com.bntu.timetable.entity.Permission;
-import com.bntu.timetable.entity.Role;
 import com.bntu.timetable.entity.Wing;
 import com.bntu.timetable.service.WingService;
 import lombok.extern.slf4j.Slf4j;

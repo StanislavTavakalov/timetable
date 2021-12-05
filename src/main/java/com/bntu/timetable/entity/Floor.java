@@ -18,14 +18,14 @@ import java.util.List;
 public class Floor extends BaseEntity{
 
     @Column(name = "number")
-    private String number;
+    private Integer number;
 
     @ManyToOne
     @JoinColumn(name = "building_id")
+    @JsonIgnore
     private Building building;
 
     @OneToMany(mappedBy = "floor")
-    @JsonIgnore
     private List<Wing> wings;
 
 }

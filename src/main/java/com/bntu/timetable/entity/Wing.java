@@ -17,8 +17,8 @@ import java.util.List;
 @Table(name = "wing")
 public class Wing extends BaseEntity{
 
-    @Column(name = "number")
-    private String number;
+    @Column(name = "name")
+    private String name;
 
     @ManyToOne
     @JoinColumn(name = "floor_id")
