@@ -1,5 +1,6 @@
 package com.bntu.timetable.service;
 
+import com.bntu.timetable.dto.building.WingDto;
 import com.bntu.timetable.entity.Wing;
 
 import java.io.IOException;
@@ -9,7 +10,7 @@ import java.util.UUID;
 
 public interface WingService {
 
-    Wing createWing(Wing wing);
+    Wing createWing(WingDto wing);
 
     Wing updateWing(Wing department);
 

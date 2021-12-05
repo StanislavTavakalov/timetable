@@ -11,13 +11,13 @@ import com.bntu.timetable.repository.ClassroomRepository;
 import com.bntu.timetable.repository.FloorRepository;
 import com.bntu.timetable.repository.WingRepository;
 import com.bntu.timetable.service.BuildingService;
+import com.bntu.timetable.service.FloorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class BuildingServiceImpl implements BuildingService {
@@ -56,10 +56,74 @@ public class BuildingServiceImpl implements BuildingService {
     }
 
     @Override
-    public Building updateBuilding(Building building) {
+    public Building updateBuilding(Building buildingDto) {
+        Building building = getBuilding(buildingDto.getId());
         building.setUpdatedWhen(new Date());
-        return buildingRepository.save(building);
+        building.setNumber(buildingDto.getNumber());
+        building.setDescription(buildingDto.getDescription());
+        building = buildingRepository.save(building);
+        updateFloors(buildingDto.getFloors(), building);
+        return getBuilding(building.getId());
     }
+
+    private void updateFloors(List<Floor> floors, Building building) {
+        for (Floor floorDto : floors) {
+            Floor floor;
+            if (floorDto.getId() != null) {
+                floor = floorRepository.findById(floorDto.getId()).orElse(null);
+            } else {
+                floor = new Floor();
+                floor.setCreatedWhen(new Date());
+            }
+
+            if (floor == null) {
+                throw new RuntimeException("Unable to found floor by id: " + floorDto.getId());
+            }
+            floor.setUpdatedWhen(new Date());
+            floor.setNumber(floorDto.getNumber());
+            floor.setBuilding(building);
+            floor = floorRepository.save(floor);
+            updateWing(floorDto.getWings(), floor);
+        }
+        deleteFloors(floors, building);
+    }
+
+    private void deleteFloors(List<Floor> floors, Building building) {
+        List<Floor> floorToDelete = floorRepository.getAllByBuilding_id(building.getId()).stream()
+                .filter(floor -> floor.getNumber() > floors.size()).collect(Collectors.toList());
+        floorRepository.deleteAll(floorToDelete);
+    }
+
+    private void updateWing(List<Wing> wings, Floor floor) {
+        for (Wing wingDto : wings) {
+            Wing wing;
+            if (wingDto.getId() != null) {
+                wing = wingRepository.findById(wingDto.getId()).orElse(null);
+            } else {
+                wing = new Wing();
+                wing.setCreatedWhen(new Date());
+            }
+            if (wing == null) {
+                throw new RuntimeException("Unable to found wing by id: " + wingDto.getId());
+            }
+            wing.setUpdatedWhen(new Date());
+            wing.setName(wingDto.getName());
+            wing.setFloor(floor);
+            wing = wingRepository.save(wing);
+        }
+        deleteWings(wings, floor);
+    }
+
+    private void deleteWings(List<Wing> wings, Floor floor) {
+        List<Wing> wingsList = wingRepository.getAllByFloor_Id(floor.getId());
+        List<String> wingNames = wings.stream().map(Wing::getName).collect(Collectors.toList());
+        for (Wing wing : wingsList) {
+            if (!wingNames.contains(wing.getName())){
+                wingRepository.delete(wing);
+            }
+        }
+    }
+
 
     @Override
     public Building getBuilding(UUID id) {
@@ -79,10 +143,10 @@ public class BuildingServiceImpl implements BuildingService {
         List<Floor> floors = floorRepository.getAllByBuilding_id(id);
         List<Wing> wings = new ArrayList<>();
         List<Classroom> classrooms = new ArrayList<>();
-        for (Floor floor: floors) {
+        for (Floor floor : floors) {
             List<Wing> wingsByFloor = wingRepository.getAllByFloor_Id(floor.getId());
             wings.addAll(wingsByFloor);
-            for (Wing wing: wings) {
+            for (Wing wing : wings) {
                 List<Classroom> classroomsByWing = classroomRepository.getAllByWing_id(wing.getId());
                 classrooms.addAll(classroomsByWing);
             }

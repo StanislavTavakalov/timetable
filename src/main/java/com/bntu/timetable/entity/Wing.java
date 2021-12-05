@@ -22,6 +22,7 @@ public class Wing extends BaseEntity{
 
     @ManyToOne
     @JoinColumn(name = "floor_id")
+    @JsonIgnore
     private Floor floor;
 
     @OneToMany(mappedBy = "wing")

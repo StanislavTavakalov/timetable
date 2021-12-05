@@ -1,5 +1,6 @@
 package com.bntu.timetable.controller;
 
+import com.bntu.timetable.dto.building.WingDto;
 import com.bntu.timetable.entity.Wing;
 import com.bntu.timetable.service.WingService;
 import lombok.extern.slf4j.Slf4j;
@@ -41,7 +42,7 @@ public class WingController {
 
     @PostMapping
     @PreAuthorize("hasAuthority('wings:create')")
-    public Wing createWing(@RequestBody Wing wing) {
+    public Wing createWing(@RequestBody WingDto wing) {
         return wingService.createWing(wing);
     }
 

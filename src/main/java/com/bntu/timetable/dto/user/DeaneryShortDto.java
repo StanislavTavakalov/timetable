@@ -7,10 +7,10 @@ import java.util.UUID;
 @Data
 public class DeaneryShortDto {
 
-    UUID id;
+    private UUID id;
 
-    String fullName;
+    private String fullName;
 
-    String shortname;
+    private String shortname;
 
 }

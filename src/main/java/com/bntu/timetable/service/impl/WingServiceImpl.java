@@ -1,7 +1,9 @@
 package com.bntu.timetable.service.impl;
 
+import com.bntu.timetable.dto.building.WingDto;
 import com.bntu.timetable.entity.Wing;
 import com.bntu.timetable.errorhandling.ErrorMessage;
+import com.bntu.timetable.repository.FloorRepository;
 import com.bntu.timetable.repository.WingRepository;
 import com.bntu.timetable.service.ImageService;
 import com.bntu.timetable.service.WingService;
@@ -21,15 +23,19 @@ public class WingServiceImpl implements WingService {
     private WingRepository wingRepository;
 
     @Autowired
+    private FloorRepository floorRepository;
+
+    @Autowired
     private ImageService imageService;
 
     @Override
-    public Wing createWing(Wing wingDto) {
+    public Wing createWing(WingDto wingDto) {
         Wing wing = new Wing();
         wing.setCreatedWhen(new Date());
         wing.setUpdatedWhen(new Date());
         wing.setName(wingDto.getName());
-        wing.setPlanId(wingDto.getPlanId());
+        wing.setFloor(floorRepository.findById(wingDto.getFloorId()).get());
+       // wing.setPlanId(wingDto.getPlanId());
         return wingRepository.save(wing);
     }
 
