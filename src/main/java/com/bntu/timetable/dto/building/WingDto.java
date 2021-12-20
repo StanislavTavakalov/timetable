@@ -17,4 +17,6 @@ public class WingDto {
 
     private UUID floorId;
 
+    private String planImage;
+
 }

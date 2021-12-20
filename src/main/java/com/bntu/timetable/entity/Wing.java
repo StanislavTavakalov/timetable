@@ -26,10 +26,9 @@ public class Wing extends BaseEntity{
     private Floor floor;
 
     @OneToMany(mappedBy = "wing")
-    @JsonIgnore
     private List<Classroom> classrooms;
 
-    @Column(name = "plan_id")
-    private String planId;
+    @Column(name = "plan_image", length = 500000)
+    private String planImage;
 
 }

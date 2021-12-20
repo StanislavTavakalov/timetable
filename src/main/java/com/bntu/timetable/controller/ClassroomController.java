@@ -6,6 +6,8 @@ import java.util.UUID;
 import com.bntu.timetable.entity.Classroom;
 import com.bntu.timetable.service.ClassroomService;
 
+import com.bntu.timetable.service.ClassroomSpecializationService;
+import com.bntu.timetable.service.ClassroomTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,11 +33,37 @@ public class ClassroomController {
     @Autowired
     private ClassroomService classroomService;
 
+    @Autowired
+    private ClassroomSpecializationService classroomSpecializationService;
+
+    @Autowired
+    private ClassroomTypeService classroomTypeService;
+
     @GetMapping("/{id}")
     @PreAuthorize("hasAuthority('classroom:read')")
     public ResponseEntity<?> getClassroom(@PathVariable UUID id) {
         try {
             return ResponseEntity.ok(classroomService.getClassroom(id));
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/types")
+    @PreAuthorize("hasAuthority('classroom:read')")
+    public ResponseEntity<?> getClassroomTypes() {
+        try {
+            return ResponseEntity.ok(classroomTypeService.getClassroomTypes());
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/specializations")
+    @PreAuthorize("hasAuthority('classroom:read')")
+    public ResponseEntity<?> getClassroomSpecializations() {
+        try {
+            return ResponseEntity.ok(classroomSpecializationService.getClassroomSpecializations());
         } catch (RuntimeException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }

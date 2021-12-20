@@ -48,20 +48,20 @@ public class WingController {
 
     @PutMapping
     @PreAuthorize("hasAuthority('wings:update')")
-    public Wing updateWing(@RequestBody Wing wing) {
+    public Wing updateWing(@RequestBody WingDto wing) {
         return wingService.updateWing(wing);
     }
 
-    @PutMapping("/plan")
-    @PreAuthorize("hasAuthority('wings:update')")
-    public ResponseEntity<?> updateWingPlan(@RequestParam UUID id, @RequestBody String plan) {
-        try {
-            return  ResponseEntity.ok(wingService.uploadPlan(id, plan));
-        } catch (GeneralSecurityException | IOException e) {
-            log.error(e.getMessage());
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @PutMapping("/plan")
+//    @PreAuthorize("hasAuthority('wings:update')")
+//    public ResponseEntity<?> updateWingPlan(@RequestParam UUID id, @RequestBody String plan) {
+//        try {
+//            return  ResponseEntity.ok(wingService.uploadPlan(id, plan));
+//        } catch (GeneralSecurityException | IOException e) {
+//            log.error(e.getMessage());
+//            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('wings:delete')")

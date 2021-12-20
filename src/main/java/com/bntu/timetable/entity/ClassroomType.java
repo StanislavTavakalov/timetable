@@ -18,8 +18,7 @@ public class ClassroomType extends BaseEntity {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "color_id")
-    private Color color;
+    @Column(name ="color")
+    private String color;
 
 }

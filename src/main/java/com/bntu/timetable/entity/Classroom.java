@@ -1,5 +1,6 @@
 package com.bntu.timetable.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Classroom extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "wing_id")
+    @JsonIgnore
     private Wing wing;
 
     @ManyToOne
@@ -33,17 +35,17 @@ public class Classroom extends BaseEntity {
     @JoinColumn(name = "classroom_specialization_id")
     private ClassroomSpecialization classroomSpecialization;
 
-    @Column(name = "start_point_x")
-    private int startPointX;
+    @Column(name = "x")
+    private int x;
 
-    @Column(name = "start_point_y")
-    private int startPointY;
+    @Column(name = "y")
+    private int y;
 
     @Column(name = "end_point_x")
-    private int endPointX;
+    private int width;
 
     @Column(name = "end_point_y")
-    private int endPointY;
+    private int height;
 
 
 }

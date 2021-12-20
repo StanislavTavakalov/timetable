@@ -35,13 +35,15 @@ public class WingServiceImpl implements WingService {
         wing.setUpdatedWhen(new Date());
         wing.setName(wingDto.getName());
         wing.setFloor(floorRepository.findById(wingDto.getFloorId()).get());
-       // wing.setPlanId(wingDto.getPlanId());
+        wing.setPlanImage(wingDto.getPlanImage());
         return wingRepository.save(wing);
     }
 
     @Override
-    public Wing updateWing(Wing wing) {
+    public Wing updateWing(WingDto wingDto) {
+        Wing wing = getWingById(wingDto.getId());
         wing.setUpdatedWhen(new Date());
+        wing.setFloor(floorRepository.findById(wingDto.getFloorId()).get());
         return wingRepository.save(wing);
     }
 
@@ -49,11 +51,11 @@ public class WingServiceImpl implements WingService {
     public Wing uploadPlan(UUID id, String plan) throws GeneralSecurityException, IOException {
         Wing wing = getWingById(id);
         wing.setUpdatedWhen(new Date());
-        String wingPlanId = wing.getPlanId();
-        if (wingPlanId != null) {
-            imageService.delete(wingPlanId);
-        }
-        wing.setPlanId(imageService.save(plan));
+        String wingPlanId = wing.getPlanImage();
+//        if (wingPlanId != null) {
+//            imageService.delete(wingPlanId);
+//        }
+        wing.setPlanImage(imageService.save(plan));
         return wingRepository.save(wing);
     }
 

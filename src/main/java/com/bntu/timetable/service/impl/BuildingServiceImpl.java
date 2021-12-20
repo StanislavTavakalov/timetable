@@ -1,15 +1,9 @@
 package com.bntu.timetable.service.impl;
 
 import com.bntu.timetable.dto.BuildingCreateRequest;
-import com.bntu.timetable.entity.Building;
-import com.bntu.timetable.entity.Classroom;
-import com.bntu.timetable.entity.Floor;
-import com.bntu.timetable.entity.Wing;
+import com.bntu.timetable.entity.*;
 import com.bntu.timetable.errorhandling.ErrorMessage;
-import com.bntu.timetable.repository.BuildingRepository;
-import com.bntu.timetable.repository.ClassroomRepository;
-import com.bntu.timetable.repository.FloorRepository;
-import com.bntu.timetable.repository.WingRepository;
+import com.bntu.timetable.repository.*;
 import com.bntu.timetable.service.BuildingService;
 import com.bntu.timetable.service.FloorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +27,12 @@ public class BuildingServiceImpl implements BuildingService {
 
     @Autowired
     private ClassroomRepository classroomRepository;
+
+    @Autowired
+    private ClassroomTypeRepository classroomTypeRepository;
+
+    @Autowired
+    private ClassroomSpecializationRepository classroomSpecializationRepository;
 
     @Override
     public Building createBuilding(BuildingCreateRequest buildingCR) {
@@ -109,16 +109,60 @@ public class BuildingServiceImpl implements BuildingService {
             wing.setUpdatedWhen(new Date());
             wing.setName(wingDto.getName());
             wing.setFloor(floor);
+            wing.setPlanImage(wingDto.getPlanImage());
             wing = wingRepository.save(wing);
+            if (wingDto.getClassrooms() != null) {
+                updateClassrooms(wingDto.getClassrooms(), wing);
+            }
         }
         deleteWings(wings, floor);
+    }
+
+    private void updateClassrooms(List<Classroom> classrooms, Wing wing) {
+
+        for (Classroom classroomDto : classrooms) {
+            Classroom classroom;
+            if (classroomDto.getId() != null) {
+                classroom = classroomRepository.findById(classroomDto.getId()).orElse(null);
+            } else {
+                classroom = new Classroom();
+                classroom.setCreatedWhen(new Date());
+            }
+            if (classroom == null) {
+                throw new RuntimeException("Unable to found classroom by id: " + classroomDto.getId());
+            }
+            classroom.setUpdatedWhen(new Date());
+            classroom.setNumber(classroomDto.getNumber());
+            classroom.setCapacity(classroomDto.getCapacity());
+            classroom.setX(classroomDto.getX());
+            classroom.setY(classroomDto.getY());
+            classroom.setWidth(classroomDto.getWidth());
+            classroom.setHeight(classroomDto.getHeight());
+            classroom.setWing(wing);
+
+            classroom.setClassroomSpecialization(classroomSpecializationRepository.findById
+                    (classroomDto.getClassroomSpecialization().getId()).orElse(null));
+            classroom.setClassroomType(classroomTypeRepository.findById(classroomDto.getClassroomType().getId()).orElse(null));
+            classroom = classroomRepository.save(classroom);
+        }
+        deleteClassrooms(classrooms, wing);
+    }
+
+    private void deleteClassrooms(List<Classroom> classrooms, Wing wing) {
+        List<Classroom> classroomsList = classroomRepository.getAllByWing_id(wing.getId());
+        List<String> classroomsNames = classrooms.stream().map(Classroom::getNumber).collect(Collectors.toList());
+        for (Classroom classroom : classroomsList) {
+            if (!classroomsNames.contains(classroom.getNumber())) {
+                classroomRepository.delete(classroom);
+            }
+        }
     }
 
     private void deleteWings(List<Wing> wings, Floor floor) {
         List<Wing> wingsList = wingRepository.getAllByFloor_Id(floor.getId());
         List<String> wingNames = wings.stream().map(Wing::getName).collect(Collectors.toList());
         for (Wing wing : wingsList) {
-            if (!wingNames.contains(wing.getName())){
+            if (!wingNames.contains(wing.getName())) {
                 wingRepository.delete(wing);
             }
         }

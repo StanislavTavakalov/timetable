@@ -12,7 +12,7 @@ public interface WingService {
 
     Wing createWing(WingDto wing);
 
-    Wing updateWing(Wing department);
+    Wing updateWing(WingDto wingDto);
 
     Wing uploadPlan(UUID id, String image) throws GeneralSecurityException, IOException;
 

@@ -15,6 +15,7 @@ public class ErrorMessage {
     public static final String WING_NOT_FOUND = "Не было найдено крыло с id: ";
     public static final String CLASSROOM_NOT_FOUND = "Не была найдена аудитория  с id: ";
     public static final String CLASSROOM_TYPE_NOT_FOUND = "Не был найден тип аудитории с id: ";
+    public static final String CLASSROOM_SPECIALIZATION_NOT_FOUND = "Не была найдена специализация аудитории с id: ";
     public static final String TEACHER_NOT_FOUND = "Не был найден преподаватель с id: ";
 
 }
