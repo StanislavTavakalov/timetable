@@ -25,7 +25,7 @@ public class Wing extends BaseEntity{
     @JsonIgnore
     private Floor floor;
 
-    @OneToMany(mappedBy = "wing")
+    @OneToMany(mappedBy = "wing", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Classroom> classrooms;
 
     @Column(name = "plan_image", length = 500000)

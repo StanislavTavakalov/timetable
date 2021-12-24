@@ -1,6 +1,7 @@
 package com.bntu.timetable.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +26,7 @@ public class Floor extends BaseEntity{
     @JsonIgnore
     private Building building;
 
-    @OneToMany(mappedBy = "floor")
+    @OneToMany(mappedBy = "floor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Wing> wings;
 
 }
