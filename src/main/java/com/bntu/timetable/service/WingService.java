@@ -18,6 +18,8 @@ public interface WingService {
 
     Wing getWing(UUID id);
 
+    Wing getWingByClassroomId(UUID id);
+
     void deleteWing(UUID id);
 
     List<Wing> getWings();

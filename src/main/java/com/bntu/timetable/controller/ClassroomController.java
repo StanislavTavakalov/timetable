@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import com.bntu.timetable.entity.Classroom;
+import com.bntu.timetable.entity.ClassroomType;
 import com.bntu.timetable.service.ClassroomService;
 
 import com.bntu.timetable.service.ClassroomSpecializationService;
@@ -97,6 +98,12 @@ public class ClassroomController {
             return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
         }
         return ResponseEntity.ok(true);
+    }
+
+    @PutMapping("/classroom-type")
+    @PreAuthorize("hasAuthority('classroom:update')")
+    public ClassroomType updateClassroomType(@RequestBody ClassroomType classroomType) {
+        return classroomTypeService.updateClassroomType(classroomType);
     }
 
 }

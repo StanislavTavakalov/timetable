@@ -1,10 +1,12 @@
 package com.bntu.timetable.service.impl;
 
 import com.bntu.timetable.dto.building.WingDto;
+import com.bntu.timetable.entity.Classroom;
 import com.bntu.timetable.entity.Wing;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.FloorRepository;
 import com.bntu.timetable.repository.WingRepository;
+import com.bntu.timetable.service.ClassroomService;
 import com.bntu.timetable.service.ImageService;
 import com.bntu.timetable.service.WingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class WingServiceImpl implements WingService {
 
     @Autowired
     private WingRepository wingRepository;
+
+    @Autowired
+    private ClassroomService classroomService;
 
     @Autowired
     private FloorRepository floorRepository;
@@ -62,6 +67,11 @@ public class WingServiceImpl implements WingService {
     @Override
     public Wing getWing(UUID id) {
         return getWingById(id);
+    }
+
+    @Override
+    public Wing getWingByClassroomId(UUID id) {
+        return classroomService.getClassroom(id).getWing();
     }
 
     @Override

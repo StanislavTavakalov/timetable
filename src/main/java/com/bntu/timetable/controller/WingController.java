@@ -34,6 +34,16 @@ public class WingController {
         }
     }
 
+    @GetMapping("/classroom/{id}")
+    @PreAuthorize("hasAuthority('wings:read')")
+    public ResponseEntity<?> getWingByClassroomId(@PathVariable UUID id) {
+        try {
+            return ResponseEntity.ok(wingService.getWingByClassroomId(id));
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
     @GetMapping
     @PreAuthorize("hasAuthority('wings:read')")
     public List<Wing> getWings() {
@@ -52,16 +62,6 @@ public class WingController {
         return wingService.updateWing(wing);
     }
 
-//    @PutMapping("/plan")
-//    @PreAuthorize("hasAuthority('wings:update')")
-//    public ResponseEntity<?> updateWingPlan(@RequestParam UUID id, @RequestBody String plan) {
-//        try {
-//            return  ResponseEntity.ok(wingService.uploadPlan(id, plan));
-//        } catch (GeneralSecurityException | IOException e) {
-//            log.error(e.getMessage());
-//            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('wings:delete')")
