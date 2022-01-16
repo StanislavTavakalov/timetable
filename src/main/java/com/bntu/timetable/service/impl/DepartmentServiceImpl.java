@@ -26,6 +26,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         department.setFullName(departmentDto.getFullName());
         department.setDescription(departmentDto.getDescription());
         department.setCode(departmentDto.getCode());
+        department.setDeanery(departmentDto.getDeanery());
         return departmentRepository.save(department);
     }
 
@@ -62,5 +63,10 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public List<Department> getDepartments() {
         return departmentRepository.findAll();
+    }
+
+    @Override
+    public List<Department> getDepartments(UUID deaneryId) {
+        return departmentRepository.findAllByDeanery_Id(deaneryId);
     }
 }

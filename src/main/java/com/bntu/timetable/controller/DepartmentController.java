@@ -34,7 +34,10 @@ public class DepartmentController {
 
     @GetMapping
     @PreAuthorize("hasAuthority('department:read')")
-    public List<Department> getDepartments() {
+    public List<Department> getDepartments(@RequestParam(name = "deaneryId", required = false) UUID deaneryId) {
+        if (deaneryId != null) {
+            return departmentService.getDepartments(deaneryId);
+        }
         return departmentService.getDepartments();
     }
 
@@ -49,7 +52,6 @@ public class DepartmentController {
     public Department updateDepartment(@RequestBody Department department) {
         return departmentService.updateDepartment(department);
     }
-
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('department:delete')")

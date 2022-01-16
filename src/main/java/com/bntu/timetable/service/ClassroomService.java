@@ -17,4 +17,8 @@ public interface ClassroomService {
     void deleteClassroom(UUID id);
 
     List<Classroom> getClassrooms();
+
+    List<Classroom> getClassroomByDeaneryId(UUID deaneryId);
+
+    List<Classroom> getClassroomByDepartmentId(UUID departmentId);
 }

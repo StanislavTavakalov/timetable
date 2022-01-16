@@ -11,4 +11,9 @@ public interface ClassroomRepository extends JpaRepository<Classroom, UUID> {
     void deleteAllByWing_Id(UUID wingId);
 
     List<Classroom> getAllByWing_id (UUID wingId);
+
+    List<Classroom> getAllByDeanery_Id(UUID deaneryId);
+
+    List<Classroom> getAllByDepartment_Id(UUID departmentId);
+
 }

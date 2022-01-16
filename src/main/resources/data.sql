@@ -127,13 +127,13 @@ VALUES ('1485272a-809c-42c7-9e5c-61077e299811', now(), now(), 'admin@gmail.com',
         '$2a$12$7UNAZOZvrLMugXU34YuMeOHNaWW5YvDvV2PxWUUpJQ4UKgD3F6JgS', 'Сергеевич', 'ACTIVE', null,
         'ea7a09ea-ba86-4d24-82f2-1a18174541f3', null),
        ('4e8db6fd-1fe6-4e62-99ca-32fdff36e78b', now(), now(), 'polit99254@cyadp.com', 'Иван', 'Иванов',
-        '$2a$12$F/jYX4lkdQ54/FQlTxS.femJPVcRmpMnQpNiJeLWjO50gXzsZWo7y', 'Иванович', 'ACTIVE', null,
+        '$2a$12$7UNAZOZvrLMugXU34YuMeOHNaWW5YvDvV2PxWUUpJQ4UKgD3F6JgS', 'Иванович', 'ACTIVE', null,
         'ea7a09ea-ba86-4d24-82f2-1a18174541f2', null),
        ('d7a8cdd8-96c1-4fed-8f71-5889bdd97f7a', now(), now(), 'safita3425@ingfix.com', 'Юрий', 'Полозков',
-        '$2a$12$BBwUjaoH4DGtd512TrI2jekdTHYgtixmFae8j8nYhbiYgLTbC0Xn.', 'Владимирович', 'ACTIVE', null,
+        '$2a$12$7UNAZOZvrLMugXU34YuMeOHNaWW5YvDvV2PxWUUpJQ4UKgD3F6JgS', 'Владимирович', 'ACTIVE', null,
         'ad1858e1-610f-4a6a-97f8-2500c73c5d74', '79f61b01-11c6-43f8-9f8c-2e60a5aacb26'),
        ('e28b5564-f5f5-4f37-b776-c6992e91d20e', now(), now(), 'rojej79013@datakop.com', 'Андрей', 'Авсиевич',
-        '$2a$12$3B4bHjEOayFV4wKXbMacYOKF9y1j4IP0MAD784.uRMs5BUBOWzbjO', 'Михайлович', 'ACTIVE',
+        '$2a$12$7UNAZOZvrLMugXU34YuMeOHNaWW5YvDvV2PxWUUpJQ4UKgD3F6JgS', 'Михайлович', 'ACTIVE',
         '9db1aeb3-550d-4d59-b652-0a11aa968fb5', '0468f355-99df-4b6e-bfa0-7c15f319baf1', null)
 ON CONFLICT DO NOTHING;
 

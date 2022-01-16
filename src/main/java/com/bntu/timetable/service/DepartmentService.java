@@ -17,4 +17,5 @@ public interface DepartmentService {
 
     List<Department> getDepartments();
 
+    List<Department> getDepartments(UUID deaneryId);
 }

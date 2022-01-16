@@ -46,6 +46,16 @@ public class ClassroomServiceImpl implements ClassroomService {
         return classroomRepository.findAll();
     }
 
+    @Override
+    public List<Classroom> getClassroomByDeaneryId(UUID deaneryId) {
+        return classroomRepository.getAllByDeanery_Id(deaneryId);
+    }
+
+    @Override
+    public List<Classroom> getClassroomByDepartmentId(UUID departmentId) {
+        return classroomRepository.getAllByDepartment_Id(departmentId);
+    }
+
     private Classroom getClassroomById(UUID id) {
         Classroom classroom = classroomRepository.findById(id).orElse(null);
         if (classroom == null) {
