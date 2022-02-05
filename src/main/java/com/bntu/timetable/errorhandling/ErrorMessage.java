@@ -10,6 +10,8 @@ public class ErrorMessage {
     public static final String ROLE_NOT_FOUND = "Не была найдена роль с id: ";
     public static final String DEPARTMENT_NOT_FOUND = "Не была найдена кафедра с id: ";
     public static final String DEANERY_NOT_FOUND = "Не был найден деканат с id: ";
+    public static final String GROUP_NOT_FOUND = "Не была найдена группа с id: ";
+    public static final String SPECIALITY_NOT_FOUND = "Не была найдена специальность с id: ";
     public static final String BUILDING_NOT_FOUND = "Не был найден корпус с id: ";
     public static final String FLOOR_NOT_FOUND = "Не был найден этаж с id: ";
     public static final String WING_NOT_FOUND = "Не было найдено крыло с id: ";

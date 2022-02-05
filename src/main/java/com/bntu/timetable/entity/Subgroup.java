@@ -19,8 +19,8 @@ public class Subgroup extends BaseEntity {
     @Column(name = "name")
     private int name;
 
-    @Column(name = "count")
-    private int count;
+    @Column(name = "student_count")
+    private int studentCount;
 
     @ManyToOne
     @JoinColumn(name = "group_id")

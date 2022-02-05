@@ -20,8 +20,8 @@ public class Group extends BaseEntity {
     @Column(name = "number")
     private String number;
 
-    @Column(name = "count")
-    private int count;
+    @Column(name = "student_count")
+    private int studentCount;
 
     @Column(name = "enter_year")
     private int enterYear;
@@ -31,7 +31,11 @@ public class Group extends BaseEntity {
     @JsonIgnore
     private Flow flow;
 
-    @OneToMany(mappedBy = "group")
+    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Subgroup> subgroups;
+
+    @ManyToOne
+    @JsonIgnore
+    private Speciality speciality;
 
 }

@@ -38,10 +38,14 @@ public class Speciality extends BaseEntity{
 
     @ManyToOne
     @JoinColumn(name = "department_id")
+    @JsonIgnore
     private Department department;
 
     @OneToMany(mappedBy = "speciality")
     @JsonIgnore
     private List<StudyPlan> studyPlans;
 
+    @OneToMany(mappedBy = "speciality", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Group> groups;
 }
