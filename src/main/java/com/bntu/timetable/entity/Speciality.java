@@ -26,11 +26,23 @@ public class Speciality extends BaseEntity{
     @Column(name = "short_code")
     private String shortCode;
 
-    @Column(name = "full_code")
-    private String fullCode;
+    @Column(name = "speciality_code")
+    private String specialityCode;
 
     @Column(name = "description", length = 10000)
     private String description;
+
+    @Column(name = "direction_name")
+    private String directionName;
+
+    @Column(name = "direction_code")
+    private String directionCode;
+
+    @Column(name = "specialization_name")
+    private String specializationName;
+
+    @Column(name = "specialization_code")
+    private String specializationCode;
 
     @ManyToOne
     @JoinColumn(name = "department_id")

@@ -31,6 +31,14 @@ values ('c86a4f8d-9f9a-4569-9945-85168652552b', 'users:read'),
        ('50808631-99a0-4683-8185-e515527f0718', 'classroom:delete'),
        ('a192e83e-d027-4cb9-9f00-6176993165d7', 'classroom:read'),
        ('b466b63d-20f8-4c2c-b8c9-fdda9d1b4ea0', 'classroom:update'),
+       ('4c6131a6-59ec-4347-a687-61f752a55c82', 'speciality:read'),
+       ('7525c1f2-f22c-4dde-9153-4ed8fc2ddffd', 'speciality:create'),
+       ('4e7a4a0c-7e60-420d-a0d9-924ca6ebe8b7', 'speciality:update'),
+       ('e177683e-f17e-4ba1-8121-3f57a5d2f630', 'speciality:delete'),
+       ('185f0c7f-e70a-44f4-abcd-69d7f58b362c', 'group:read'),
+       ('fa410844-37be-453b-aaa3-6e2126a0ce1f', 'group:create'),
+       ('d0037f82-546e-4009-81ce-6b5e4cefef7d', 'group:update'),
+       ('8cf90cc1-a4f0-4bb0-9944-a3c4f36af1ff', 'group:delete'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba132d1d0f', 'degrees:create'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba133d1d0f', 'degrees:read'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba134d1d0f', 'degrees:update'),
@@ -98,6 +106,20 @@ VALUES
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '50808631-99a0-4683-8185-e515527f0718'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'a192e83e-d027-4cb9-9f00-6176993165d7'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'b466b63d-20f8-4c2c-b8c9-fdda9d1b4ea0'),
+
+            -- Specialities rights
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '4c6131a6-59ec-4347-a687-61f752a55c82'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '7525c1f2-f22c-4dde-9153-4ed8fc2ddffd'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '4e7a4a0c-7e60-420d-a0d9-924ca6ebe8b7'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'e177683e-f17e-4ba1-8121-3f57a5d2f630'),
+
+            -- Group rights
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '185f0c7f-e70a-44f4-abcd-69d7f58b362c'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'fa410844-37be-453b-aaa3-6e2126a0ce1f'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'd0037f82-546e-4009-81ce-6b5e4cefef7d'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '8cf90cc1-a4f0-4bb0-9944-a3c4f36af1ff'),
+
+
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba132d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba133d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba134d1d0f'),
