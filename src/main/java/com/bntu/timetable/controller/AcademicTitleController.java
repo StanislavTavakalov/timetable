@@ -1,7 +1,7 @@
 package com.bntu.timetable.controller;
 
-import com.bntu.timetable.entity.Direction;
-import com.bntu.timetable.service.DirectionService;
+import com.bntu.timetable.entity.AcademicTitle;
+import com.bntu.timetable.service.AcademicTitleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -14,16 +14,16 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("api/v1/directions")
+@RequestMapping("api/v1/academic_titles")
 @Slf4j
-public class DirectionController {
+public class AcademicTitleController {
 
     @Autowired
-    private DirectionService directionService;
+    private AcademicTitleService academicTitleService;
 
     @GetMapping
-    @PreAuthorize("hasAuthority('directions:read')")
-    public List<Direction> getDirections() {
-        return directionService.getDirections();
+    @PreAuthorize("hasAuthority('titles:read')")
+    public List<AcademicTitle> getAcademicTitles() {
+        return academicTitleService.getAcademicTitles();
     }
 }

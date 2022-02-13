@@ -33,10 +33,6 @@ public class Speciality extends BaseEntity{
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "specialization_id")
-    private Specialization specialization;
-
-    @ManyToOne
     @JoinColumn(name = "department_id")
     @JsonIgnore
     private Department department;

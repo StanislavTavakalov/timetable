@@ -14,8 +14,8 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "direction")
-public class Direction extends BaseEntity {
+@Table(name = "work_type")
+public class WorkType extends BaseEntity{
 
     @Column(name = "name")
     private String name;
