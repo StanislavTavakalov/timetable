@@ -259,3 +259,43 @@ VALUES ('c785573d-016b-4b53-af2f-84d04e0cd996', '2021-12-21 01:43:09.000000', '2
        ('c485573d-016b-4b53-af2f-84d04e0cd996', '2021-12-21 01:43:11.000000', '2021-12-21 01:43:11.000000',
         'Физическая')
 ON CONFLICT DO NOTHING;
+
+INSERT INTO public.academic_degree
+(id, created_when, updated_when, name)
+VALUES ('c785573d-016b-4b53-af2f-67d04e0cd996', '2022-02-05 01:43:09.000000', '2022-02-05 01:43:08.000000',
+        'Доцент'),
+       ('c685573d-016b-4b53-af2f-88d04e0cd996', '2022-02-05 01:43:09.000000', '2022-02-05 01:43:09.000000',
+        'Профессор')
+    ON CONFLICT DO NOTHING;
+
+INSERT INTO public.academic_title
+(id, created_when, updated_when, name)
+VALUES ('c785573d-016b-4b53-af2f-67d04e0cd992', '2022-02-05 01:43:09.000000', '2022-02-05 01:43:08.000000',
+        'Кандидат наук'),
+       ('c685573d-016b-4b53-af2f-88d04e0cd993', '2022-02-05 01:43:09.000000', '2022-02-05 01:43:09.000000',
+        'Доктор наук')
+    ON CONFLICT DO NOTHING;
+
+INSERT INTO public.teacher_position
+(id, created_when, updated_when, name)
+VALUES ('c785573d-016b-4b53-af2f-67d04e0cd998', '2022-02-05 01:43:09.000000', '2022-02-05 01:43:08.000000',
+        'Преподаватель'),
+       ('c685573d-016b-4b53-af2f-88d04e0cd993', '2022-02-05 01:43:09.000000', '2022-02-05 01:43:09.000000',
+        'Старший преподаватель')
+    ON CONFLICT DO NOTHING;
+
+INSERT INTO public.work_type
+(id, created_when, updated_when, name)
+VALUES ('c785573d-016b-4b53-af2f-67d04e0cd996', '2022-02-05 01:43:09.000000', '2022-02-05 01:43:08.000000',
+        'Штатный'),
+       ('c685573d-016b-4b53-af2f-88d04e0cd996', '2022-02-05 01:43:09.000000', '2022-02-05 01:43:09.000000',
+        'Внештатный')
+    ON CONFLICT DO NOTHING;
+
+INSERT INTO public.work_tariff
+(id, created_when, updated_when, name)
+VALUES ('c785573d-016b-4b53-af2f-67d04e0cd596', '2022-02-05 01:43:09.000000', '2022-02-05 01:43:08.000000',
+        '0.5'),
+       ('c685573d-016b-4b53-af2f-88d04e0cd496', '2022-02-05 01:43:09.000000', '2022-02-05 01:43:09.000000',
+        '1')
+    ON CONFLICT DO NOTHING;
