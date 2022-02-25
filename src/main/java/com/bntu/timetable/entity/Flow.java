@@ -1,5 +1,6 @@
 package com.bntu.timetable.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class Flow extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "deanery_id")
+    @JsonIgnoreProperties(value = {"departments", "flows"}, allowSetters = true)
     private Deanery deanery;
 
     @OneToMany(mappedBy = "flow")

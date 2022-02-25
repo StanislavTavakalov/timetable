@@ -3,62 +3,83 @@ values ('c86a4f8d-9f9a-4569-9945-85168652552b', 'users:read'),
        ('c86a4f8d-9f9a-4569-9945-85168652555b', 'users:delete'),
        ('c86a4f8d-9f9a-4569-9945-85168652551b', 'users:update'),
        ('c86a4f8d-9f9a-4569-9945-85168652553b', 'users:block'),
+
        ('c83a4f8d-9f9a-4569-9945-85168652555b', 'roles:read'),
        ('feed8656-8798-4472-a55e-35059d44ab79', 'roles:create'),
        ('6f0f7970-025d-49ea-ac23-617051cf8b5f', 'roles:update'),
        ('c4b46f9d-1148-4c07-90c7-4f2aab5aee2a', 'roles:delete'),
+
        ('565c7c6c-4d04-4bf3-b9c0-70d0de3a81a7', 'wings:create'),
        ('01b69dce-6da8-4369-8135-0e3c9ce65931', 'wings:read'),
        ('6e8b8f03-27b0-465b-ab60-c83f9ab7c847', 'wings:delete'),
        ('efe7a483-e8dc-48ba-b149-2a4cefacf136', 'wings:update'),
+
        ('eb93a437-0273-4858-8fbf-1280ccad0610', 'deanery:create'),
        ('220091a6-2701-49a8-a0a3-cb503fe8174f', 'deanery:read'),
        ('fb574d01-5c74-40d0-ab7c-72cc7a530823', 'deanery:update'),
        ('bfc1e1af-4795-41e4-b8ec-823a34495426', 'deanery:delete'),
+
        ('6f6c1f55-8980-46eb-8d82-02d3ed35de87', 'department:create'),
        ('e7832793-8632-4f10-85f8-39137012e0a5', 'department:delete'),
        ('7e5caf55-bae8-4b56-b7e2-bc1e24d39f1e', 'department:read'),
        ('9ab531e6-bd70-4713-a229-210ea34e1921', 'department:update'),
+
        ('b01e494f-2931-481a-8472-30ec6dfcb987', 'buildings:create'),
        ('de0d9a9e-166f-4227-81af-757dcc741761', 'buildings:delete'),
        ('d2fefa3b-3c54-4f18-92ff-26796834aa3c', 'buildings:read'),
        ('9276f185-7d2f-48cb-8d4d-57f3457fcc78', 'buildings:update'),
+
        ('c48e6b4f-0238-4a83-8a70-e1dc8c25c311', 'floor:create'),
        ('162493eb-98c5-4e8b-9ae9-772bacfb0eeb', 'floor:delete'),
        ('cf42336a-fbcd-4aaa-82f7-b6b43b4bc141', 'floor:read'),
        ('66637b02-4138-4ba9-b2fd-df3404b9a69d', 'floor:update'),
+
        ('aadb350d-c72b-4b81-93eb-a787bcd7f31e', 'classroom:create'),
        ('50808631-99a0-4683-8185-e515527f0718', 'classroom:delete'),
        ('a192e83e-d027-4cb9-9f00-6176993165d7', 'classroom:read'),
        ('b466b63d-20f8-4c2c-b8c9-fdda9d1b4ea0', 'classroom:update'),
+
        ('4c6131a6-59ec-4347-a687-61f752a55c82', 'speciality:read'),
        ('7525c1f2-f22c-4dde-9153-4ed8fc2ddffd', 'speciality:create'),
        ('4e7a4a0c-7e60-420d-a0d9-924ca6ebe8b7', 'speciality:update'),
        ('e177683e-f17e-4ba1-8121-3f57a5d2f630', 'speciality:delete'),
+
        ('185f0c7f-e70a-44f4-abcd-69d7f58b362c', 'group:read'),
        ('fa410844-37be-453b-aaa3-6e2126a0ce1f', 'group:create'),
        ('d0037f82-546e-4009-81ce-6b5e4cefef7d', 'group:update'),
        ('8cf90cc1-a4f0-4bb0-9944-a3c4f36af1ff', 'group:delete'),
+
        ('2ba1fc87-29fa-45d0-8d7e-01ba132d1d0f', 'degrees:create'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba133d1d0f', 'degrees:read'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba134d1d0f', 'degrees:update'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba135d1d0f', 'degrees:delete'),
+
        ('2ba1fc87-29fa-45d0-8d7e-01ba136d1d0f', 'titles:create'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba137d1d0f', 'titles:delete'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba138d1d0f', 'titles:update'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba139d1d0f', 'titles:read'),
+
        ('2ba1fc87-29fa-45d0-8d7e-01ba141d1d0f', 'positions:create'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba151d1d0f', 'positions:read'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba161d1d0f', 'positions:update'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba171d1d0f', 'positions:delete'),
+
        ('2ba1fc87-29fa-45d0-8d7e-01ba181d1d0f', 'worktariffs:create'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba191d1d0f', 'worktariffs:read'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba931d1d0f', 'worktariffs:update'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba831d1d0f', 'worktariffs:delete'),
+
        ('2ba1fc87-29fa-45d0-8d7e-01ba731d1d0f', 'worktypes:create'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba631d1d0f', 'worktypes:read'),
        ('2ba1fc87-29fa-45d0-8d7e-01ba531d1d0f', 'worktypes:update'),
-       ('2ba1fc87-29fa-45d0-8d7e-01ba431d1d0f', 'worktypes:delete')
+       ('2ba1fc87-29fa-45d0-8d7e-01ba431d1d0f', 'worktypes:delete'),
+
+
+       ('430a927d-33a1-45a3-907b-3be47f118868', 'flow:create'),
+       ('cf50e8d5-1fda-413d-b7bd-18b30ddb507c', 'flow:read'),
+       ('2eb91765-8720-47e5-bd76-401f0ee02de8', 'flow:update'),
+       ('ca66fccf-016d-4d65-a4d5-37ee826eb511', 'flow:delete')
+
 ON CONFLICT DO NOTHING;
 
 
@@ -140,6 +161,14 @@ VALUES
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba631d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba531d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba431d1d0f'),
+
+        -- Flow rights
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '430a927d-33a1-45a3-907b-3be47f118868'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'cf50e8d5-1fda-413d-b7bd-18b30ddb507c'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2eb91765-8720-47e5-bd76-401f0ee02de8'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'ca66fccf-016d-4d65-a4d5-37ee826eb511'),
+
+
     -- Admin role end
 
     -- Dispatcher role start

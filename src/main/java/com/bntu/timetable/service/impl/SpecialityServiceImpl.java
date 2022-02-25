@@ -3,9 +3,11 @@ package com.bntu.timetable.service.impl;
 import com.bntu.timetable.entity.Speciality;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.SpecialityRepository;
+import com.bntu.timetable.service.DepartmentService;
 import com.bntu.timetable.service.SpecialityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -17,7 +19,11 @@ public class SpecialityServiceImpl implements SpecialityService {
     @Autowired
     private SpecialityRepository specialityRepository;
 
+    @Autowired
+    private DepartmentService departmentService;
+
     @Override
+    @Transactional
     public Speciality createSpeciality(Speciality speciality) {
         speciality.setCreatedWhen(new Date());
         speciality.setUpdatedWhen(new Date());
@@ -26,6 +32,7 @@ public class SpecialityServiceImpl implements SpecialityService {
 
     @Override
     public Speciality updateSpeciality(Speciality specialityDto) {
+        specialityDto.setUpdatedWhen(new Date());
         return specialityRepository.save(specialityDto);
     }
 
@@ -59,4 +66,8 @@ public class SpecialityServiceImpl implements SpecialityService {
         return specialityRepository.findAllByDepartment_Id(departmentId);
     }
 
+    @Override
+    public List<Speciality> getSpecialitiesByDeanery(UUID departmentId) {
+        return specialityRepository.findAllByDepartment_Deanery_id(departmentId);
+    }
 }

@@ -20,4 +20,6 @@ public interface GroupService {
     List<Group> getGroupsByDeaneryId(UUID deaneryId);
 
     List<Group> getGroupsByDepartmentId(UUID departmentId);
+
+    List<Group> getGroupsByFlowId(UUID flowId);
 }

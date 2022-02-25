@@ -1,6 +1,7 @@
 package com.bntu.timetable.controller;
 
 import com.bntu.timetable.entity.Deanery;
+import com.bntu.timetable.entity.Flow;
 import com.bntu.timetable.entity.Group;
 import com.bntu.timetable.service.GroupService;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -32,16 +34,34 @@ public class GroupController {
         }
     }
 
+    // TODO reimplement this fast solution.
     @GetMapping
     @PreAuthorize("hasAuthority('group:read')")
     public List<Group> getGroups(@RequestParam(required = false) UUID deaneryId,
-                                 @RequestParam(required = false) UUID departmentId) {
+                                 @RequestParam(required = false) UUID departmentId,
+                                 @RequestParam(required = false) boolean withoutFlow) {
         if (deaneryId != null) {
-            return groupService.getGroupsByDeaneryId(deaneryId);
+            List<Group> groups = groupService.getGroupsByDeaneryId(deaneryId);
+            if (withoutFlow) {
+                return filterOutGroupsWithoutFlow(groups);
+            }
+            return groups;
         } else if (departmentId != null) {
-            return groupService.getGroupsByDepartmentId(departmentId);
+            List<Group> groups =groupService.getGroupsByDepartmentId(departmentId);
+            if (withoutFlow) {
+                return filterOutGroupsWithoutFlow(groups);
+            }
+            return groups;
+        }
+        List<Group> groups = groupService.getGroups();
+        if (withoutFlow) {
+            return filterOutGroupsWithoutFlow(groups);
         }
         return groupService.getGroups();
+    }
+
+    private List<Group> filterOutGroupsWithoutFlow(List<Group> groups) {
+        return  groups.stream().filter(g -> g.getFlow() == null).collect(Collectors.toList());
     }
 
     @PostMapping

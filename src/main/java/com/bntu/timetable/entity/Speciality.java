@@ -1,6 +1,7 @@
 package com.bntu.timetable.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -46,14 +47,14 @@ public class Speciality extends BaseEntity{
 
     @ManyToOne
     @JoinColumn(name = "department_id")
-    @JsonIgnore
+    @JsonIgnoreProperties(value = {"specialities", "deanery"}, allowSetters = true)
     private Department department;
 
     @OneToMany(mappedBy = "speciality")
     @JsonIgnore
     private List<StudyPlan> studyPlans;
 
-    @OneToMany(mappedBy = "speciality", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "speciality", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Group> groups;
 }

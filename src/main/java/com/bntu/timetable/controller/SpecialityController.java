@@ -33,9 +33,12 @@ public class SpecialityController {
 
     @GetMapping
     @PreAuthorize("hasAuthority('speciality:read')")
-    public List<Speciality> getSpecialities(@RequestParam(required = false) UUID departmentId) {
+    public List<Speciality> getSpecialities(@RequestParam(required = false) UUID departmentId,
+                                            @RequestParam(required = false) UUID deaneryId) {
         if (departmentId != null) {
             return specialityService.getSpecialitiesByDepartment(departmentId);
+        } else if (deaneryId != null) {
+            return specialityService.getSpecialitiesByDeanery(deaneryId);
         }
         return specialityService.getSpecialities();
     }

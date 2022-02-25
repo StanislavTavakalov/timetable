@@ -19,4 +19,6 @@ public interface SpecialityService {
     List<Speciality> getSpecialities();
 
     List<Speciality> getSpecialitiesByDepartment(UUID departmentId);
+
+    List<Speciality> getSpecialitiesByDeanery(UUID deaneryId);
 }
