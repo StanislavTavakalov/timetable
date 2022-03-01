@@ -19,8 +19,6 @@ public class DeaneryServiceImpl implements DeaneryService {
 
     @Override
     public Deanery createDeanery(Deanery deanery) {
-        deanery.setCreatedWhen(new Date());
-        deanery.setUpdatedWhen(new Date());
         return deaneryRepository.save(deanery);
     }
 
@@ -30,7 +28,6 @@ public class DeaneryServiceImpl implements DeaneryService {
         deanery.setFullName(deaneryDto.getFullName());
         deanery.setShortName(deaneryDto.getShortName());
         deanery.setDescription(deaneryDto.getDescription());
-        deanery.setUpdatedWhen(new Date());
         deanery.setDepartments(deaneryDto.getDepartments());
         deanery.setFlows(deaneryDto.getFlows());
         return deaneryRepository.save(deanery);

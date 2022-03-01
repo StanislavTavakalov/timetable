@@ -26,8 +26,6 @@ public class FlowServiceImpl implements FlowService {
 
     @Override
     public Flow createFlow(Flow flow) {
-        flow.setCreatedWhen(new Date());
-        flow.setUpdatedWhen(new Date());
         flowRepository.save(flow);
         Flow finalFlow = flow;
         flow.getGroups().forEach(group -> {
@@ -40,7 +38,6 @@ public class FlowServiceImpl implements FlowService {
 
     @Override
     public Flow updateFlow(Flow flow) {
-        flow.setUpdatedWhen(new Date());
         List<Group> groupUnchanged = groupService.getGroupsByFlowId(flow.getId());
         flow.getGroups().forEach(group -> {
             Group groupToFlow = groupService.getGroup(group.getId());

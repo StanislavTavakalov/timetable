@@ -21,7 +21,6 @@ public class ClassroomSpecializationImpl implements ClassroomSpecializationServi
 
     @Override
     public ClassroomSpecialization updateClassroomSpecialization(ClassroomSpecialization classroomType) {
-        classroomType.setUpdatedWhen(new Date());
         return classroomSpecializationRepository.save(classroomType);
     }
 

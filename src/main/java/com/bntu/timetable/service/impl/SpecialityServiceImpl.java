@@ -25,14 +25,11 @@ public class SpecialityServiceImpl implements SpecialityService {
     @Override
     @Transactional
     public Speciality createSpeciality(Speciality speciality) {
-        speciality.setCreatedWhen(new Date());
-        speciality.setUpdatedWhen(new Date());
         return specialityRepository.save(speciality);
     }
 
     @Override
     public Speciality updateSpeciality(Speciality specialityDto) {
-        specialityDto.setUpdatedWhen(new Date());
         return specialityRepository.save(specialityDto);
     }
 

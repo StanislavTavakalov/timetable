@@ -18,14 +18,11 @@ public class ClassroomTypeServiceImpl implements ClassroomTypeService {
 
     @Override
     public ClassroomType createClassroomType(ClassroomType classroomType) {
-        classroomType.setCreatedWhen(new Date());
-        classroomType.setUpdatedWhen(new Date());
         return classroomTypeRepository.save(classroomType);
     }
 
     @Override
     public ClassroomType updateClassroomType(ClassroomType classroomType) {
-        classroomType.setUpdatedWhen(new Date());
         return classroomTypeRepository.save(classroomType);
     }
 

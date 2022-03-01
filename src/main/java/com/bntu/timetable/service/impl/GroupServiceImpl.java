@@ -20,12 +20,8 @@ public class GroupServiceImpl implements GroupService {
 
     @Override
     public Group createGroup(Group group) {
-        group.setCreatedWhen(new Date());
-        group.setUpdatedWhen(new Date());
         group.getSubgroups().forEach(subgroup -> {
             subgroup.setGroup(group);
-            subgroup.setCreatedWhen(new Date());
-            subgroup.setUpdatedWhen(new Date());
         });
         return groupRepository.save(group);
     }
@@ -33,13 +29,8 @@ public class GroupServiceImpl implements GroupService {
     @Override
     public Group updateGroup(Group groupDto) {
         groupDto.getSubgroups().forEach(subgroup -> {
-            subgroup.setGroup(groupDto);
-            subgroup.setUpdatedWhen(new Date());
-            if (subgroup.getId() == null) {
-                subgroup.setCreatedWhen(new Date());
-            }
+            subgroup.setGroup(groupDto);;
         });
-        groupDto.setUpdatedWhen(new Date());
         return groupRepository.save(groupDto);
     }
 

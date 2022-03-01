@@ -18,14 +18,11 @@ public class FloorServiceImpl implements FloorService {
 
     @Override
     public Floor createFloor(Floor floor) {
-        floor.setCreatedWhen(new Date());
-        floor.setUpdatedWhen(new Date());
         return floorRepository.save(floor);
     }
 
     @Override
     public Floor updateFloor(Floor floor) {
-        floor.setUpdatedWhen(new Date());
         return floorRepository.save(floor);
     }
 

@@ -86,8 +86,6 @@ public class UserServiceImpl implements UserService {
         user.setFirstName(registrationRequest.getFirstName());
         user.setLastName(registrationRequest.getLastName());
         user.setPatronymic(registrationRequest.getPatronymic());
-        user.setCreatedWhen(new Date());
-        user.setUpdatedWhen(new Date());
         user.setPassword(passwordEncoder.encode(defaultPassword));
         if (registrationRequest.getDeanery() != null) {
             user.setDeanery(deaneryService.getDeanery(registrationRequest.getDeanery().getId()));
@@ -174,7 +172,6 @@ public class UserServiceImpl implements UserService {
         user.setPatronymic(userDto.getPatronymic());
         user.setFirstName(userDto.getFirstName());
         user.setRole(roleService.getRole(userDto.getRole().getId()));
-        user.setUpdatedWhen(new Date());
         if (userDto.getDeanery() != null) {
             user.setDeanery(deaneryService.getDeanery(userDto.getDeanery().getId()));
             user.setDepartment(null);
@@ -193,7 +190,6 @@ public class UserServiceImpl implements UserService {
         } else {
             user.setStatus(Status.ACTIVE);
         }
-        user.setUpdatedWhen(new Date());
         return userRepository.save(user);
     }
 

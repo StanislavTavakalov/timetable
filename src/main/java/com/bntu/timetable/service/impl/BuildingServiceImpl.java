@@ -39,15 +39,11 @@ public class BuildingServiceImpl implements BuildingService {
         Building building = new Building();
         building.setNumber(buildingCR.getNumber());
         building.setDescription(buildingCR.getDescription());
-        building.setCreatedWhen(new Date());
-        building.setUpdatedWhen(new Date());
         building.setFloors(new ArrayList<>());
 
 
         for (int i = 1; i <= buildingCR.getFloorsNumber(); i++) {
             Floor floor = new Floor();
-            floor.setCreatedWhen(new Date());
-            floor.setUpdatedWhen(new Date());
             floor.setNumber(i);
             floor.setBuilding(building);
             building.getFloors().add(floor);
@@ -61,14 +57,12 @@ public class BuildingServiceImpl implements BuildingService {
         for (Floor floor : buildingDto.getFloors()) {
             updateWing(floor);
             floor.setBuilding(buildingDto);
-            floor.setUpdatedWhen(new Date());
         }
         return buildingRepository.save(buildingDto);
     }
 
     private void updateWing(Floor floor) {
         for (Wing wing : floor.getWings()) {
-            wing.setUpdatedWhen(new Date());
             wing.setFloor(floor);
             updateClassrooms(wing);
         }
@@ -76,7 +70,6 @@ public class BuildingServiceImpl implements BuildingService {
 
     private void updateClassrooms(Wing wing) {
         for (Classroom classroom : wing.getClassrooms()) {
-            classroom.setUpdatedWhen(new Date());
             classroom.setWing(wing);
         }
     }

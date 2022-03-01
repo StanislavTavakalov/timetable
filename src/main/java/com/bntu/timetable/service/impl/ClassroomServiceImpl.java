@@ -20,14 +20,11 @@ public class ClassroomServiceImpl implements ClassroomService {
 
     @Override
     public Classroom createClassroom(Classroom classroom) {
-        classroom.setCreatedWhen(new Date());
-        classroom.setUpdatedWhen(new Date());
         return classroomRepository.save(classroom);
     }
 
     @Override
     public Classroom updateClassroom(Classroom classroom) {
-        classroom.setUpdatedWhen(new Date());
         return classroomRepository.save(classroom);
     }
 

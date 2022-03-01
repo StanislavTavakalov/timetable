@@ -30,8 +30,6 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public Role createRole(Role role) {
-        role.setCreatedWhen(new Date());
-        role.setUpdatedWhen(new Date());
         return roleRepository.save(role);
     }
 
@@ -41,7 +39,6 @@ public class RoleServiceImpl implements RoleService {
         role.setName(roleUpdateInfo.getName());
         role.setPermissions(roleUpdateInfo.getPermissions());
         role.setRoleCategory(roleUpdateInfo.getRoleCategory());
-        role.setUpdatedWhen(new Date());
         return roleRepository.save(role);
     }
 

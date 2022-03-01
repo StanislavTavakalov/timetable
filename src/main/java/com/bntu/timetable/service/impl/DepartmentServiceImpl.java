@@ -20,8 +20,6 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public Department createDepartment(Department departmentDto) {
         Department department = new Department();
-        department.setCreatedWhen(new Date());
-        department.setUpdatedWhen(new Date());
         department.setShortName(departmentDto.getShortName());
         department.setFullName(departmentDto.getFullName());
         department.setDescription(departmentDto.getDescription());
@@ -33,7 +31,6 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public Department updateDepartment(Department departmentDto) {
         Department department = getDepartmentById(departmentDto.getId());
-        department.setUpdatedWhen(new Date());
         department.setShortName(departmentDto.getShortName());
         department.setFullName(departmentDto.getFullName());
         department.setDescription(departmentDto.getDescription());

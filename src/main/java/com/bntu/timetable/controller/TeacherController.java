@@ -1,7 +1,10 @@
 package com.bntu.timetable.controller;
 
+import com.bntu.timetable.dto.InfoForTeacherCreation;
 import com.bntu.timetable.entity.Flow;
+import com.bntu.timetable.entity.Teacher;
 import com.bntu.timetable.service.FlowService;
+import com.bntu.timetable.service.TeacherService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,49 +20,51 @@ import java.util.UUID;
 @RequestMapping("api/v1/teachers")
 @Slf4j
 public class TeacherController {
+
     @Autowired
-    private FlowService teacherService;
+    private TeacherService teacherService;
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('flow:read')")
-    public ResponseEntity<?> getFlow(@PathVariable UUID id) {
+    @PreAuthorize("hasAuthority('teacher:read')")
+    public ResponseEntity<?> getTeacher(@PathVariable UUID id) {
         try {
-            return ResponseEntity.ok(teacherService.getFlow(id));
+            return ResponseEntity.ok(teacherService.getTeacher(id));
         } catch (RuntimeException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 
+    @GetMapping("/loadDataForCreation")
+    @PreAuthorize("hasAuthority('teacher:read')")
+    public ResponseEntity<InfoForTeacherCreation> loadDataForTeacherCreation() {
+            return ResponseEntity.ok(teacherService.loadDataForTeacherCreation());
+    }
+
+
     @GetMapping
-    @PreAuthorize("hasAuthority('flow:read')")
-    public List<Flow> getFlows(@RequestParam(required = false) UUID deaneryId,
-                               @RequestParam(required = false) UUID departmentId) {
-        if (deaneryId != null) {
-            return teacherService.getFlowsByDeaneryId(deaneryId);
-        } else if (departmentId != null) {
-            return teacherService.getFlowsByDepartmentId(departmentId);
-        }
-        return teacherService.getFlows();
+    @PreAuthorize("hasAuthority('teacher:read')")
+    public List<Teacher> getTeachers() {
+        return teacherService.getTeachers();
     }
 
     @PostMapping
-    @PreAuthorize("hasAuthority('flow:create')")
-    public Flow createFlow(@RequestBody Flow flow) {
-        return teacherService.createFlow(flow);
+    @PreAuthorize("hasAuthority('teacher:create')")
+    public Teacher createTeacher(@RequestBody Teacher teacher) {
+        return teacherService.createTeacher(teacher);
     }
 
     @PutMapping
-    @PreAuthorize("hasAuthority('flow:update')")
-    public Flow updateFlow(@RequestBody Flow flow) {
-        return teacherService.updateFlow(flow);
+    @PreAuthorize("hasAuthority('teacher:update')")
+    public Teacher updateTeacher(@RequestBody Teacher teacher) {
+        return teacherService.updateTeacher(teacher);
     }
 
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('flow:delete')")
-    public ResponseEntity<?> deleteFlow(@PathVariable UUID id) {
+    @PreAuthorize("hasAuthority('teacher:delete')")
+    public ResponseEntity<?> deleteTeacher(@PathVariable UUID id) {
         try {
-            teacherService.deleteFlow(id);
+            teacherService.deleteTeacher(id);
         } catch (RuntimeException exception) {
             log.error(exception.getMessage());
             return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
