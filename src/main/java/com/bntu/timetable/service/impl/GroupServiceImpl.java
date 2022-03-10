@@ -8,6 +8,7 @@ import com.bntu.timetable.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -59,7 +60,7 @@ public class GroupServiceImpl implements GroupService {
 
     @Override
     public List<Group> getGroupsByFlowId(UUID flowId) {
-        return groupRepository.findAllByFlow_Id(flowId);
+        return new ArrayList<>();
     }
 
     @Override

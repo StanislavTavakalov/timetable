@@ -372,18 +372,6 @@ VALUES ('2135088e-20b1-42c5-9b26-4dad97fb3c0c', now(), now(), 'Специаль�
         null, 'c1dd6896-52fc-450a-acf3-bd3c1a376747')
 ON CONFLICT DO NOTHING;
 
-
-INSERT INTO flow (id, created_when, updated_when, name, deanery_id)
-VALUES ('890f95d2-2f86-4bfd-8459-db128d117cc9', now(), now(),
-        'ЭФ-1 Поток', 'e04dcd25-ed60-4fe2-91d6-9b3ee339a3e0'),
-       ('48494843-c152-406f-9398-5adfc9b66194', now(), now(),
-        'ЭФ-2 Поток', 'e04dcd25-ed60-4fe2-91d6-9b3ee339a3e0'),
-       ('ddc27490-97f8-45e7-8422-636eeb9b51e0', now(), now(),
-        'ФИТР-1 Поток', '9db1aeb3-550d-4d59-b652-0a11aa968fb5'),
-       ('8cca6188-2f22-46e9-9001-c9b18798c802', now(), now(),
-        'ФИТР-2 Поток', '9db1aeb3-550d-4d59-b652-0a11aa968fb5')
-ON CONFLICT DO NOTHING;
-
 INSERT INTO study_group (id, created_when, updated_when, enter_year, number, student_count, flow_id, speciality_id)
 VALUES ('399cf85e-62da-4ee3-aed1-fd4a12aec076', now(), now(), 2022,
         '10801122', 20, '890f95d2-2f86-4bfd-8459-db128d117cc9', 'de382d9e-3e6f-4f5c-9e4b-ac7bea6687e8'),

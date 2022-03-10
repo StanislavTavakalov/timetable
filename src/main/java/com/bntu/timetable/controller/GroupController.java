@@ -34,35 +34,18 @@ public class GroupController {
         }
     }
 
-    // TODO reimplement this fast solution.
     @GetMapping
     @PreAuthorize("hasAuthority('group:read')")
     public List<Group> getGroups(@RequestParam(required = false) UUID deaneryId,
-                                 @RequestParam(required = false) UUID departmentId,
-                                 @RequestParam(required = false) boolean withoutFlow) {
+                                 @RequestParam(required = false) UUID departmentId) {
         if (deaneryId != null) {
-            List<Group> groups = groupService.getGroupsByDeaneryId(deaneryId);
-            if (withoutFlow) {
-                return filterOutGroupsWithoutFlow(groups);
-            }
-            return groups;
+            return  groupService.getGroupsByDeaneryId(deaneryId);
         } else if (departmentId != null) {
-            List<Group> groups =groupService.getGroupsByDepartmentId(departmentId);
-            if (withoutFlow) {
-                return filterOutGroupsWithoutFlow(groups);
-            }
-            return groups;
-        }
-        List<Group> groups = groupService.getGroups();
-        if (withoutFlow) {
-            return filterOutGroupsWithoutFlow(groups);
+            return groupService.getGroupsByDepartmentId(departmentId);
         }
         return groupService.getGroups();
     }
 
-    private List<Group> filterOutGroupsWithoutFlow(List<Group> groups) {
-        return  groups.stream().filter(g -> g.getFlow() == null).collect(Collectors.toList());
-    }
 
     @PostMapping
     @PreAuthorize("hasAuthority('group:create')")

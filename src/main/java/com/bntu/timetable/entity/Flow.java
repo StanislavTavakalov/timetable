@@ -24,6 +24,13 @@ public class Flow extends BaseEntity {
     @JsonIgnoreProperties(value = {"departments", "flows"}, allowSetters = true)
     private Deanery deanery;
 
-    @OneToMany(mappedBy = "flow")
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "flow_groups",
+            joinColumns = {@JoinColumn(name = "flow_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "group_id", referencedColumnName = "id")},
+            uniqueConstraints = @UniqueConstraint(columnNames = {
+                    "flow_id", "group_id"}))
     private List<Group> groups;
+    
 }

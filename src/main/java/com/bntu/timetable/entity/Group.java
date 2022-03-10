@@ -27,10 +27,9 @@ public class Group extends BaseEntity {
     @Column(name = "enter_year")
     private int enterYear;
 
-    @ManyToOne
-    @JoinColumn(name = "flow_id")
-    @JsonIgnoreProperties(value = {"groups", "deanery"}, allowSetters = true)
-    private Flow flow;
+    @ManyToMany(mappedBy = "groups")
+    @JsonIgnore
+    private List<Flow> flows;
 
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Subgroup> subgroups;

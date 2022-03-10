@@ -4,14 +4,11 @@ import com.bntu.timetable.entity.Flow;
 import com.bntu.timetable.entity.Group;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.FlowRepository;
-import com.bntu.timetable.repository.GroupRepository;
 import com.bntu.timetable.service.FlowService;
 import com.bntu.timetable.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,30 +25,30 @@ public class FlowServiceImpl implements FlowService {
     public Flow createFlow(Flow flow) {
         flowRepository.save(flow);
         Flow finalFlow = flow;
-        flow.getGroups().forEach(group -> {
-            Group groupToFlow = groupService.getGroup(group.getId());
-            groupToFlow.setFlow(finalFlow);
-            groupService.updateGroup(groupToFlow);
-        });
+//        flow.getGroups().forEach(group -> {
+//            Group groupToFlow = groupService.getGroup(group.getId());
+//            groupToFlow.setFlow(finalFlow);
+//            groupService.updateGroup(groupToFlow);
+//        });
         return flow;
     }
 
     @Override
     public Flow updateFlow(Flow flow) {
-        List<Group> groupUnchanged = groupService.getGroupsByFlowId(flow.getId());
-        flow.getGroups().forEach(group -> {
-            Group groupToFlow = groupService.getGroup(group.getId());
-            groupToFlow.setFlow(flow);
-            groupService.updateGroup(groupToFlow);
-        });
-
-
-        groupUnchanged.forEach(uGroup -> {
-            if (!isInGroupList(flow.getGroups(), uGroup.getId())){
-                uGroup.setFlow(null);
-                groupService.updateGroup(uGroup);
-            }
-        });
+//        List<Group> groupUnchanged = groupService.getGroupsByFlowId(flow.getId());
+//        flow.getGroups().forEach(group -> {
+//            Group groupToFlow = groupService.getGroup(group.getId());
+//            groupToFlow.setFlow(flow);
+//            groupService.updateGroup(groupToFlow);
+//        });
+//
+//
+//        groupUnchanged.forEach(uGroup -> {
+//            if (!isInGroupList(flow.getGroups(), uGroup.getId())){
+//                uGroup.setFlow(null);
+//                groupService.updateGroup(uGroup);
+//            }
+//        });
 
         return flowRepository.save(flow);
     }
@@ -81,11 +78,11 @@ public class FlowServiceImpl implements FlowService {
     @Override
     public void deleteFlow(UUID id) {
         Flow flow = getFlowById(id);
-        flow.getGroups().forEach(group -> {
-            Group groupToFlow = groupService.getGroup(group.getId());
-            groupToFlow.setFlow(null);
-            groupService.updateGroup(groupToFlow);
-        });
+//        flow.getGroups().forEach(group -> {
+//            Group groupToFlow = groupService.getGroup(group.getId());
+//            groupToFlow.setFlow(null);
+//            groupService.updateGroup(groupToFlow);
+//        });
         flowRepository.deleteById(id);
     }
 

@@ -14,6 +14,4 @@ public interface GroupRepository extends JpaRepository<Group, UUID> {
 
     List<Group> findAllBySpeciality_Department_Id(UUID departmentId);
 
-    List<Group> findAllByFlow_Id(UUID flowId);
-
 }
