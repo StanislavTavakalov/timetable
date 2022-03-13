@@ -4,10 +4,13 @@ import com.bntu.timetable.entity.AcademicTitle;
 import com.bntu.timetable.service.AcademicTitleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -34,5 +37,17 @@ public class AcademicTitleController {
     @PreAuthorize("hasAuthority('titles:update')")
     public AcademicTitle updateAcademicTitle(@RequestBody AcademicTitle academicTitle) {
         return academicTitleService.updateAcademicTitle(academicTitle);
+    }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('titles:delete')")
+    public ResponseEntity<?> deleteAcademicTitle(@PathVariable UUID id) {
+        try {
+            academicTitleService.deleteAcademicTitle(id);
+        } catch (RuntimeException exception) {
+            log.error(exception.getMessage());
+            return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+        return ResponseEntity.ok(true);
     }
 }

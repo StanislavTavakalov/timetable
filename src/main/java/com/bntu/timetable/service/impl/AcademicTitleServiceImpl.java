@@ -41,7 +41,7 @@ public class AcademicTitleServiceImpl implements AcademicTitleService {
 
     @Override
     public void deleteAcademicTitle(UUID id) {
-
+        academicTitleRepository.deleteById(id);
     }
 
     private AcademicTitle getAcademicTitleById(UUID id) {

@@ -1,6 +1,7 @@
 package com.bntu.timetable.service.impl;
 
 import com.bntu.timetable.entity.AcademicDegree;
+import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.AcademicDegreeRepository;
 import com.bntu.timetable.service.AcademicDegreeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class AcademicDegreeImpl implements AcademicDegreeService {
 
     @Override
     public AcademicDegree getAcademicDegree(UUID id) {
-        return null;
+        return  getAcademicDegreeById(id);
     }
 
     @Override
@@ -27,16 +28,27 @@ public class AcademicDegreeImpl implements AcademicDegreeService {
 
     @Override
     public AcademicDegree createAcademicDegree(AcademicDegree academicDegree) {
-        return null;
+        return academicDegreeRepository.save(academicDegree);
     }
 
     @Override
-    public AcademicDegree updateAcademicDegree(AcademicDegree AcademicDegree) {
-        return null;
+    public AcademicDegree updateAcademicDegree(AcademicDegree academicDegreeDto) {
+        AcademicDegree academicDegree = getAcademicDegree(academicDegreeDto.getId());
+        academicDegree.setName(academicDegreeDto.getName());
+
+        return academicDegreeRepository.save(academicDegree);
     }
 
     @Override
     public void deleteAcademicDegree(UUID id) {
+        academicDegreeRepository.deleteById(id);
+    }
 
+    private AcademicDegree getAcademicDegreeById(UUID id) {
+        AcademicDegree academicDegree = academicDegreeRepository.findById(id).orElse(null);
+        if (academicDegree == null) {
+            throw new RuntimeException(ErrorMessage.ACADEMIC_DEGREE_NOT_FOUND);
+        }
+        return academicDegree;
     }
 }
