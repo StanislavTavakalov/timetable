@@ -20,6 +20,7 @@ public class ErrorMessage {
     public static final String CLASSROOM_TYPE_NOT_FOUND = "Не был найден тип аудитории с id: ";
     public static final String CLASSROOM_SPECIALIZATION_NOT_FOUND = "Не была найдена специализация аудитории с id: ";
     public static final String TEACHER_NOT_FOUND = "Не был найден преподаватель с id: ";
+    public static final String ACADEMIC_DEGREE_NOT_FOUND = "Не была найдена научная степень с id: ";
 
 }
 

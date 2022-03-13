@@ -1,6 +1,7 @@
 package com.bntu.timetable.service.impl;
 
 import com.bntu.timetable.entity.AcademicTitle;
+import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.AcademicTitleRepository;
 import com.bntu.timetable.service.AcademicTitleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class AcademicTitleServiceImpl implements AcademicTitleService {
 
     @Override
     public AcademicTitle getAcademicTitle(UUID id) {
-        return null;
+        return getAcademicTitleById(id);
     }
 
     @Override
@@ -27,16 +28,27 @@ public class AcademicTitleServiceImpl implements AcademicTitleService {
 
     @Override
     public AcademicTitle createAcademicTitle(AcademicTitle academicTitle) {
-        return null;
+        return academicTitleRepository.save(academicTitle);
     }
 
     @Override
-    public AcademicTitle updateAcademicTitle(AcademicTitle academicTitle) {
-        return null;
+    public AcademicTitle updateAcademicTitle(AcademicTitle academicTitleDto) {
+        AcademicTitle academicTitle = getAcademicTitle(academicTitleDto.getId());
+        academicTitle.setName(academicTitleDto.getName());
+
+        return academicTitleRepository.save(academicTitle);
     }
 
     @Override
     public void deleteAcademicTitle(UUID id) {
+        academicTitleRepository.deleteById(id);
+    }
 
+    private AcademicTitle getAcademicTitleById(UUID id) {
+        AcademicTitle academicTitle = academicTitleRepository.findById(id).orElse(null);
+        if (academicTitle == null) {
+            throw new RuntimeException(ErrorMessage.DEANERY_NOT_FOUND);
+        }
+        return academicTitle;
     }
 }
