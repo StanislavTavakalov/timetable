@@ -1,6 +1,6 @@
 package com.bntu.timetable.repository;
 
-import com.bntu.timetable.entity.Role;
+import com.bntu.timetable.entity.user.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,3 +1,5 @@
+-- Data.sql file is intended to upload initial data to DataBase during startup
+
 insert into permisson (id, name)
 values ('c86a4f8d-9f9a-4569-9945-85168652552b', 'users:read'),
        ('c86a4f8d-9f9a-4569-9945-85168652555b', 'users:delete'),
@@ -74,6 +76,17 @@ values ('c86a4f8d-9f9a-4569-9945-85168652552b', 'users:read'),
        ('2eb91765-8720-47e5-bd76-401f0ee02de8', 'flow:update'),
        ('ca66fccf-016d-4d65-a4d5-37ee826eb511', 'flow:delete'),
 
+       ('f8f18983-982d-41c5-909b-8d255fe3fdbc', 'discipline:create'),
+       ('a683c332-d33e-44df-89f5-a95f5a6b581c', 'discipline:read'),
+       ('79ac7b41-6596-4a60-aa08-1123354133fa', 'discipline:update'),
+       ('1f9dffe3-b494-449f-b7ee-1b4080757369', 'discipline:delete'),
+
+       ('b0172320-c30c-4e3b-bfb9-ae43a0882bcc', 'disciplinegroups:create'),
+       ('820c73ae-aebe-4b7c-8265-723e1f003402', 'disciplinegroups:read'),
+       ('65e634e1-35d4-4d08-a569-544f2e1cbd3a', 'disciplinegroups:update'),
+       ('19c7c379-8364-492a-8848-cbc228e7d34e', 'disciplinegroups:delete'),
+
+
        ('7b6ee6ba-9727-43c5-b8ab-bc8602f691c6', 'teacher:create'),
        ('75696c1e-d839-48f2-8085-c093a87c0123', 'teacher:read'),
        ('fc8c5c93-74fd-401a-8c9e-4de82abed812', 'teacher:update'),
@@ -95,96 +108,122 @@ ON CONFLICT DO NOTHING;
 insert into role_permissions(role_id, permission_id)
 VALUES
     -- Admin role
+
+    -- TODO: add rights delimiter name
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652552b'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652555b'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652551b'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c86a4f8d-9f9a-4569-9945-85168652553b'),
+    -- TODO: add rights delimiter name
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c83a4f8d-9f9a-4569-9945-85168652555b'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'feed8656-8798-4472-a55e-35059d44ab79'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '6f0f7970-025d-49ea-ac23-617051cf8b5f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c4b46f9d-1148-4c07-90c7-4f2aab5aee2a'),
+    -- TODO: add rights delimiter name
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '565c7c6c-4d04-4bf3-b9c0-70d0de3a81a7'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '01b69dce-6da8-4369-8135-0e3c9ce65931'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '6e8b8f03-27b0-465b-ab60-c83f9ab7c847'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'efe7a483-e8dc-48ba-b149-2a4cefacf136'),
+    -- TODO: add rights delimiter name
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'eb93a437-0273-4858-8fbf-1280ccad0610'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '220091a6-2701-49a8-a0a3-cb503fe8174f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'fb574d01-5c74-40d0-ab7c-72cc7a530823'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'bfc1e1af-4795-41e4-b8ec-823a34495426'),
+    -- TODO: add rights delimiter name
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '6f6c1f55-8980-46eb-8d82-02d3ed35de87'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'e7832793-8632-4f10-85f8-39137012e0a5'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '7e5caf55-bae8-4b56-b7e2-bc1e24d39f1e'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '9ab531e6-bd70-4713-a229-210ea34e1921'),
+    -- TODO: add rights delimiter name
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'b01e494f-2931-481a-8472-30ec6dfcb987'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'de0d9a9e-166f-4227-81af-757dcc741761'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'd2fefa3b-3c54-4f18-92ff-26796834aa3c'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '9276f185-7d2f-48cb-8d4d-57f3457fcc78'),
+    -- TODO: add rights delimiter name
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c48e6b4f-0238-4a83-8a70-e1dc8c25c311'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '162493eb-98c5-4e8b-9ae9-772bacfb0eeb'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'cf42336a-fbcd-4aaa-82f7-b6b43b4bc141'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '66637b02-4138-4ba9-b2fd-df3404b9a69d'),
+    -- TODO: add rights delimiter name
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'aadb350d-c72b-4b81-93eb-a787bcd7f31e'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '50808631-99a0-4683-8185-e515527f0718'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'a192e83e-d027-4cb9-9f00-6176993165d7'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'b466b63d-20f8-4c2c-b8c9-fdda9d1b4ea0'),
-
     -- Specialities rights
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '4c6131a6-59ec-4347-a687-61f752a55c82'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '7525c1f2-f22c-4dde-9153-4ed8fc2ddffd'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '4e7a4a0c-7e60-420d-a0d9-924ca6ebe8b7'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'e177683e-f17e-4ba1-8121-3f57a5d2f630'),
-
     -- Group rights
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '185f0c7f-e70a-44f4-abcd-69d7f58b362c'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'fa410844-37be-453b-aaa3-6e2126a0ce1f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'd0037f82-546e-4009-81ce-6b5e4cefef7d'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '8cf90cc1-a4f0-4bb0-9944-a3c4f36af1ff'),
-
-
+    -- TODO: add rights delimiter name
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba132d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba133d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba134d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba135d1d0f'),
+    -- TODO: add rights delimiter name
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba136d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba137d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba138d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba139d1d0f'),
+    -- TODO: add rights delimiter name
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba141d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba151d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba161d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba171d1d0f'),
+    -- TODO: add rights delimiter name
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba181d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba191d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba931d1d0f'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ba1fc87-29fa-45d0-8d7e-01ba831d1d0f'),
-
     -- Flow rights
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '430a927d-33a1-45a3-907b-3be47f118868'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'cf50e8d5-1fda-413d-b7bd-18b30ddb507c'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2eb91765-8720-47e5-bd76-401f0ee02de8'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'ca66fccf-016d-4d65-a4d5-37ee826eb511'),
-
     -- Teacher rights
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '7b6ee6ba-9727-43c5-b8ab-bc8602f691c6'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '75696c1e-d839-48f2-8085-c093a87c0123'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'fc8c5c93-74fd-401a-8c9e-4de82abed812'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '7b0852c7-9dd5-4d03-8ae1-32341fb0326d'),
+    -- Discipline rights
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'f8f18983-982d-41c5-909b-8d255fe3fdbc'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'a683c332-d33e-44df-89f5-a95f5a6b581c'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '79ac7b41-6596-4a60-aa08-1123354133fa'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '1f9dffe3-b494-449f-b7ee-1b4080757369'),
+    -- Discipline Groups rights
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'b0172320-c30c-4e3b-bfb9-ae43a0882bcc'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '820c73ae-aebe-4b7c-8265-723e1f003402'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '65e634e1-35d4-4d08-a569-544f2e1cbd3a'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '19c7c379-8364-492a-8848-cbc228e7d34e'),
 
     -- Admin role end
 
     -- Dispatcher role start
+
+    -- TODO: add rights delimiter name
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f2', 'aadb350d-c72b-4b81-93eb-a787bcd7f31e'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f2', '50808631-99a0-4683-8185-e515527f0718'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f2', 'a192e83e-d027-4cb9-9f00-6176993165d7'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f2', 'b466b63d-20f8-4c2c-b8c9-fdda9d1b4ea0'),
+
     -- Dispatcher role end
 
     -- Department role start
+
+    -- TODO: add rights delimiter name
     ('ad1858e1-610f-4a6a-97f8-2500c73c5d74', '7e5caf55-bae8-4b56-b7e2-bc1e24d39f1e'),
+
     -- Department role end
 
     -- Deanery role start
+
+    -- TODO: add rights delimiter name
     ('0468f355-99df-4b6e-bfa0-7c15f319baf1', '220091a6-2701-49a8-a0a3-cb503fe8174f')
+
     -- Deanery role end
 ON CONFLICT DO NOTHING;
 
@@ -372,17 +411,17 @@ VALUES ('2135088e-20b1-42c5-9b26-4dad97fb3c0c', now(), now(), 'Специаль�
         null, 'c1dd6896-52fc-450a-acf3-bd3c1a376747')
 ON CONFLICT DO NOTHING;
 
-INSERT INTO study_group (id, created_when, updated_when, enter_year, number, student_count, flow_id, speciality_id)
+INSERT INTO study_group (id, created_when, updated_when, enter_year, number, student_count, speciality_id)
 VALUES ('399cf85e-62da-4ee3-aed1-fd4a12aec076', now(), now(), 2022,
-        '10801122', 20, '890f95d2-2f86-4bfd-8459-db128d117cc9', 'de382d9e-3e6f-4f5c-9e4b-ac7bea6687e8'),
+        '10801122', 20,  'de382d9e-3e6f-4f5c-9e4b-ac7bea6687e8'),
        ('4cdcf958-8027-4c00-91ba-691b97d82118', now(), now(), 2022,
-        '10801222', 23, '48494843-c152-406f-9398-5adfc9b66194', 'de382d9e-3e6f-4f5c-9e4b-ac7bea6687e8'),
+        '10801222', 23, 'de382d9e-3e6f-4f5c-9e4b-ac7bea6687e8'),
        ('a499da89-1c61-473a-bb5a-5066324f43fa', now(), now(), 2022, '10701122', 22,
-        'ddc27490-97f8-45e7-8422-636eeb9b51e0', '2135088e-20b1-42c5-9b26-4dad97fb3c0c'),
+        '2135088e-20b1-42c5-9b26-4dad97fb3c0c'),
        ('11b66d59-19ea-4878-a6e2-0c29975462da', now(), now(), 2022,
-        '10701222', 35, '8cca6188-2f22-46e9-9001-c9b18798c802', '2135088e-20b1-42c5-9b26-4dad97fb3c0c'),
+        '10701222', 35, '2135088e-20b1-42c5-9b26-4dad97fb3c0c'),
        ('d492e863-8654-420c-ae94-02f45bf09fa3', now(), now(), 2022,
-        '10702122', 21, '8cca6188-2f22-46e9-9001-c9b18798c802', 'ac7a9936-0edd-4bce-a28c-84663d5572db')
+        '10702122', 21, 'ac7a9936-0edd-4bce-a28c-84663d5572db')
 ON CONFLICT DO NOTHING;
 
 
@@ -401,3 +440,12 @@ VALUES ('e2e72e85-f400-4479-a8b6-311e9c690236', '2022-03-01 10:45:52.172208', '2
        ('9e832880-462c-40c6-ac47-569c5318d47d', now(), now(), 2, 11, 'a499da89-1c61-473a-bb5a-5066324f43fa')
 ON CONFLICT DO NOTHING;
 
+
+INSERT INTO public.study_discipline_group (id, created_when, updated_when, name)
+VALUES ('26da3d4b-f9f8-483f-ad66-294509f041ad', now(), now(),
+        'Математика'),
+       ('4a6a0b5d-7995-4f2d-8f87-3a8c548caaab', now(), now(),
+        'Языки программирования'),
+       ('d812a820-8407-4fb8-a97a-0a72f67130a3', now(), now(),
+        'Компьютерная графика')
+ON CONFLICT DO NOTHING;

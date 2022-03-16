@@ -1,6 +1,6 @@
 package com.bntu.timetable.dto.user;
 
-import com.bntu.timetable.entity.RoleCategory;
+import com.bntu.timetable.entity.user.RoleCategory;
 
 import lombok.Data;
 

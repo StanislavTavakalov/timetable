@@ -1,8 +1,8 @@
 package com.bntu.timetable.service.impl;
 
-import com.bntu.timetable.entity.TeacherPosition;
+import com.bntu.timetable.entity.teacher.TeacherPosition;
 import com.bntu.timetable.repository.TeacherPositionRepository;
-import com.bntu.timetable.service.TeacherPositionService;
+import com.bntu.timetable.service.api.TeacherPositionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

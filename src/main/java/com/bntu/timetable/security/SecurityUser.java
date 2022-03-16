@@ -1,7 +1,7 @@
 package com.bntu.timetable.security;
 
-import com.bntu.timetable.entity.Status;
-import com.bntu.timetable.entity.User;
+import com.bntu.timetable.entity.user.Status;
+import com.bntu.timetable.entity.user.User;
 import lombok.Data;
 
 import org.springframework.security.core.GrantedAuthority;

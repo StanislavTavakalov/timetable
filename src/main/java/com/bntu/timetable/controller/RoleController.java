@@ -1,9 +1,9 @@
 package com.bntu.timetable.controller;
 
-import com.bntu.timetable.entity.Permission;
-import com.bntu.timetable.entity.Role;
-import com.bntu.timetable.service.PermissionService;
-import com.bntu.timetable.service.RoleService;
+import com.bntu.timetable.entity.user.Permission;
+import com.bntu.timetable.entity.user.Role;
+import com.bntu.timetable.service.api.PermissionService;
+import com.bntu.timetable.service.api.RoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

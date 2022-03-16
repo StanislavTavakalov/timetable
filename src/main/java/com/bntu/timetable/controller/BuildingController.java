@@ -3,9 +3,9 @@ package com.bntu.timetable.controller;
 import java.util.List;
 import java.util.UUID;
 
-import com.bntu.timetable.dto.BuildingCreateRequest;
-import com.bntu.timetable.service.BuildingService;
-import com.bntu.timetable.entity.Building;
+import com.bntu.timetable.dto.classroomfund.BuildingCreateRequest;
+import com.bntu.timetable.service.api.BuildingService;
+import com.bntu.timetable.entity.classroom.Building;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

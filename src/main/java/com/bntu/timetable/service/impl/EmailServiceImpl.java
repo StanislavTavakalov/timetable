@@ -1,9 +1,8 @@
 package com.bntu.timetable.service.impl;
 
-import com.bntu.timetable.entity.User;
-import com.bntu.timetable.service.EmailService;
+import com.bntu.timetable.entity.user.User;
+import com.bntu.timetable.service.api.EmailService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailSendException;
 import org.springframework.mail.SimpleMailMessage;

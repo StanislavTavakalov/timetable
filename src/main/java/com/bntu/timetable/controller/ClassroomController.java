@@ -3,12 +3,12 @@ package com.bntu.timetable.controller;
 import java.util.List;
 import java.util.UUID;
 
-import com.bntu.timetable.entity.Classroom;
-import com.bntu.timetable.entity.ClassroomType;
-import com.bntu.timetable.service.ClassroomService;
+import com.bntu.timetable.entity.classroom.Classroom;
+import com.bntu.timetable.entity.classroom.ClassroomType;
+import com.bntu.timetable.service.api.ClassroomService;
 
-import com.bntu.timetable.service.ClassroomSpecializationService;
-import com.bntu.timetable.service.ClassroomTypeService;
+import com.bntu.timetable.service.api.ClassroomSpecializationService;
+import com.bntu.timetable.service.api.ClassroomTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

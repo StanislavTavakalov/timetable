@@ -1,20 +1,18 @@
 package com.bntu.timetable.service.impl;
 
-import com.bntu.timetable.dto.building.WingDto;
-import com.bntu.timetable.entity.Classroom;
-import com.bntu.timetable.entity.Wing;
+import com.bntu.timetable.dto.classroomfund.WingDto;
+import com.bntu.timetable.entity.classroom.Wing;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.FloorRepository;
 import com.bntu.timetable.repository.WingRepository;
-import com.bntu.timetable.service.ClassroomService;
-import com.bntu.timetable.service.ImageService;
-import com.bntu.timetable.service.WingService;
+import com.bntu.timetable.service.api.ClassroomService;
+import com.bntu.timetable.service.api.ImageService;
+import com.bntu.timetable.service.api.WingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 

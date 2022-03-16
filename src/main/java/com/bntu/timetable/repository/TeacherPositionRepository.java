@@ -1,6 +1,6 @@
 package com.bntu.timetable.repository;
 
-import com.bntu.timetable.entity.TeacherPosition;
+import com.bntu.timetable.entity.teacher.TeacherPosition;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

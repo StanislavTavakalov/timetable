@@ -1,15 +1,13 @@
 package com.bntu.timetable.service.impl;
 
-import com.bntu.timetable.entity.Role;
+import com.bntu.timetable.entity.user.Role;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.RoleRepository;
-import com.bntu.timetable.service.RoleService;
+import com.bntu.timetable.service.api.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service

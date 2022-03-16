@@ -1,12 +1,12 @@
 package com.bntu.timetable.controller;
 
 import com.bntu.timetable.converters.UserConverter;
-import com.bntu.timetable.dto.AuthenticationRequest;
-import com.bntu.timetable.entity.User;
+import com.bntu.timetable.dto.user.AuthenticationRequest;
+import com.bntu.timetable.entity.user.User;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.UserRepository;
 import com.bntu.timetable.security.JwtTokenProvider;
-import com.bntu.timetable.service.UserService;
+import com.bntu.timetable.service.api.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.MailSendException;

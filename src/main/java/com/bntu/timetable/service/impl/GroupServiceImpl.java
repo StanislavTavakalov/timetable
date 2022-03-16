@@ -1,15 +1,13 @@
 package com.bntu.timetable.service.impl;
 
 import com.bntu.timetable.entity.Group;
-import com.bntu.timetable.entity.Subgroup;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.GroupRepository;
-import com.bntu.timetable.service.GroupService;
+import com.bntu.timetable.service.api.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -30,7 +28,7 @@ public class GroupServiceImpl implements GroupService {
     @Override
     public Group updateGroup(Group groupDto) {
         groupDto.getSubgroups().forEach(subgroup -> {
-            subgroup.setGroup(groupDto);;
+            subgroup.setGroup(groupDto);
         });
         return groupRepository.save(groupDto);
     }

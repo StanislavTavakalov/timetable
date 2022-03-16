@@ -6,6 +6,9 @@ import com.bntu.timetable.dto.user.DepartmentShortDto;
 import com.bntu.timetable.dto.user.RoleShortDto;
 import com.bntu.timetable.dto.user.UserDto;
 import com.bntu.timetable.entity.*;
+import com.bntu.timetable.entity.user.Permission;
+import com.bntu.timetable.entity.user.Role;
+import com.bntu.timetable.entity.user.User;
 
 import java.util.List;
 import java.util.stream.Collectors;

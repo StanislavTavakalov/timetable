@@ -1,9 +1,9 @@
 package com.bntu.timetable.service.impl;
 
-import com.bntu.timetable.dto.InfoForTeacherCreation;
-import com.bntu.timetable.entity.Teacher;
+import com.bntu.timetable.dto.teacher.InfoForTeacherCreation;
+import com.bntu.timetable.entity.teacher.Teacher;
 import com.bntu.timetable.repository.TeacherRepository;
-import com.bntu.timetable.service.*;
+import com.bntu.timetable.service.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

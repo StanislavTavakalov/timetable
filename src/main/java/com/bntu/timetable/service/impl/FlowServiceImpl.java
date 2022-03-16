@@ -4,8 +4,8 @@ import com.bntu.timetable.entity.Flow;
 import com.bntu.timetable.entity.Group;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.FlowRepository;
-import com.bntu.timetable.service.FlowService;
-import com.bntu.timetable.service.GroupService;
+import com.bntu.timetable.service.api.FlowService;
+import com.bntu.timetable.service.api.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,8 @@
 package com.bntu.timetable.controller;
 
-import com.bntu.timetable.dto.building.WingDto;
-import com.bntu.timetable.entity.Wing;
-import com.bntu.timetable.service.WingService;
+import com.bntu.timetable.dto.classroomfund.WingDto;
+import com.bntu.timetable.entity.classroom.Wing;
+import com.bntu.timetable.service.api.WingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,8 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
-import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.UUID;
 

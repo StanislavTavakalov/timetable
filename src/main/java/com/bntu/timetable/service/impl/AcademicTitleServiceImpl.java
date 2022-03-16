@@ -1,9 +1,9 @@
 package com.bntu.timetable.service.impl;
 
-import com.bntu.timetable.entity.AcademicTitle;
+import com.bntu.timetable.entity.teacher.AcademicTitle;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.AcademicTitleRepository;
-import com.bntu.timetable.service.AcademicTitleService;
+import com.bntu.timetable.service.api.AcademicTitleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -2,7 +2,7 @@ package com.bntu.timetable.controller;
 
 
 import com.bntu.timetable.entity.Flow;
-import com.bntu.timetable.service.FlowService;
+import com.bntu.timetable.service.api.FlowService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

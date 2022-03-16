@@ -1,6 +1,6 @@
 package com.bntu.timetable.service.impl;
 
-import com.bntu.timetable.service.ImageService;
+import com.bntu.timetable.service.api.ImageService;
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;

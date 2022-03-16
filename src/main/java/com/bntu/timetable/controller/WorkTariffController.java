@@ -1,7 +1,7 @@
 package com.bntu.timetable.controller;
 
-import com.bntu.timetable.entity.WorkTariff;
-import com.bntu.timetable.service.WorkTariffService;
+import com.bntu.timetable.entity.teacher.WorkTariff;
+import com.bntu.timetable.service.api.WorkTariffService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

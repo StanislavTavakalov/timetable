@@ -1,8 +1,8 @@
 package com.bntu.timetable.service.impl;
 
-import com.bntu.timetable.entity.WorkTariff;
+import com.bntu.timetable.entity.teacher.WorkTariff;
 import com.bntu.timetable.repository.WorkTariffRepository;
-import com.bntu.timetable.service.WorkTariffService;
+import com.bntu.timetable.service.api.WorkTariffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

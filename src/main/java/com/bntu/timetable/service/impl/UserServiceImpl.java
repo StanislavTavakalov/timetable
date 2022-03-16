@@ -1,13 +1,15 @@
 package com.bntu.timetable.service.impl;
 
-import com.bntu.timetable.dto.RegistrationRequest;
 import com.bntu.timetable.dto.user.UserDto;
-import com.bntu.timetable.entity.*;
+import com.bntu.timetable.entity.user.RegistrationToken;
+import com.bntu.timetable.entity.user.Role;
+import com.bntu.timetable.entity.user.Status;
+import com.bntu.timetable.entity.user.User;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.RegistrationTokenRepository;
 import com.bntu.timetable.repository.RoleRepository;
 import com.bntu.timetable.repository.UserRepository;
-import com.bntu.timetable.service.*;
+import com.bntu.timetable.service.api.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 

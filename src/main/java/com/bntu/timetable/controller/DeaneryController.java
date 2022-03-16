@@ -1,7 +1,7 @@
 package com.bntu.timetable.controller;
 
 import com.bntu.timetable.entity.Deanery;
-import com.bntu.timetable.service.DeaneryService;
+import com.bntu.timetable.service.api.DeaneryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

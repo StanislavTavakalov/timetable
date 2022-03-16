@@ -1,6 +1,6 @@
 package com.bntu.timetable.dto.user;
 
-import com.bntu.timetable.entity.Status;
+import com.bntu.timetable.entity.user.Status;
 import lombok.Data;
 
 import java.util.UUID;

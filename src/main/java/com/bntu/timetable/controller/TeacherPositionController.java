@@ -1,7 +1,7 @@
 package com.bntu.timetable.controller;
 
-import com.bntu.timetable.entity.TeacherPosition;
-import com.bntu.timetable.service.TeacherPositionService;
+import com.bntu.timetable.entity.teacher.TeacherPosition;
+import com.bntu.timetable.service.api.TeacherPositionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

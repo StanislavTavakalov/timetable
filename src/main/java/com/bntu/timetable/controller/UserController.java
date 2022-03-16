@@ -2,8 +2,8 @@ package com.bntu.timetable.controller;
 
 
 import com.bntu.timetable.converters.UserConverter;
-import com.bntu.timetable.entity.User;
-import com.bntu.timetable.service.UserService;
+import com.bntu.timetable.entity.user.User;
+import com.bntu.timetable.service.api.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,5 +1,6 @@
 package com.bntu.timetable.entity;
 
+import com.bntu.timetable.entity.studyplan.StudyPlan;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.EqualsAndHashCode;

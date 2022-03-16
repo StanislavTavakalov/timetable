@@ -1,14 +1,13 @@
 package com.bntu.timetable.service.impl;
 
 
-import com.bntu.timetable.entity.Classroom;
+import com.bntu.timetable.entity.classroom.Classroom;
 import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.ClassroomRepository;
-import com.bntu.timetable.service.ClassroomService;
+import com.bntu.timetable.service.api.ClassroomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 

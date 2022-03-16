@@ -1,8 +1,8 @@
 package com.bntu.timetable.service.impl;
 
-import com.bntu.timetable.entity.Permission;
+import com.bntu.timetable.entity.user.Permission;
 import com.bntu.timetable.repository.PermissionRepository;
-import com.bntu.timetable.service.PermissionService;
+import com.bntu.timetable.service.api.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

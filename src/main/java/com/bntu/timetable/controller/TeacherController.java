@@ -1,10 +1,8 @@
 package com.bntu.timetable.controller;
 
-import com.bntu.timetable.dto.InfoForTeacherCreation;
-import com.bntu.timetable.entity.Flow;
-import com.bntu.timetable.entity.Teacher;
-import com.bntu.timetable.service.FlowService;
-import com.bntu.timetable.service.TeacherService;
+import com.bntu.timetable.dto.teacher.InfoForTeacherCreation;
+import com.bntu.timetable.entity.teacher.Teacher;
+import com.bntu.timetable.service.api.TeacherService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
