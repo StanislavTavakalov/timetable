@@ -36,9 +36,13 @@ public class StudyDiscipline extends BaseEntity {
     @Column(name = "credit_units")
     private Integer creditUnits;
 
-    @ManyToOne
-    @JoinColumn(name = "university_id")
-    private University university;
+    // TODO: implement University class
+//    @ManyToOne
+//    @JoinColumn(name = "university_id")
+//    private University university;
+
+    @Column(name = "university")
+    private String university;
 
     @Column(name = "description", length = 10000)
     private String description;
