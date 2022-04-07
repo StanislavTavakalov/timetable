@@ -1,8 +1,8 @@
 package com.bntu.timetable.security;
 
 
-import com.bntu.timetable.entity.User;
-import com.bntu.timetable.repository.UserRepository;
+import com.bntu.timetable.entity.user.User;
+import com.bntu.timetable.repository.auth.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
