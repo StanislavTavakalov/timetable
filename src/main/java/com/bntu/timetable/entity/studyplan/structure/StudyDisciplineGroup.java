@@ -1,4 +1,4 @@
-package com.bntu.timetable.entity.studyplan.discipline;
+package com.bntu.timetable.entity.studyplan.structure;
 
 import com.bntu.timetable.entity.BaseEntity;
 import lombok.EqualsAndHashCode;
@@ -16,6 +16,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "study_discipline_group")
+//TODO: implement CRUD
 public class StudyDisciplineGroup extends BaseEntity {
     @Column(name = "name")
     private String name;

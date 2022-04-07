@@ -1,6 +1,6 @@
 package com.bntu.timetable.repository;
 
-import com.bntu.timetable.entity.studyplan.discipline.StudyCycle;
+import com.bntu.timetable.entity.studyplan.structure.StudyCycle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

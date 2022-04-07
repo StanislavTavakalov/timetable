@@ -1,4 +1,4 @@
-package com.bntu.timetable.entity.studyplan.discipline;
+package com.bntu.timetable.entity.studyplan.structure;
 
 import com.bntu.timetable.entity.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;

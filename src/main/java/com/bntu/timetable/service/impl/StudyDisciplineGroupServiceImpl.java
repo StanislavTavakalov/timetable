@@ -1,6 +1,6 @@
 package com.bntu.timetable.service.impl;
 
-import com.bntu.timetable.entity.studyplan.discipline.StudyDisciplineGroup;
+import com.bntu.timetable.entity.studyplan.structure.StudyDisciplineGroup;
 import com.bntu.timetable.repository.StudyDisciplineGroupRepository;
 import com.bntu.timetable.service.api.StudyDisciplineGroupService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.bntu.timetable.entity.studyplan.discipline;
+package com.bntu.timetable.entity.studyplan.structure;
 
 public enum StudyCycleType {
     STANDARD,

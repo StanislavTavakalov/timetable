@@ -1,6 +1,6 @@
 package com.bntu.timetable.service.impl;
 
-import com.bntu.timetable.entity.studyplan.discipline.StudyComponent;
+import com.bntu.timetable.entity.studyplan.structure.StudyComponent;
 import com.bntu.timetable.service.api.StudyComponentService;
 import org.springframework.stereotype.Service;
 

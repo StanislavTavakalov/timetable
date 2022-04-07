@@ -1,6 +1,6 @@
 package com.bntu.timetable.service.api;
 
-import com.bntu.timetable.entity.studyplan.discipline.StudyDiscipline;
+import com.bntu.timetable.entity.studyplan.structure.StudyDiscipline;
 
 import java.util.List;
 import java.util.UUID;

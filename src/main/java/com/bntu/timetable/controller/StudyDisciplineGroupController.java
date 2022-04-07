@@ -1,6 +1,6 @@
 package com.bntu.timetable.controller;
 
-import com.bntu.timetable.entity.studyplan.discipline.StudyDisciplineGroup;
+import com.bntu.timetable.entity.studyplan.structure.StudyDisciplineGroup;
 import com.bntu.timetable.service.api.StudyDisciplineGroupService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -114,11 +114,6 @@ public class UserServiceImpl implements UserService {
         return new Date(cal.getTime().getTime());
     }
 
-    // TODO: change to "USER"
-    private Role getDefaultRole() {
-        return roleRepository.findByName("ADMIN");
-    }
-
     @Override
     public List<User> getAll() {
         return userRepository.findAll();

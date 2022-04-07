@@ -2,7 +2,7 @@ package com.bntu.timetable.entity.teacher;
 
 
 import com.bntu.timetable.entity.BaseEntity;
-import com.bntu.timetable.entity.studyplan.discipline.StudyDisciplineGroup;
+import com.bntu.timetable.entity.studyplan.structure.StudyDisciplineGroup;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
