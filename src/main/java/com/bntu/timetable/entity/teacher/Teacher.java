@@ -2,7 +2,7 @@ package com.bntu.timetable.entity.teacher;
 
 
 import com.bntu.timetable.entity.BaseEntity;
-import com.bntu.timetable.entity.studyplan.structure.StudyDisciplineGroup;
+import com.bntu.timetable.entity.studyplan.structure.DisciplineGroup;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -61,6 +61,6 @@ public class Teacher extends BaseEntity {
             inverseJoinColumns = {@JoinColumn(name = "discipline_group_id", referencedColumnName = "id")},
             uniqueConstraints = @UniqueConstraint(columnNames = {
                     "teacher_id", "discipline_group_id"}))
-    private List<StudyDisciplineGroup> studyDisciplineGroups;
+    private List<DisciplineGroup> disciplineGroups;
 
 }

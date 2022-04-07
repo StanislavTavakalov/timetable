@@ -1,6 +1,6 @@
 package com.bntu.timetable.entity.studyplan.structure;
 
-public enum StudyComponentType {
-    STANDARD,
-    BASIC
+public enum  EducationForm {
+    FULLTIME,
+    EXTRAMURAL
 }

@@ -4,6 +4,7 @@ import com.bntu.timetable.entity.BaseEntity;
 import com.bntu.timetable.entity.Qualification;
 import com.bntu.timetable.entity.Speciality;
 import com.bntu.timetable.entity.studyplan.schedule.EducationalSchedule;
+import com.bntu.timetable.entity.studyplan.structure.EducationForm;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,14 +29,24 @@ public class StudyPlan extends BaseEntity {
     @Column
     private Integer developmentYear;
 
-//    @Column
-//    private Qualification qualification;
+    @OneToOne(mappedBy = "studyPlan")
+    private EducationalSchedule educationalSchedule;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private StudyPlanStatus status;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "education_form")
+    private EducationForm educationForm;
+
+    @ManyToOne
+    @JoinColumn(name = "qualification_id")
+    private Qualification qualification;
 
     @ManyToOne
     @JoinColumn(name = "speciality_id")
     private Speciality speciality;
 
-    @OneToOne
-    private EducationalSchedule educationalSchedule;
 
 }

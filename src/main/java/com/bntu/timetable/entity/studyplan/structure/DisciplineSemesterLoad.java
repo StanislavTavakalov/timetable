@@ -14,6 +14,7 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "study_load")
-public class StudyLoad extends BaseEntity {
+@Table(name = "discipline_semester_load")
+public class DisciplineSemesterLoad extends BaseEntity {
+
 }

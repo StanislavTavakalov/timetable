@@ -14,16 +14,23 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "study_cycle")
-public class StudyCycle extends BaseEntity {
+@Table(name = "cycle")
+public class Cycle extends BaseEntity {
 
     @Column(name = "name")
     private String name;
 
-    @Enumerated(EnumType.STRING)
-    private StudyCycleType studyCycleType;
+    @Column(name = "position")
+    private Integer position;
 
-    @OneToMany(mappedBy = "studyCycle")
-    private List<StudyComponent> studyComponents;
+    @Enumerated(EnumType.STRING)
+    private CycleType cycleType;
+
+    @OneToMany(mappedBy = "cycle")
+    private List<Component> components;
+
+    @OneToMany(mappedBy = "cycle")
+    private List<Discipline> disciplines;
+
 
 }

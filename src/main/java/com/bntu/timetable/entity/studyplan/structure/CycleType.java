@@ -1,6 +1,6 @@
 package com.bntu.timetable.entity.studyplan.structure;
 
-public enum StudyCycleType {
+public enum CycleType {
     STANDARD,
     BASIC,
     COURSE,

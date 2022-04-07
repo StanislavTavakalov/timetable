@@ -1,6 +1,6 @@
 package com.bntu.timetable.entity.studyplan.structure;
 
-public enum StudyDisciplineType {
+public enum DisciplineType {
     STANDARD,
     BASIC,
     EXTRA,

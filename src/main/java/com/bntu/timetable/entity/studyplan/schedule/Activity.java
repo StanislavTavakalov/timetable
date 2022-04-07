@@ -1,7 +1,6 @@
 package com.bntu.timetable.entity.studyplan.schedule;
 
 import com.bntu.timetable.entity.BaseEntity;
-import com.bntu.timetable.entity.Flow;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "activity")
+// TODO: create CRUD
 public class Activity extends BaseEntity {
 
     @Column(name = "name")

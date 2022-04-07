@@ -1,11 +1,11 @@
 package com.bntu.timetable.repository;
 
-import com.bntu.timetable.entity.studyplan.structure.StudyCycle;
+import com.bntu.timetable.entity.studyplan.structure.Cycle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
 @Repository
-public interface StudyCycleRepository extends JpaRepository<StudyCycle, UUID> {
+public interface CycleRepository extends JpaRepository<Cycle, UUID> {
 }

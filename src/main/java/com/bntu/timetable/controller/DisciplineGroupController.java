@@ -1,7 +1,7 @@
 package com.bntu.timetable.controller;
 
-import com.bntu.timetable.entity.studyplan.structure.StudyDiscipline;
-import com.bntu.timetable.service.api.StudyDisciplineService;
+import com.bntu.timetable.entity.studyplan.structure.DisciplineGroup;
+import com.bntu.timetable.service.api.DisciplineGroupService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,17 +14,18 @@ import java.util.UUID;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("api/v1/disciplines")
+@RequestMapping("api/v1/disciplinegroups")
 @Slf4j
-public class StudyDisciplineController {
+public class DisciplineGroupController {
+
     @Autowired
-    private StudyDisciplineService studyDisciplineService;
+    private DisciplineGroupService disciplineGroupService;
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAuthority('discipline:read')")
     public ResponseEntity<?> getDiscipline(@PathVariable UUID id) {
         try {
-            return ResponseEntity.ok(studyDisciplineService.getStudyDiscipline(id));
+            return ResponseEntity.ok(disciplineGroupService.getDisciplineGroup(id));
         } catch (RuntimeException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
@@ -32,20 +33,20 @@ public class StudyDisciplineController {
 
     @GetMapping
     @PreAuthorize("hasAuthority('discipline:read')")
-    public List<StudyDiscipline> getDisciplines() {
-        return studyDisciplineService.getStudyDisciplines();
+    public List<DisciplineGroup> getDisciplines() {
+        return disciplineGroupService.getDisciplineGroups();
     }
 
     @PostMapping
     @PreAuthorize("hasAuthority('discipline:create')")
-    public StudyDiscipline createDiscipline(@RequestBody StudyDiscipline studyDiscipline) {
-        return studyDisciplineService.createStudyDiscipline(studyDiscipline);
+    public DisciplineGroup createDiscipline(@RequestBody DisciplineGroup disciplineGroup) {
+        return disciplineGroupService.createDisciplineGroup(disciplineGroup);
     }
 
     @PutMapping
     @PreAuthorize("hasAuthority('discipline:update')")
-    public StudyDiscipline updateDiscipline(@RequestBody StudyDiscipline studyDiscipline) {
-        return studyDisciplineService.updateStudyDiscipline(studyDiscipline);
+    public DisciplineGroup updateDiscipline(@RequestBody DisciplineGroup disciplineGroup) {
+        return disciplineGroupService.updateDisciplineGroup(disciplineGroup);
     }
 
 
@@ -53,11 +54,12 @@ public class StudyDisciplineController {
     @PreAuthorize("hasAuthority('discipline:delete')")
     public ResponseEntity<?> deleteDiscipline(@PathVariable UUID id) {
         try {
-            studyDisciplineService.deleteStudyDiscipline(id);
+            disciplineGroupService.deleteDisciplineGroup(id);
         } catch (RuntimeException exception) {
             log.error(exception.getMessage());
             return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
         }
         return ResponseEntity.ok(true);
     }
+
 }

@@ -1,4 +1,4 @@
-package com.bntu.timetable.entity.studyplan;
+package com.bntu.timetable.entity.studyplan.structure;
 
 import com.bntu.timetable.entity.BaseEntity;
 import lombok.EqualsAndHashCode;
@@ -14,6 +14,6 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "diploma_design")
-public class DiplomaDesign extends BaseEntity {
+@Table(name = "practice")
+public class Practice extends BaseEntity {
 }

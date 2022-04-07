@@ -14,31 +14,34 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "study_component")
-public class StudyComponent extends BaseEntity {
+@Table(name = "component")
+public class Component extends BaseEntity {
 
     @Column(name = "name")
     private String name;
 
     @Enumerated(EnumType.STRING)
-    private StudyComponentType studyComponentType;
+    private ComponentType componentType;
+
+    @Column(name = "position")
+    private Integer position;
 
     @Column(name = "total_hours")
-    private Integer totalHours;
+    private Double totalHours;
 
     @Column(name = "classroom_hours")
-    private Integer classroomHours;
+    private Double classroomHours;
 
     @Column(name = "credit_units")
-    private Integer creditUnits;
+    private Double creditUnits;
 
     @Column(name = "description", length = 10000)
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "study_cycle_id")
-    private StudyCycle studyCycle;
+    @JoinColumn(name = "cycle_id")
+    private Cycle cycle;
 
-    @OneToMany(mappedBy = "studyComponent")
-    private List<StudyDiscipline> studyDisciplines;
+    @OneToMany(mappedBy = "component")
+    private List<Discipline> disciplines;
 }

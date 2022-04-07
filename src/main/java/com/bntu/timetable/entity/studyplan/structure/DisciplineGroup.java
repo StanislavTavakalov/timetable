@@ -15,11 +15,9 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "university")
+@Table(name = "discipline_group")
 //TODO: implement CRUD
-public class University extends BaseEntity {
-
+public class DisciplineGroup extends BaseEntity {
     @Column(name = "name")
     private String name;
-
 }

@@ -441,7 +441,7 @@ VALUES ('e2e72e85-f400-4479-a8b6-311e9c690236', '2022-03-01 10:45:52.172208', '2
 ON CONFLICT DO NOTHING;
 
 
-INSERT INTO public.study_discipline_group (id, created_when, updated_when, name)
+INSERT INTO public.discipline_group (id, created_when, updated_when, name)
 VALUES ('26da3d4b-f9f8-483f-ad66-294509f041ad', now(), now(),
         'Математика'),
        ('4a6a0b5d-7995-4f2d-8f87-3a8c548caaab', now(), now(),
