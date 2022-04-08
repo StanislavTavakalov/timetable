@@ -16,10 +16,10 @@ import java.util.List;
 @Table(name = "deanery")
 public class Deanery extends BaseEntity {
 
-    @Column(name = "short_name")
+    @Column(name = "short_name", length = 100)
     private String shortName;
 
-    @Column(name = "full_name")
+    @Column(name = "full_name", length = 1000)
     private String fullName;
 
     @Column(name = "description", length = 10000)

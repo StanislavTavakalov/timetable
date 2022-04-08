@@ -18,6 +18,6 @@ import javax.persistence.Table;
 @Table(name = "discipline_group")
 //TODO: implement CRUD
 public class DisciplineGroup extends BaseEntity {
-    @Column(name = "name")
+    @Column(name = "name", length = 1000)
     private String name;
 }

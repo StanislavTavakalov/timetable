@@ -20,13 +20,13 @@ import java.util.List;
 @Table(name = "teacher")
 public class Teacher extends BaseEntity {
 
-    @Column(name = "firstName")
+    @Column(name = "firstName", length = 1000)
     private String firstName;
 
-    @Column(name = "lastName")
+    @Column(name = "lastName", length = 1000)
     private String lastName;
 
-    @Column(name = "patronymic")
+    @Column(name = "patronymic", length = 1000)
     private String patronymic;
 
     @ManyToOne

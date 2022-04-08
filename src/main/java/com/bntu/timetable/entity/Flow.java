@@ -16,7 +16,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "flow")
 public class Flow extends BaseEntity {
-    @Column(name = "name")
+    @Column(name = "name", length = 1000)
     private String name;
 
     @ManyToOne

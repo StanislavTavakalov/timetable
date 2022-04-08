@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Table(name = "classroom_specialization")
 public class ClassroomSpecialization extends BaseEntity {
 
-    @Column(name = "name")
+    @Column(name = "name", length = 1000)
     private String name;
 
 }

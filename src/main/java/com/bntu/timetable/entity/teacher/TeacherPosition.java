@@ -18,6 +18,6 @@ import javax.persistence.Table;
 @Table(name = "teacher_position")
 public class TeacherPosition extends BaseEntity {
 
-    @Column(name = "name")
+    @Column(name = "name", length = 1000)
     private String name;
 }

@@ -24,7 +24,7 @@ public class Permission {
             strategy = "org.hibernate.id.UUIDGenerator")
     private UUID id;
 
-    @Column
+    @Column(name = "name", length = 1000)
     private String name;
 
     @ManyToMany(mappedBy = "permissions", fetch = FetchType.LAZY)

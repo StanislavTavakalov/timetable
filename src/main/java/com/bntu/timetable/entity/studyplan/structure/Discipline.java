@@ -17,7 +17,7 @@ import javax.persistence.*;
 @Table(name = "discipline")
 public class Discipline extends BaseEntity {
 
-    @Column(name = "name")
+    @Column(name = "name", length = 1000)
     private String name;
 
     @Column(name = "description", length = 10000)

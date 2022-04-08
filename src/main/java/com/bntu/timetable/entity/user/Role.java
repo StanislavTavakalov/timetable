@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class Role extends BaseEntity {
-    @Column(name = "name")
+    @Column(name = "name", length = 1000)
     private String name;
 
     @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)

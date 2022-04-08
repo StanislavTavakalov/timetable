@@ -16,16 +16,16 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User extends BaseEntity {
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", length = 1000)
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(name = "last_name", length = 1000)
     private String lastName;
 
-    @Column(name = "patronymic")
+    @Column(name = "patronymic", length = 1000)
     private String patronymic;
 
-    @Column(name = "email")
+    @Column(name = "email", length = 1000)
     private String email;
 
     @ManyToOne
@@ -35,7 +35,7 @@ public class User extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @Column(name = "password")
+    @Column(name = "password", length = 1000)
     @JsonIgnore
     private String password;
     

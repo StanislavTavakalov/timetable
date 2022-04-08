@@ -21,10 +21,10 @@ import java.util.List;
 // TODO: create CRUD
 public class Activity extends BaseEntity {
 
-    @Column(name = "name")
+    @Column(name = "name", length = 1000)
     private String name;
 
-    @Column(name = "symbol")
+    @Column(name = "symbol", length = 10)
     private String symbol;
 
     @OneToMany(mappedBy = "activity")

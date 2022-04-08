@@ -16,10 +16,10 @@ import javax.persistence.*;
 @Table(name = "classroom_type")
 public class ClassroomType extends BaseEntity {
 
-    @Column(name = "name")
+    @Column(name = "name", length = 1000)
     private String name;
 
-    @Column(name ="color")
+    @Column(name ="color", length = 100)
     private String color;
 
 }

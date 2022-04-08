@@ -17,7 +17,7 @@ import java.util.List;
 @Table(name = "cycle")
 public class Cycle extends BaseEntity {
 
-    @Column(name = "name")
+    @Column(name = "name", length = 1000)
     private String name;
 
     @Column(name = "position")

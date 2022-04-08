@@ -18,14 +18,14 @@ import java.util.List;
 @Table(name = "study_group")
 public class Group extends BaseEntity {
 
-    @Column(name = "number")
+    @Column(name = "number", length = 1000)
     private String number;
 
     @Column(name = "student_count")
-    private int studentCount;
+    private Integer studentCount;
 
     @Column(name = "enter_year")
-    private int enterYear;
+    private Integer enterYear;
 
     @ManyToMany(mappedBy = "groups")
     @JsonIgnore

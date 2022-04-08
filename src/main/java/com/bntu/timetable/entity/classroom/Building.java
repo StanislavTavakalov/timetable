@@ -18,7 +18,7 @@ import java.util.List;
 @Table(name = "building")
 public class Building extends BaseEntity {
 
-    @Column(name = "number")
+    @Column(name = "number", length = 100)
     private String number;
 
     @Column(name = "description", length = 10000)

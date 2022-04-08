@@ -20,11 +20,11 @@ import javax.persistence.*;
 @Table(name = "classroom")
 public class Classroom extends BaseEntity {
 
-    @Column(name = "number")
+    @Column(name = "number", length = 100)
     private String number;
 
-    @Column(name = "capacity")
-    private String capacity;
+    @Column(name = "capacity", length = 1000)
+    private Integer capacity;
 
     @Enumerated(EnumType.STRING)
     private AssignmentType assignmentType;

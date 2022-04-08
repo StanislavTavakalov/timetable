@@ -17,6 +17,6 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "load")
 public class Load extends BaseEntity {
-    @Column(name = "name")
+    @Column(name = "name", length = 1000)
     private String name;
 }

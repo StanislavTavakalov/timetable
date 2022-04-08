@@ -20,7 +20,7 @@ import javax.persistence.*;
 @Table(name = "study_plan")
 public class StudyPlan extends BaseEntity {
 
-    @Column
+    @Column(name = "register_number", length = 1000)
     private String registerNumber;
 
     @Column
