@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -35,6 +36,13 @@ public class Discipline extends BaseEntity {
     @Column(name = "credit_units")
     private Double creditUnits;
 
+    // TODO: reimplement to University class
+    @Column(name = "university")
+    private String university;
+
+    @Column(name = "position")
+    private Integer position;
+
     @Enumerated(EnumType.STRING)
     private DisciplineType disciplineType;
 
@@ -51,11 +59,10 @@ public class Discipline extends BaseEntity {
     @JoinColumn(name = "cycle_id")
     private Cycle cycle;
 
-    // TODO: reimplement to University class
-    @Column(name = "university")
-    private String university;
+    @OneToMany(mappedBy = "discipline")
+    private List<DisciplineLoad> disciplineLoads;
 
-    @Column(name = "position")
-    private Integer position;
+    @OneToMany(mappedBy = "discipline")
+    private List<DisciplineSemesterLoad> disciplineSemesterLoads;
 
 }

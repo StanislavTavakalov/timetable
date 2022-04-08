@@ -20,6 +20,9 @@ import javax.persistence.*;
 @Table(name = "study_plan")
 public class StudyPlan extends BaseEntity {
 
+    @Column(name = "is_standard_plan")
+    private boolean isStandardPlan;
+
     @Column(name = "register_number", length = 1000)
     private String registerNumber;
 

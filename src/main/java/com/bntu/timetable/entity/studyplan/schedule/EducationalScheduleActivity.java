@@ -26,5 +26,7 @@ public class EducationalScheduleActivity extends BaseEntity {
     private EducationalScheduleSemester educationalScheduleSemester;
 
     @ElementCollection
+    @CollectionTable(name = "schedule_activity_to_week_number", joinColumns = @JoinColumn(name = "activity_id"))
+    @Column(name = "week_number")
     private List<Integer> weekNumbers;
 }
