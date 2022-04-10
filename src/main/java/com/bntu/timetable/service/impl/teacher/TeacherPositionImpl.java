@@ -3,7 +3,7 @@ package com.bntu.timetable.service.impl.teacher;
 import com.bntu.timetable.entity.teacher.TeacherPosition;
 import com.bntu.timetable.repository.teacher.TeacherPositionRepository;
 import com.bntu.timetable.service.api.teacher.TeacherPositionService;
-import com.bntu.timetable.errorhandli`ng.ErrorMessage;
+import com.bntu.timetable.errorhandling.ErrorMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
