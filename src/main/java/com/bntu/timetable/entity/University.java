@@ -1,6 +1,5 @@
 package com.bntu.timetable.entity;
 
-import com.bntu.timetable.entity.BaseEntity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +15,6 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "university")
-//TODO: implement CRUD
 public class University extends BaseEntity {
 
     @Column(name = "name", length = 1000)

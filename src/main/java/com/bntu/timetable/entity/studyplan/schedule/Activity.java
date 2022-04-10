@@ -18,7 +18,6 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "activity")
-// TODO: create CRUD
 public class Activity extends BaseEntity {
 
     @Column(name = "name", length = 1000)
@@ -26,10 +25,4 @@ public class Activity extends BaseEntity {
 
     @Column(name = "symbol", length = 10)
     private String symbol;
-
-    @OneToMany(mappedBy = "activity")
-    private List<EducationalScheduleActivity> educationalScheduleActivities;
-
-    @OneToMany(mappedBy = "activity")
-    private List<EducationalScheduleTotalActivity> educationalScheduleTotalActivities;
 }
