@@ -110,7 +110,12 @@ values ('c86a4f8d-9f9a-4569-9945-85168652552b', 'users:read'),
        ('dac83d09-d9c6-4fc1-9ed3-9e0dd594d089', 'activities:create'),
        ('9586bd2d-2480-4858-883d-f6958dcf81ac', 'activities:read'),
        ('2ef79236-2d12-4de3-a4a6-d41c894ed068', 'activities:update'),
-       ('fb6adbe1-5385-4a0c-8cc1-318109e6a333', 'activities:delete')
+       ('fb6adbe1-5385-4a0c-8cc1-318109e6a333', 'activities:delete'),
+
+       ('e1afa2f5-c7f2-4474-b007-d4e1cbdc941c', 'studyplan:create'),
+       ('d158c461-5fff-4f3d-a7e2-a6012a0777e3', 'studyplan:read'),
+       ('a1d64dbd-0998-4fc3-8fe7-c11d3d3c67f7', 'studyplan:update'),
+       ('403692a9-6647-4bf1-9e05-97a7762ddf02', 'studyplan:delete')
 
 
 ON CONFLICT DO NOTHING;
@@ -239,6 +244,13 @@ VALUES
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '9586bd2d-2480-4858-883d-f6958dcf81ac'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2ef79236-2d12-4de3-a4a6-d41c894ed068'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'fb6adbe1-5385-4a0c-8cc1-318109e6a333'),
+
+    --Study plans rights
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'e1afa2f5-c7f2-4474-b007-d4e1cbdc941c'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'd158c461-5fff-4f3d-a7e2-a6012a0777e3'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'a1d64dbd-0998-4fc3-8fe7-c11d3d3c67f7'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '403692a9-6647-4bf1-9e05-97a7762ddf02'),
+
     -- Admin role end
 
     -- Dispatcher role start
@@ -491,9 +503,18 @@ ON CONFLICT DO NOTHING;
 
 INSERT INTO public.activity (id, created_when, updated_when, name, symbol)
 VALUES ('26da3d4b-f9f8-483f-ad66-294509f042ad', now(), now(),
-        'Теоритическое обучение', ' '),
+        'Теоретическое обучение', ' '),
        ('4a6a0b5d-7995-4f2d-8f87-3a8c528caaab', now(), now(),
         'Экзаменнационная сессия', ':'),
        ('d812a820-8407-4fb8-a97a-0a72f69330a3', now(), now(),
         'Практика', '-')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO public.qualification (id, created_when, updated_when, name)
+VALUES ('26da3d4b-f9f8-483f-ad66-294509f0422d', now(), now(),
+        'Инженер-программист'),
+       ('4a6a0b5d-7995-4f2d-8f87-3a8c528caa2b', now(), now(),
+        'Инженер'),
+       ('d812a820-8407-4fb8-a97a-0a72f6933023', now(), now(),
+        'Программист')
 ON CONFLICT DO NOTHING;

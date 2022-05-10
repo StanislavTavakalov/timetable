@@ -30,9 +30,9 @@ public class BaseEntity {
 
     @CreationTimestamp
     @Column(name = "created_when")
-    private LocalDateTime createWhen;
+    private LocalDateTime createdWhen;
 
     @UpdateTimestamp
     @Column(name = "updated_when")
-    private LocalDateTime updateWhen;
+    private LocalDateTime updatedWhen;
 }

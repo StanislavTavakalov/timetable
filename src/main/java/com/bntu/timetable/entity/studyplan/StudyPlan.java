@@ -4,13 +4,16 @@ import com.bntu.timetable.entity.BaseEntity;
 import com.bntu.timetable.entity.Qualification;
 import com.bntu.timetable.entity.Speciality;
 import com.bntu.timetable.entity.studyplan.schedule.EducationalSchedule;
+import com.bntu.timetable.entity.studyplan.structure.Cycle;
 import com.bntu.timetable.entity.studyplan.structure.EducationForm;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -32,7 +35,8 @@ public class StudyPlan extends BaseEntity {
     @Column
     private Integer developmentYear;
 
-    @OneToOne(mappedBy = "studyPlan")
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "educational_schedule_id")
     private EducationalSchedule educationalSchedule;
 
     @Enumerated(EnumType.STRING)
@@ -51,5 +55,8 @@ public class StudyPlan extends BaseEntity {
     @JoinColumn(name = "speciality_id")
     private Speciality speciality;
 
+    @OneToMany(mappedBy = "studyPlan", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Cycle> cycles;
 
 }

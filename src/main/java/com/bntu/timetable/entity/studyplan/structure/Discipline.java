@@ -1,6 +1,7 @@
 package com.bntu.timetable.entity.studyplan.structure;
 
 import com.bntu.timetable.entity.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -52,11 +53,12 @@ public class Discipline extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "component_id")
-    @JsonIgnore
+    @JsonBackReference(value = "component-discipline")
     private Component component;
 
     @ManyToOne
     @JoinColumn(name = "cycle_id")
+    @JsonBackReference(value = "cycle-discipline")
     private Cycle cycle;
 
     @OneToMany(mappedBy = "discipline")

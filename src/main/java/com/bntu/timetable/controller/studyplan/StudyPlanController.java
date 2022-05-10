@@ -31,6 +31,16 @@ public class StudyPlanController {
         }
     }
 
+
+    @GetMapping("/common-info")
+    @PreAuthorize("hasAuthority('studyplan:read')")
+    public ResponseEntity<?> getCommonInfoForStudyPlan() {
+        try {
+            return ResponseEntity.ok(studyPlanService.loadCommonInfo());
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
     @GetMapping
     @PreAuthorize("hasAuthority('studyplan:read')")
     public List<StudyPlan> getStudyPlans() {

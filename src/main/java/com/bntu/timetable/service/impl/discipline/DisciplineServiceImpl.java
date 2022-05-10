@@ -26,6 +26,11 @@ public class DisciplineServiceImpl implements DisciplineService {
     }
 
     @Override
+    public List<Discipline> getDisciplineTemplates() {
+        return disciplineRepository.findAllByIsTemplate(true);
+    }
+
+    @Override
     public Discipline createDiscipline(Discipline discipline) {
         return disciplineRepository.save(discipline);
     }

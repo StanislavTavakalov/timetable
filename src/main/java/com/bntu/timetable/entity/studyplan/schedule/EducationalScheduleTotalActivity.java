@@ -2,6 +2,7 @@ package com.bntu.timetable.entity.studyplan.schedule;
 
 
 import com.bntu.timetable.entity.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class EducationalScheduleTotalActivity extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "educational_schedule_id")
+    @JsonIgnore
     private EducationalSchedule educationalSchedule;
 
     @Column(name = "total_week_count")

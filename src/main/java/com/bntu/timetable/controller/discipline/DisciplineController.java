@@ -33,7 +33,7 @@ public class DisciplineController {
     @GetMapping
     @PreAuthorize("hasAuthority('discipline:read')")
     public List<Discipline> getDisciplines() {
-        return disciplineService.getDisciplines();
+        return disciplineService.getDisciplineTemplates();
     }
 
     @PostMapping

@@ -1,5 +1,6 @@
 package com.bntu.timetable.service.api.studyplan;
 
+import com.bntu.timetable.dto.CommonInfoForStudyPlan;
 import com.bntu.timetable.entity.studyplan.StudyPlan;
 
 import java.util.List;
@@ -17,4 +18,5 @@ public interface StudyPlanService {
 
     void deleteStudyPlan(UUID id);
 
+    CommonInfoForStudyPlan loadCommonInfo();
 }

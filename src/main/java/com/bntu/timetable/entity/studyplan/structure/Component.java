@@ -1,6 +1,8 @@
 package com.bntu.timetable.entity.studyplan.structure;
 
 import com.bntu.timetable.entity.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,8 +42,10 @@ public class Component extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "cycle_id")
+    @JsonBackReference(value = "cycle-component")
     private Cycle cycle;
 
-    @OneToMany(mappedBy = "component")
+    @OneToMany(mappedBy = "component", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference(value = "component-discipline")
     private List<Discipline> disciplines;
 }

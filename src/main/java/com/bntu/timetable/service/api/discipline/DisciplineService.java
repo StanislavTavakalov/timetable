@@ -10,6 +10,8 @@ public interface DisciplineService {
 
     List<Discipline> getDisciplines();
 
+    List<Discipline> getDisciplineTemplates();
+
     Discipline createDiscipline(Discipline discipline);
 
     Discipline updateDiscipline(Discipline discipline);
