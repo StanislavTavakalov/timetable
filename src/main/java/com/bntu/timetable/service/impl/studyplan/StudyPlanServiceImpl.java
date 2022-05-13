@@ -2,9 +2,11 @@ package com.bntu.timetable.service.impl.studyplan;
 
 import com.bntu.timetable.dto.CommonInfoForStudyPlan;
 import com.bntu.timetable.entity.studyplan.StudyPlan;
+import com.bntu.timetable.entity.studyplan.StudyPlanStatus;
 import com.bntu.timetable.entity.studyplan.structure.Component;
 import com.bntu.timetable.entity.studyplan.structure.Cycle;
 import com.bntu.timetable.entity.studyplan.structure.Discipline;
+import com.bntu.timetable.errorhandling.ErrorMessage;
 import com.bntu.timetable.repository.studyplan.StudyPlanRepository;
 import com.bntu.timetable.service.api.QualificationService;
 import com.bntu.timetable.service.api.department.SpecialityService;
@@ -15,10 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class StudyPlanServiceImpl implements StudyPlanService {
@@ -129,5 +128,16 @@ public class StudyPlanServiceImpl implements StudyPlanService {
         commonInfo.setActivities(activityService.getActivities());
         commonInfo.setDisciplines(disciplineService.getDisciplineTemplates());
         return commonInfo;
+    }
+
+    @Override
+    public StudyPlan submitStudyPlan(UUID id) {
+        Optional<StudyPlan> studyPlan = this.studyPlanRepository.findById(id);
+        if (studyPlan.isPresent()) {
+            studyPlan.get().setStatus(StudyPlanStatus.SUBMITTED);
+            return this.studyPlanRepository.save(studyPlan.get());
+        } else {
+            throw new RuntimeException(ErrorMessage.STUDY_PLAN_NOT_FOUND);
+        }
     }
 }

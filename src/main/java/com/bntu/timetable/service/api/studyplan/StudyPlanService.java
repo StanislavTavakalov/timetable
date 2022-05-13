@@ -19,4 +19,6 @@ public interface StudyPlanService {
     void deleteStudyPlan(UUID id);
 
     CommonInfoForStudyPlan loadCommonInfo();
+
+    StudyPlan submitStudyPlan(UUID id);
 }

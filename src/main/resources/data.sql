@@ -115,7 +115,8 @@ values ('c86a4f8d-9f9a-4569-9945-85168652552b', 'users:read'),
        ('e1afa2f5-c7f2-4474-b007-d4e1cbdc941c', 'studyplan:create'),
        ('d158c461-5fff-4f3d-a7e2-a6012a0777e3', 'studyplan:read'),
        ('a1d64dbd-0998-4fc3-8fe7-c11d3d3c67f7', 'studyplan:update'),
-       ('403692a9-6647-4bf1-9e05-97a7762ddf02', 'studyplan:delete')
+       ('403692a9-6647-4bf1-9e05-97a7762ddf02', 'studyplan:delete'),
+       ('b346aef9-e46a-42ab-b7a4-b9d139a50c5d', 'studyplan:submit')
 
 
 ON CONFLICT DO NOTHING;
@@ -250,6 +251,8 @@ VALUES
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'd158c461-5fff-4f3d-a7e2-a6012a0777e3'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'a1d64dbd-0998-4fc3-8fe7-c11d3d3c67f7'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '403692a9-6647-4bf1-9e05-97a7762ddf02'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'b346aef9-e46a-42ab-b7a4-b9d139a50c5d'),
+
 
     -- Admin role end
 

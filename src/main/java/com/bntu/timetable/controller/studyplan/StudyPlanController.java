@@ -59,6 +59,12 @@ public class StudyPlanController {
         return studyPlanService.updateStudyPlan(studyPlan);
     }
 
+    @PutMapping("/submit")
+    @PreAuthorize("hasAuthority('studyplan:submit')")
+    public StudyPlan submitStudyPlan(@RequestBody StudyPlan studyPlan) {
+        return studyPlanService.submitStudyPlan(studyPlan.getId());
+    }
+
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('studyplan:delete')")
