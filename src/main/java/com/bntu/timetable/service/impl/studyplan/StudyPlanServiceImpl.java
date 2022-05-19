@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
@@ -87,6 +88,13 @@ public class StudyPlanServiceImpl implements StudyPlanService {
     }
 
     @Override
+    public List<StudyPlan> getStudyPlans(boolean isStandard) {
+        List<StudyPlan> studyPlans = studyPlanRepository.findAllByStandardPlan(isStandard);
+        studyPlans.forEach(this::alignAllObjectsByPositionNumber);
+        return studyPlans;
+    }
+
+    @Override
     public StudyPlan createStudyPlan(StudyPlan studyPlan) {
         fillReferences(studyPlan);
         return studyPlanRepository.save(studyPlan);
@@ -135,6 +143,7 @@ public class StudyPlanServiceImpl implements StudyPlanService {
         Optional<StudyPlan> studyPlan = this.studyPlanRepository.findById(id);
         if (studyPlan.isPresent()) {
             studyPlan.get().setStatus(StudyPlanStatus.SUBMITTED);
+            studyPlan.get().setStatusChangeDate(LocalDateTime.now());
             return this.studyPlanRepository.save(studyPlan.get());
         } else {
             throw new RuntimeException(ErrorMessage.STUDY_PLAN_NOT_FOUND);

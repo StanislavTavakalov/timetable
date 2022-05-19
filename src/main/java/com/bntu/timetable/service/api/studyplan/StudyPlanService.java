@@ -12,6 +12,8 @@ public interface StudyPlanService {
 
     List<StudyPlan> getStudyPlans();
 
+    List<StudyPlan> getStudyPlans(boolean isStandard);
+
     StudyPlan createStudyPlan(StudyPlan studyPlan);
 
     StudyPlan updateStudyPlan(StudyPlan studyPlan);

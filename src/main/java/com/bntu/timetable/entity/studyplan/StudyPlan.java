@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -23,8 +24,8 @@ import java.util.List;
 @Table(name = "study_plan")
 public class StudyPlan extends BaseEntity {
 
-    @Column(name = "is_standard_plan")
-    private boolean isStandardPlan;
+    @Column(name = "standard_plan")
+    private Boolean standardPlan;
 
     @Column(name = "register_number", length = 1000)
     private String registerNumber;
@@ -42,6 +43,9 @@ public class StudyPlan extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private StudyPlanStatus status;
+
+    @Column(name = "status_change_date")
+    private LocalDateTime statusChangeDate;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "education_form")

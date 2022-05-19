@@ -43,8 +43,8 @@ public class StudyPlanController {
     }
     @GetMapping
     @PreAuthorize("hasAuthority('studyplan:read')")
-    public List<StudyPlan> getStudyPlans() {
-        return studyPlanService.getStudyPlans();
+    public List<StudyPlan> getStudyPlans(@RequestParam Boolean standardPlan) {
+        return studyPlanService.getStudyPlans(standardPlan);
     }
 
     @PostMapping
