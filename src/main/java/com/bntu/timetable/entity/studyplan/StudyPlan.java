@@ -3,7 +3,8 @@ package com.bntu.timetable.entity.studyplan;
 import com.bntu.timetable.entity.BaseEntity;
 import com.bntu.timetable.entity.Qualification;
 import com.bntu.timetable.entity.Speciality;
-import com.bntu.timetable.entity.studyplan.schedule.EducationalSchedule;
+import com.bntu.timetable.entity.studyplan.schedule.ScheduleTotalActivity;
+import com.bntu.timetable.entity.studyplan.schedule.Semester;
 import com.bntu.timetable.entity.studyplan.structure.Cycle;
 import com.bntu.timetable.entity.studyplan.structure.EducationForm;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -30,15 +31,15 @@ public class StudyPlan extends BaseEntity {
     @Column(name = "register_number", length = 1000)
     private String registerNumber;
 
-    @Column
-    private Integer semestersCount;
+    @OneToMany(mappedBy = "studyPlan", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference(value = "study_plan_semester")
+    private List<Semester> semesters;
+
+    @OneToMany(mappedBy = "studyPlan", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ScheduleTotalActivity> scheduleTotalActivities;
 
     @Column
     private Integer developmentYear;
-
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "educational_schedule_id")
-    private EducationalSchedule educationalSchedule;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")

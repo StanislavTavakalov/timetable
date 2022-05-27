@@ -3,6 +3,7 @@ package com.bntu.timetable.service.impl.studyplan;
 import com.bntu.timetable.dto.CommonInfoForStudyPlan;
 import com.bntu.timetable.entity.studyplan.StudyPlan;
 import com.bntu.timetable.entity.studyplan.StudyPlanStatus;
+import com.bntu.timetable.entity.studyplan.schedule.Semester;
 import com.bntu.timetable.entity.studyplan.structure.Component;
 import com.bntu.timetable.entity.studyplan.structure.Cycle;
 import com.bntu.timetable.entity.studyplan.structure.Discipline;
@@ -56,6 +57,12 @@ public class StudyPlanServiceImpl implements StudyPlanService {
             }
         });
 
+        studyPlan.getSemesters().sort(new Comparator<Semester>() {
+            @Override
+            public int compare(Semester semester, Semester t1) {
+                return semester.getSemesterNum().compareTo(t1.getSemesterNum());
+            }
+        });
         for (Cycle cycle : studyPlan.getCycles()) {
             cycle.getComponents().sort(new Comparator<Component>() {
                 @Override
@@ -101,9 +108,8 @@ public class StudyPlanServiceImpl implements StudyPlanService {
     }
 
     private void fillReferences(StudyPlan studyPlan) {
-        studyPlan.getEducationalSchedule().getEducationalScheduleTotalActivities()
-                .forEach(totalActivity -> totalActivity.setEducationalSchedule(studyPlan.
-                        getEducationalSchedule()));
+        studyPlan.getScheduleTotalActivities()
+                .forEach(totalActivity -> totalActivity.setStudyPlan(studyPlan));
 
         studyPlan.getCycles().forEach(cycle -> {
             cycle.setStudyPlan(studyPlan);
@@ -114,6 +120,15 @@ public class StudyPlanServiceImpl implements StudyPlanService {
             });
 
             cycle.getDisciplines().forEach(discipline -> discipline.setCycle(cycle));
+        });
+
+        studyPlan.getSemesters().forEach(semester -> {
+            semester.setStudyPlan(studyPlan);
+
+            semester.getScheduleActivities().forEach(scheduleActivity -> {
+                scheduleActivity.setSemester(semester);
+            });
+
         });
     }
 

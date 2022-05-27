@@ -1,6 +1,7 @@
 package com.bntu.timetable.entity.studyplan.schedule;
 
 import com.bntu.timetable.entity.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,16 +15,17 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "educational_schedule_activity")
-public class EducationalScheduleActivity extends BaseEntity {
+@Table(name = "schedule_activity")
+public class ScheduleActivity extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "activity_id")
     private Activity activity;
 
-    @ManyToOne
-    @JoinColumn(name = "educational_schedule_semester_id")
-    private EducationalScheduleSemester educationalScheduleSemester;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "semester_id")
+    @JsonBackReference(value = "schedule_activity_semester")
+    private Semester semester;
 
     @ElementCollection
     @CollectionTable(name = "schedule_activity_to_week_number", joinColumns = @JoinColumn(name = "activity_id"))

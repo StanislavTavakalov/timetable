@@ -1,6 +1,7 @@
 package com.bntu.timetable.entity.studyplan.structure;
 
 import com.bntu.timetable.entity.BaseEntity;
+import com.bntu.timetable.entity.studyplan.schedule.Semester;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,10 +18,13 @@ import java.util.List;
 @Table(name = "discipline_semester_load")
 public class DisciplineSemesterLoad extends BaseEntity {
 
-    @ElementCollection
-    @CollectionTable(name = "sem_load_to_sem_number", joinColumns = @JoinColumn(name = "sem_load_id"))
-    @Column(name = "sem_num")
-    private List<Integer> semesterNumbers;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "sem_loads_semesters",
+            joinColumns = {@JoinColumn(name = "sem_load_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "semester_id", referencedColumnName = "id")},
+            uniqueConstraints = @UniqueConstraint(columnNames = {
+                    "sem_load_id", "semester_id"}))
+    private List<Semester> semesters;
 
     @ManyToOne
     @JoinColumn(name = "semester_load_id")

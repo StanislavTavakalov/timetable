@@ -2,6 +2,7 @@ package com.bntu.timetable.entity.studyplan.schedule;
 
 
 import com.bntu.timetable.entity.BaseEntity;
+import com.bntu.timetable.entity.studyplan.StudyPlan;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -15,17 +16,17 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "educational_schedule_total_activity")
-public class EducationalScheduleTotalActivity extends BaseEntity {
+@Table(name = "schedule_total_activity")
+public class ScheduleTotalActivity extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "activity_id")
     private Activity activity;
 
     @ManyToOne
-    @JoinColumn(name = "educational_schedule_id")
+    @JoinColumn(name = "study_plan_id")
     @JsonIgnore
-    private EducationalSchedule educationalSchedule;
+    private StudyPlan studyPlan;
 
     @Column(name = "total_week_count")
     private Double totalWeekCount;
