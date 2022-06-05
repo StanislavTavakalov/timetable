@@ -1,10 +1,9 @@
 package com.bntu.timetable.entity.studyplan.schedule;
 
 import com.bntu.timetable.entity.BaseEntity;
-import com.bntu.timetable.entity.Flow;
 import com.bntu.timetable.entity.studyplan.StudyPlan;
+import com.bntu.timetable.entity.studyplan.structure.DisciplineHoursUnitsPerSemesters;
 import com.bntu.timetable.entity.studyplan.structure.DisciplineSemesterLoad;
-import com.bntu.timetable.entity.studyplan.structure.SemesterLoad;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -21,7 +20,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, exclude = "studyPlan")
 @Table(name = "semester")
 public class Semester extends BaseEntity {
 
@@ -35,15 +34,18 @@ public class Semester extends BaseEntity {
     @JsonManagedReference(value = "schedule_activity_semester")
     private List<ScheduleActivity> scheduleActivities;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne
     @JoinColumn(name = "study_plan_id")
     @JsonBackReference(value = "study_plan_semester")
     private StudyPlan studyPlan;
 
-    @ManyToMany(mappedBy = "semesters")
+    @ManyToMany(mappedBy = "semesters", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<DisciplineSemesterLoad> disciplineSemesterLoads;
 
+    @OneToMany(mappedBy = "semester", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<DisciplineHoursUnitsPerSemesters> disciplineHoursUnitsPerSemesters;
 
 }
 

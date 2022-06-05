@@ -2,7 +2,6 @@ package com.bntu.timetable.entity.studyplan.structure;
 
 import com.bntu.timetable.entity.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -44,6 +43,9 @@ public class Discipline extends BaseEntity {
     @Column(name = "position")
     private Integer position;
 
+    @Column(name = "course_work_semester_num")
+    private Integer courseWorkSemesterNum;
+
     @Enumerated(EnumType.STRING)
     private DisciplineType disciplineType;
 
@@ -61,10 +63,13 @@ public class Discipline extends BaseEntity {
     @JsonBackReference(value = "cycle-discipline")
     private Cycle cycle;
 
-    @OneToMany(mappedBy = "discipline")
+    @OneToMany(mappedBy = "discipline", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DisciplineLoad> disciplineLoads;
 
-    @OneToMany(mappedBy = "discipline")
+    @OneToMany(mappedBy = "discipline", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DisciplineSemesterLoad> disciplineSemesterLoads;
+
+    @OneToMany(mappedBy = "discipline", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<DisciplineHoursUnitsPerSemesters> disciplineHoursUnitsPerSemesters;
 
 }

@@ -2,6 +2,7 @@ package com.bntu.timetable.service.api.studyplan;
 
 import com.bntu.timetable.dto.CommonInfoForStudyPlan;
 import com.bntu.timetable.entity.studyplan.StudyPlan;
+import com.bntu.timetable.entity.studyplan.StudyPlanStatus;
 
 import java.util.List;
 import java.util.UUID;
@@ -22,5 +23,7 @@ public interface StudyPlanService {
 
     CommonInfoForStudyPlan loadCommonInfo();
 
-    StudyPlan submitStudyPlan(UUID id);
+    StudyPlan changeStudyPlanStatus(UUID id, StudyPlanStatus status);
+
+    StudyPlan registerStudyPlan(UUID id, String registerNumber);
 }

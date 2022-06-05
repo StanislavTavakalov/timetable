@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, exclude = "semester")
 @Table(name = "schedule_activity")
 public class ScheduleActivity extends BaseEntity {
 
@@ -22,7 +22,7 @@ public class ScheduleActivity extends BaseEntity {
     @JoinColumn(name = "activity_id")
     private Activity activity;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne
     @JoinColumn(name = "semester_id")
     @JsonBackReference(value = "schedule_activity_semester")
     private Semester semester;

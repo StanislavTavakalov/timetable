@@ -2,6 +2,7 @@ package com.bntu.timetable.entity.studyplan.structure;
 
 import com.bntu.timetable.entity.BaseEntity;
 import com.bntu.timetable.entity.studyplan.schedule.Semester;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,7 @@ import java.util.List;
 @Table(name = "discipline_semester_load")
 public class DisciplineSemesterLoad extends BaseEntity {
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "sem_loads_semesters",
             joinColumns = {@JoinColumn(name = "sem_load_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "semester_id", referencedColumnName = "id")},
@@ -32,5 +33,6 @@ public class DisciplineSemesterLoad extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "discipline_id")
+    @JsonIgnore
     private Discipline discipline;
 }

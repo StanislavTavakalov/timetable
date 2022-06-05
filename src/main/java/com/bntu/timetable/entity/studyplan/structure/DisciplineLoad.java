@@ -3,6 +3,7 @@ package com.bntu.timetable.entity.studyplan.structure;
 import com.bntu.timetable.entity.BaseEntity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,5 +29,6 @@ public class DisciplineLoad extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "discipline_id")
+    @JsonIgnore
     private Discipline discipline;
 }

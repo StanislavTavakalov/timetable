@@ -1,6 +1,7 @@
 package com.bntu.timetable.controller.studyplan;
 
 import com.bntu.timetable.entity.studyplan.StudyPlan;
+import com.bntu.timetable.entity.studyplan.StudyPlanStatus;
 import com.bntu.timetable.service.api.studyplan.StudyPlanService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +63,19 @@ public class StudyPlanController {
     @PutMapping("/submit")
     @PreAuthorize("hasAuthority('studyplan:submit')")
     public StudyPlan submitStudyPlan(@RequestBody StudyPlan studyPlan) {
-        return studyPlanService.submitStudyPlan(studyPlan.getId());
+        return studyPlanService.changeStudyPlanStatus(studyPlan.getId(), StudyPlanStatus.SUBMITTED);
+    }
+
+    @PutMapping("/to_register")
+    @PreAuthorize("hasAuthority('studyplan:to_register')")
+    public StudyPlan toRegisterStudyPlan(@RequestBody StudyPlan studyPlan) {
+        return studyPlanService.changeStudyPlanStatus(studyPlan.getId(), StudyPlanStatus.TO_REGISTER);
+    }
+
+    @PutMapping("/register")
+    @PreAuthorize("hasAuthority('studyplan:register')")
+    public StudyPlan registerStudyPlan(@RequestBody StudyPlan studyPlan) {
+        return studyPlanService.registerStudyPlan(studyPlan.getId(), studyPlan.getRegisterNumber());
     }
 
 

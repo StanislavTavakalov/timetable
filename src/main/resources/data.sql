@@ -116,7 +116,9 @@ values ('c86a4f8d-9f9a-4569-9945-85168652552b', 'users:read'),
        ('d158c461-5fff-4f3d-a7e2-a6012a0777e3', 'studyplan:read'),
        ('a1d64dbd-0998-4fc3-8fe7-c11d3d3c67f7', 'studyplan:update'),
        ('403692a9-6647-4bf1-9e05-97a7762ddf02', 'studyplan:delete'),
-       ('b346aef9-e46a-42ab-b7a4-b9d139a50c5d', 'studyplan:submit')
+       ('b346aef9-e46a-42ab-b7a4-b9d139a50c5d', 'studyplan:submit'),
+       ('0bee4172-d653-4aeb-899a-b774b74a5ccb', 'studyplan:to_register'),
+       ('c03c50ee-7085-4c5b-baab-e75b5d0e9487', 'studyplan:register')
 
 
 ON CONFLICT DO NOTHING;
@@ -252,6 +254,8 @@ VALUES
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'a1d64dbd-0998-4fc3-8fe7-c11d3d3c67f7'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '403692a9-6647-4bf1-9e05-97a7762ddf02'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'b346aef9-e46a-42ab-b7a4-b9d139a50c5d'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '0bee4172-d653-4aeb-899a-b774b74a5ccb'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c03c50ee-7085-4c5b-baab-e75b5d0e9487'),
 
 
     -- Admin role end
@@ -521,3 +525,16 @@ VALUES ('26da3d4b-f9f8-483f-ad66-294509f0422d', now(), now(),
        ('d812a820-8407-4fb8-a97a-0a72f6933023', now(), now(),
         'Программист')
 ON CONFLICT DO NOTHING;
+
+INSERT INTO public.load (id, created_when, updated_when, name)
+VALUES ('bf3249da-6608-42d3-bfd9-de4115d02f54', now(), now(), 'Лекции'),
+       ('f72bacd4-51b1-4cd7-af72-e7bad77cd6ca', now(), now(), 'Практика'),
+       ('05fc1929-a578-4123-b2e9-9cdf9298a2c6', now(), now(), 'Лабораторные')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO public.semester_load (id, created_when, updated_when, name)
+VALUES ('56f70fa5-99a6-4e60-83b7-0aa628fcd59b', now(), now(), 'РГР'),
+       ('b5c30a6e-6ad2-4c5e-8320-3b91a306121b', now(), now(), 'Экзамены'),
+       ('b491702a-f344-4254-a6e1-bb5dd0a76a50', now(), now(), 'Зачеты')
+ON CONFLICT DO NOTHING;
+

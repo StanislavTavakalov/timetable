@@ -108,20 +108,71 @@ public class StudyPlanServiceImpl implements StudyPlanService {
     }
 
     private void fillReferences(StudyPlan studyPlan) {
-        studyPlan.getScheduleTotalActivities()
-                .forEach(totalActivity -> totalActivity.setStudyPlan(studyPlan));
 
+        // fill references under cycles
         studyPlan.getCycles().forEach(cycle -> {
             cycle.setStudyPlan(studyPlan);
 
+            // fill references under component
             cycle.getComponents().forEach(component -> {
                 component.setCycle(cycle);
-                component.getDisciplines().forEach(discipline -> discipline.setComponent(component));
+                component.getDisciplines().forEach(discipline -> {
+                    discipline.setComponent(component);
+                    discipline.getDisciplineLoads().forEach(disciplineLoad -> {
+                        disciplineLoad.setDiscipline(discipline);
+                    });
+
+                    discipline.getDisciplineSemesterLoads().forEach(disciplineLoad -> {
+                        disciplineLoad.setDiscipline(discipline);
+                    });
+
+                    discipline.getDisciplineHoursUnitsPerSemesters().forEach(d -> {
+                        d.setDiscipline(discipline);
+                    });
+
+                    discipline.getDisciplineSemesterLoads().forEach(disciplineSemesterLoad -> {
+                        List<Semester> semestersToSet = new ArrayList<>();
+                        for (Semester sem : studyPlan.getSemesters()) {
+                            if (disciplineSemesterLoad.getSemesters() != null) {
+                                if (disciplineSemesterLoad.getSemesters().stream()
+                                        .anyMatch(s -> s.getSemesterNum().equals(sem.getSemesterNum()))) {
+                                    semestersToSet.add(sem);
+                                }
+
+                            }
+
+                        }
+                        disciplineSemesterLoad.setSemesters(semestersToSet);
+                    });
+
+                });
             });
 
-            cycle.getDisciplines().forEach(discipline -> discipline.setCycle(cycle));
+            cycle.getDisciplines().forEach(discipline -> {
+                discipline.setCycle(cycle);
+                discipline.getDisciplineHoursUnitsPerSemesters().forEach(d -> {
+                    d.setDiscipline(discipline);
+                });
+
+                discipline.getDisciplineSemesterLoads().forEach(disciplineSemesterLoad -> {
+                    List<Semester> semestersToSet = new ArrayList<>();
+                    for (Semester sem : studyPlan.getSemesters()) {
+                        if (disciplineSemesterLoad.getSemesters() != null) {
+                            if (disciplineSemesterLoad.getSemesters().stream()
+                                    .anyMatch(s -> s.getSemesterNum().equals(sem.getSemesterNum()))) {
+                                semestersToSet.add(sem);
+                            }
+
+                        }
+
+                    }
+                    disciplineSemesterLoad.setSemesters(semestersToSet);
+                });
+            });
         });
 
+
+        // fill references under study plan
         studyPlan.getSemesters().forEach(semester -> {
             semester.setStudyPlan(studyPlan);
 
@@ -129,7 +180,15 @@ public class StudyPlanServiceImpl implements StudyPlanService {
                 scheduleActivity.setSemester(semester);
             });
 
+            if (semester.getDisciplineHoursUnitsPerSemesters() != null)
+                semester.getDisciplineHoursUnitsPerSemesters().forEach(d -> {
+                    d.setSemester(semester);
+                });
+
         });
+
+        studyPlan.getScheduleTotalActivities()
+                .forEach(totalActivity -> totalActivity.setStudyPlan(studyPlan));
     }
 
     @Override
@@ -153,15 +212,31 @@ public class StudyPlanServiceImpl implements StudyPlanService {
         return commonInfo;
     }
 
+
     @Override
-    public StudyPlan submitStudyPlan(UUID id) {
+    public StudyPlan changeStudyPlanStatus(UUID id, StudyPlanStatus status) {
         Optional<StudyPlan> studyPlan = this.studyPlanRepository.findById(id);
         if (studyPlan.isPresent()) {
-            studyPlan.get().setStatus(StudyPlanStatus.SUBMITTED);
+            studyPlan.get().setStatus(status);
             studyPlan.get().setStatusChangeDate(LocalDateTime.now());
             return this.studyPlanRepository.save(studyPlan.get());
         } else {
             throw new RuntimeException(ErrorMessage.STUDY_PLAN_NOT_FOUND);
         }
     }
+
+    @Override
+    public StudyPlan registerStudyPlan(UUID id, String registerNumber) {
+        Optional<StudyPlan> studyPlan = this.studyPlanRepository.findById(id);
+        if (studyPlan.isPresent()) {
+            studyPlan.get().setStatus(StudyPlanStatus.REGISTERED);
+            studyPlan.get().setRegisterNumber(registerNumber);
+            studyPlan.get().setStatusChangeDate(LocalDateTime.now());
+            return this.studyPlanRepository.save(studyPlan.get());
+        } else {
+            throw new RuntimeException(ErrorMessage.STUDY_PLAN_NOT_FOUND);
+        }
+    }
+
+
 }
