@@ -6,8 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -16,4 +16,11 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "shift")
 public class Shift extends BaseEntity {
+
+    @Column
+    private String name;
+
+    @OneToMany(mappedBy = "shift")
+    private List<Timeline> timelines;
+
 }

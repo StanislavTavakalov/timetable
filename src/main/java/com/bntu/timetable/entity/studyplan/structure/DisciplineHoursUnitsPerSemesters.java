@@ -30,7 +30,6 @@ public class DisciplineHoursUnitsPerSemesters extends BaseEntity {
     @Column(name = "credit_units")
     private Double creditUnits;
 
-
     @ManyToOne
     @JoinColumn(name = "discipline_id")
     @JsonIgnore

@@ -22,6 +22,7 @@ public class ErrorMessage {
     public static final String TEACHER_NOT_FOUND = "Не был найден преподаватель с id: ";
     public static final String ACADEMIC_DEGREE_NOT_FOUND = "Не была найдена научная степень с id: ";
     public static final String STUDY_PLAN_NOT_FOUND = "Не был найден учебный план с id: ";
+    public static final String TIMETABLE_NOT_FOUND = "Не было найдено учебное расписание с id: ";
 }
 
 

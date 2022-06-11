@@ -34,7 +34,7 @@ public class Department extends BaseEntity {
     @JsonIgnoreProperties(value = {"departments", "flows"}, allowSetters = true)
     private Deanery deanery;
 
-    @OneToMany(mappedBy = "department")
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Speciality> specialities;
 
 }

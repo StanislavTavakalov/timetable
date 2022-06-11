@@ -238,5 +238,8 @@ public class StudyPlanServiceImpl implements StudyPlanService {
         }
     }
 
-
+    @Override
+    public List<StudyPlan> getStudyPlansByDeaneryId(UUID deaneryId) {
+        return  studyPlanRepository.findAllBySpeciality_Department_Deanery_Id(deaneryId);
+    }
 }

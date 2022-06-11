@@ -118,7 +118,13 @@ values ('c86a4f8d-9f9a-4569-9945-85168652552b', 'users:read'),
        ('403692a9-6647-4bf1-9e05-97a7762ddf02', 'studyplan:delete'),
        ('b346aef9-e46a-42ab-b7a4-b9d139a50c5d', 'studyplan:submit'),
        ('0bee4172-d653-4aeb-899a-b774b74a5ccb', 'studyplan:to_register'),
-       ('c03c50ee-7085-4c5b-baab-e75b5d0e9487', 'studyplan:register')
+       ('c03c50ee-7085-4c5b-baab-e75b5d0e9487', 'studyplan:register'),
+
+       ('595bc9f4-e2e8-4a0f-94c1-1a911e8be203', 'timetable:create'),
+       ('f362e2e3-f901-481c-8c55-3ca5197d8b7a', 'timetable:read'),
+       ('2bed2a45-9621-4e98-8cf8-402f91b97fd1', 'timetable:update'),
+       ('cc24b4cd-4dff-4104-8506-f35176586880', 'timetable:delete'),
+       ('c62b5acf-33ac-4e86-b121-1fd4b5af0ae1', 'timetable:submit')
 
 
 ON CONFLICT DO NOTHING;
@@ -256,6 +262,13 @@ VALUES
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'b346aef9-e46a-42ab-b7a4-b9d139a50c5d'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '0bee4172-d653-4aeb-899a-b774b74a5ccb'),
     ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c03c50ee-7085-4c5b-baab-e75b5d0e9487'),
+
+    --Timetables rights
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '595bc9f4-e2e8-4a0f-94c1-1a911e8be203'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'f362e2e3-f901-481c-8c55-3ca5197d8b7a'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', '2bed2a45-9621-4e98-8cf8-402f91b97fd1'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'cc24b4cd-4dff-4104-8506-f35176586880'),
+    ('ea7a09ea-ba86-4d24-82f2-1a18174541f3', 'c62b5acf-33ac-4e86-b121-1fd4b5af0ae1'),
 
 
     -- Admin role end
@@ -538,3 +551,15 @@ VALUES ('56f70fa5-99a6-4e60-83b7-0aa628fcd59b', now(), now(), 'РГР'),
        ('b491702a-f344-4254-a6e1-bb5dd0a76a50', now(), now(), 'Зачеты')
 ON CONFLICT DO NOTHING;
 
+
+INSERT INTO public.shift (id, created_when, updated_when, name)
+VALUES ('f8fb057c-96be-4352-8594-f926dc41e076', now(), now(), 'Вечерняя'),
+       ('74112aa7-987e-4c4f-b689-afd914ad6537', now(), now(), 'Утренняя')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO public.timeline (id, created_when, updated_when, start_time, end_time, academic_hours, shift_id)
+VALUES ('bbf52d1f-d8cb-4963-902a-415ea919c715', now(), now(), '12:00:00', '13:35:00', 2, 'f8fb057c-96be-4352-8594-f926dc41e076'),
+       ('2091d8c3-5c84-4055-a80b-9e1222e61fd7', now(), now(), '13:55:00', '15:30:00', 2, 'f8fb057c-96be-4352-8594-f926dc41e076'),
+       ('bbf52d1f-d8cb-4963-902a-415ea919c715', now(), now(), '14:00:00', '15:35:00', 2, '74112aa7-987e-4c4f-b689-afd914ad6537'),
+       ('2091d8c3-5c84-4055-a80b-9e1222e61fd7', now(), now(), '14:55:00', '16:30:00', 2, '74112aa7-987e-4c4f-b689-afd914ad6537')
+ON CONFLICT DO NOTHING;

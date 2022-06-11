@@ -11,4 +11,6 @@ import java.util.UUID;
 public interface StudyPlanRepository extends JpaRepository<StudyPlan, UUID> {
 
     List<StudyPlan> findAllByStandardPlan(boolean standardPlan);
+
+    List<StudyPlan> findAllBySpeciality_Department_Deanery_Id(UUID id);
 }

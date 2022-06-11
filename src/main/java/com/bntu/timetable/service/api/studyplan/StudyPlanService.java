@@ -26,4 +26,6 @@ public interface StudyPlanService {
     StudyPlan changeStudyPlanStatus(UUID id, StudyPlanStatus status);
 
     StudyPlan registerStudyPlan(UUID id, String registerNumber);
+
+    List<StudyPlan> getStudyPlansByDeaneryId(UUID deaneryId);
 }

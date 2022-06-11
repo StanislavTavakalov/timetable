@@ -51,11 +51,11 @@ public class Speciality extends BaseEntity{
     @JsonIgnoreProperties(value = {"specialities", "deanery"}, allowSetters = true)
     private Department department;
 
-    @OneToMany(mappedBy = "speciality")
+    @OneToMany(mappedBy = "speciality", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<StudyPlan> studyPlans;
 
-    @OneToMany(mappedBy = "speciality", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "speciality", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<Group> groups;
 }

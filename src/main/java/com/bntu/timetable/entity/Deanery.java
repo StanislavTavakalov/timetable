@@ -1,5 +1,7 @@
 package com.bntu.timetable.entity;
 
+import com.bntu.timetable.entity.timetable.Timetable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,10 +27,14 @@ public class Deanery extends BaseEntity {
     @Column(name = "description", length = 10000)
     private String description;
 
-    @OneToMany(mappedBy = "deanery")
+    @OneToMany(mappedBy = "deanery", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Department> departments;
 
-    @OneToMany(mappedBy = "deanery")
+    @OneToMany(mappedBy = "deanery", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Flow> flows;
+
+    @OneToMany(mappedBy = "deanery")
+    @JsonIgnore
+    private List<Timetable> timetables;
 
 }
