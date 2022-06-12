@@ -560,6 +560,9 @@ ON CONFLICT DO NOTHING;
 INSERT INTO public.timeline (id, created_when, updated_when, start_time, end_time, academic_hours, shift_id)
 VALUES ('bbf52d1f-d8cb-4963-902a-415ea919c715', now(), now(), '12:00:00', '13:35:00', 2, 'f8fb057c-96be-4352-8594-f926dc41e076'),
        ('2091d8c3-5c84-4055-a80b-9e1222e61fd7', now(), now(), '13:55:00', '15:30:00', 2, 'f8fb057c-96be-4352-8594-f926dc41e076'),
-       ('bbf52d1f-d8cb-4963-902a-415ea919c715', now(), now(), '14:00:00', '15:35:00', 2, '74112aa7-987e-4c4f-b689-afd914ad6537'),
-       ('2091d8c3-5c84-4055-a80b-9e1222e61fd7', now(), now(), '14:55:00', '16:30:00', 2, '74112aa7-987e-4c4f-b689-afd914ad6537')
+       ('1c14c5ea-39bf-4769-a490-4b5eb9a72231', now(), now(), '15:40:00', '17:15:00', 2, 'f8fb057c-96be-4352-8594-f926dc41e076'),
+       ('28885344-52c2-4256-be0d-b68356e1630f', now(), now(), '17:45:00', '19:20:00', 2, 'f8fb057c-96be-4352-8594-f926dc41e076'),
+       ('ea932910-75dd-4916-bd13-cdeb3640765a', now(), now(), '19:30:00', '21:05:00', 2, 'f8fb057c-96be-4352-8594-f926dc41e076'),
+       ('52ca3b8c-1c45-413c-8e73-424ec2373374', now(), now(), '14:00:00', '15:35:00', 2, '74112aa7-987e-4c4f-b689-afd914ad6537'),
+       ('da65044f-72ea-4d04-9b0b-9ab20f326fd7', now(), now(), '14:55:00', '16:30:00', 2, '74112aa7-987e-4c4f-b689-afd914ad6537')
 ON CONFLICT DO NOTHING;
