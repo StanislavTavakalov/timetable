@@ -553,8 +553,9 @@ ON CONFLICT DO NOTHING;
 
 
 INSERT INTO public.shift (id, created_when, updated_when, name)
-VALUES ('74112aa7-987e-4c4f-b689-afd914ad6537', now(), now(), 'Вечерняя'),
-       ('f8fb057c-96be-4352-8594-f926dc41e076', now(), now(), 'Утренняя')
+VALUES ('f8fb057c-96be-4352-8594-f926dc41e076', now(), now(), 'Утренняя'),
+       ('74112aa7-987e-4c4f-b689-afd914ad6537', now(), now(), 'Вечерняя')
+
 ON CONFLICT DO NOTHING;
 
 INSERT INTO public.timeline (id, created_when, updated_when, start_time, end_time, academic_hours, shift_id)
