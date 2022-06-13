@@ -162,11 +162,13 @@ public class StudyPlanServiceImpl implements StudyPlanService {
                                     .anyMatch(s -> s.getSemesterNum().equals(sem.getSemesterNum()))) {
                                 semestersToSet.add(sem);
                             }
-
                         }
-
                     }
                     disciplineSemesterLoad.setSemesters(semestersToSet);
+                });
+
+                discipline.getDisciplineLoads().forEach(disciplineLoad -> {
+                    disciplineLoad.setDiscipline(discipline);
                 });
             });
         });
