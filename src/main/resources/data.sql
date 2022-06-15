@@ -512,22 +512,21 @@ VALUES ('e2e72e85-f400-4479-a8b6-311e9c690236', '2022-03-01 10:45:52.172208', '2
 ON CONFLICT DO NOTHING;
 
 
-INSERT INTO public.discipline_group (id, created_when, updated_when, name)
-VALUES ('26da3d4b-f9f8-483f-ad66-294509f041ad', now(), now(),
-        'Математика'),
-       ('4a6a0b5d-7995-4f2d-8f87-3a8c548caaab', now(), now(),
-        'Языки программирования'),
-       ('d812a820-8407-4fb8-a97a-0a72f67130a3', now(), now(),
-        'Компьютерная графика')
-ON CONFLICT DO NOTHING;
-
 INSERT INTO public.activity (id, created_when, updated_when, name, symbol)
 VALUES ('26da3d4b-f9f8-483f-ad66-294509f042ad', now(), now(),
         'Теоретическое обучение', ' '),
        ('4a6a0b5d-7995-4f2d-8f87-3a8c528caaab', now(), now(),
         'Экзаменнационная сессия', ':'),
        ('d812a820-8407-4fb8-a97a-0a72f69330a3', now(), now(),
-        'Практика', '-')
+        'Дипломное проектирование', '-'),
+       ('7ac14f73-cb86-455e-9c4e-7753d9dd8c92', now(), now(),
+        'Учебная практика', 'O'),
+       ('4e60d064-a3ce-4f0f-880c-edae7f0b95c0', now(), now(),
+        'Производственная практика', 'X'),
+       ('946d36c5-919a-4ae3-99fd-a2e586c6c90e', now(), now(),
+        'Итоговая аттестация', '-'),
+       ('c89cb514-a101-4708-8750-c54178cee7f5', now(), now(),
+        'Каникулы', '=')
 ON CONFLICT DO NOTHING;
 
 INSERT INTO public.qualification (id, created_when, updated_when, name)
@@ -577,4 +576,156 @@ VALUES ('bbf52d1f-d8cb-4963-902a-415ea919c715', now(), now(), '8:00:00', '9:35:0
         '74112aa7-987e-4c4f-b689-afd914ad6537'),
        ('da65044f-72ea-4d04-9b0b-9ab20f326fd7', now(), now(), '14:55:00', '16:30:00', 2,
         '74112aa7-987e-4c4f-b689-afd914ad6537')
+ON CONFLICT DO NOTHING;
+
+
+INSERT INTO public.discipline_group (id, created_when, updated_when, name)
+VALUES ('26da3d4b-f9f8-483f-ad66-294509f041ad', now(), now(),
+        'Математика'),
+       ('4a6a0b5d-7995-4f2d-8f87-3a8c548caaab', now(), now(),
+        'Языки программирования'),
+       ('d812a820-8407-4fb8-a97a-0a72f67130a3', now(), now(),
+        'Алгоритмы'),
+       ('b80ba7d4-1206-4421-b865-4b74e2338389', now(), now(),
+        'Компьютерная графика'),
+       ('6089e02e-0026-4a13-9d54-0d3dd4274dbe', now(), now(),
+        'Философия'),
+       ('5d54bd67-1222-4ddb-b3ce-1c2cbbab4ff8', now(), now(),
+        'Физика'),
+       ('649af1d5-d304-4036-bbaa-38fd39990f7f', now(), now(),
+        'Экономика'),
+       ('c328bd7c-49ae-4414-b978-3f7fe980ce9c', now(), now(),
+        'Иностранные языки'),
+       ('fdefce98-e6ba-4617-aa6d-90df262e994e', now(), now(),
+        'Физкультура'),
+       ('6db68cb4-6957-4538-ad33-92f80a964053', now(), now(),
+        'Политология'),
+       ('9126ef41-2939-47f1-9afc-029cc0962a01', now(), now(),
+        'История'),
+       ('e682f980-78b0-49db-a83a-2414be8b5676', now(), now(),
+        'Языки')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO public.discipline
+(id, created_when, updated_when, classroom_hours, course_work_semester_num,
+ credit_units, description, discipline_type, is_template, name,
+ position, total_hours, university, component_id, cycle_id, discipline_group_id)
+VALUES ('355d8f55-8c94-43bd-8c19-4e8270efb759', now(),
+        now(), 76, null, 4, '-', 'STANDARD',
+        true, 'Интегрированный модуль "Философия"', null, 152, 'БНТУ', null,
+        null, '6089e02e-0026-4a13-9d54-0d3dd4274dbe'),
+
+       ('f65e23d9-8d39-45b3-a1e6-b44d05241a15', now(),
+        now(), 84, null, 4, '-', 'STANDARD',
+        true, 'Интегрированный модуль "Экономика"', null, 140, 'БНТУ', null,
+        null, '649af1d5-d304-4036-bbaa-38fd39990f7f'),
+
+       ('a73dffa4-3d40-42e0-a904-e55277fca28e', now(),
+        now(), 76, null, 4, '-к', 'STANDARD',
+        true, 'Интегрированный модуль "Политология"', null, 152, 'БНТУ', null,
+        null, '6db68cb4-6957-4538-ad33-92f80a964053'),
+
+       ('e3579712-b027-497a-ae78-b01a3c62d3c7', now(),
+        now(), 76, null, 4, '-', 'STANDARD',
+        true, 'Интегрированный модуль "История"', null, 152, 'БНТУ', null,
+        null, '26da3d4b-f9f8-483f-ad66-294509f041ad'),
+
+       ('ccf2eca7-ae81-4d91-830a-14d5b92170a2', now(),
+        now(), 76, null, 4, '-', 'STANDARD',
+        true, 'Математика', null, 152, 'БНТУ', null,
+        null, '26da3d4b-f9f8-483f-ad66-294509f041ad'),
+
+       ('8919a5c9-dcd7-405a-92ce-5f5c78121485', now(),
+        now(), 76, null, 4, '-', 'STANDARD',
+        true, 'Физика', null, 152, 'БНТУ', null,
+        null, '5d54bd67-1222-4ddb-b3ce-1c2cbbab4ff8'),
+
+       ('037bfede-3685-4ed9-be57-1bd9d72fa5b8', now(),
+        now(), 76, null, 4, '-', 'STANDARD',
+        true, 'Алгоритмы вычислений', null, 152, 'БНТУ', null,
+        null, 'd812a820-8407-4fb8-a97a-0a72f67130a3'),
+
+       ('d2af2cb1-e4f7-4f21-bd71-78673e2063ee', now(),
+        now(), 76, null, 4, '-', 'STANDARD',
+        true, 'Компьютерная графика', null, 152, 'БНТУ', null,
+        null, '26da3d4b-f9f8-483f-ad66-294509f041ad'),
+
+       ('0cfd3091-1f61-4f98-b3c9-c513ece73aa9', now(),
+        now(), 76, null, 4, '-', 'STANDARD',
+        true, 'Базы данных', null, 152, 'БНТУ', null,
+        null, 'd812a820-8407-4fb8-a97a-0a72f67130a3'),
+
+
+       ('ec3b2382-2f0f-4358-91e5-d85cf877404c', now(),
+        now(), 76, null, 4, '-', 'STANDARD',
+        true, 'Методы и алгоритмы принятия решений', null, 152, 'БНТУ', null,
+        null, 'd812a820-8407-4fb8-a97a-0a72f67130a3'),
+
+
+       ('390577b6-3612-4cb8-872f-078f3c9ab9d3', now(),
+        now(), 76, null, 4, '-', 'FACULTATIVE',
+        true, 'Французский язык', null, 152, 'БНТУ', null,
+        null, 'e682f980-78b0-49db-a83a-2414be8b5676'),
+
+       ('272b77a0-9eeb-40be-b783-a9a303c78152', now(),
+        now(), 76, null, 4, '-', 'FACULTATIVE',
+        true, 'Английский язык', null, 152, 'БНТУ', null,
+        null, 'e682f980-78b0-49db-a83a-2414be8b5676'),
+
+       ('a24fdede-ad8c-47b8-8802-71e6ff272c4f', now(),
+        now(), 76, null, 4, '-', 'EXTRA',
+        true, 'Физкультура', null, 152, 'БНТУ', null,
+        null, 'fdefce98-e6ba-4617-aa6d-90df262e994e'),
+
+
+       ('b52cc556-2d57-4b9c-99ee-414be56ab102', now(),
+        now(), 76, null, 4, '-', 'BASIC',
+        true, 'Python', null, 152, 'БНТУ', null,
+        null, '4a6a0b5d-7995-4f2d-8f87-3a8c548caaab'),
+
+       ('794f9f1f-9cc5-4529-98e8-9bea45e9fc53', now(),
+        now(), 76, null, 4, '-', 'BASIC',
+        true, 'Java', null, 152, 'БНТУ', null,
+        null, '4a6a0b5d-7995-4f2d-8f87-3a8c548caaab')
+
+
+
+
+ON CONFLICT DO NOTHING;
+
+
+INSERT INTO public.teacher
+(id, created_when, updated_when, additional_info, first_name, hours, last_name,
+ patronymic, staff_type, academic_degree_id, academic_title_id,
+ teacher_position_id, work_tariff_id)
+VALUES ('8895d062-6a50-4639-a3f4-9d192b01fbae', now(), now(),
+        null, 'Иван', null, 'Иванов', 'Иванович',
+        'FULL_TIME', 'c785573d-016b-4b53-af2f-67d04e0cd996',
+        'c785573d-016b-4b53-af2f-67d04e0cd992', 'c785573d-016b-4b53-af2f-67d04e0cd998',
+        'c685573d-016b-4b53-af2f-88d04e0cd496'),
+       ('fa6ec145-533e-4f90-93c9-cab78499272c', now(), now(), null,
+        'Егор', null, 'Егоров', 'Егорович', 'INTERNAL_COMBINER', 'c685573d-016b-4b53-af2f-88d04e0cd996',
+        'c785573d-016b-4b53-af2f-67d04e0cd992', 'c785573d-016b-4b53-af2f-67d04e0cd998',
+        'c785573d-016b-4b53-af2f-67d04e0cd596'),
+       ('ebad78f5-8fe3-4371-947d-fe01a38c96d6', now(), now(), null,
+        'Антон', 40, 'Антонов', 'Антонович', 'PART_TIME', 'c685573d-016b-4b53-af2f-88d04e0cd996',
+        'c785573d-016b-4b53-af2f-67d04e0cd992', 'c685573d-016b-4b53-af2f-88d04e0cd993', null),
+       ('b461e5d5-ce61-49fe-9624-e6fe9c6d52eb', now(), now(), null,
+        'Алексей', 80, 'Алексеев', 'Алексеевич', 'PART_TIME', 'c785573d-016b-4b53-af2f-67d04e0cd996',
+        'c785573d-016b-4b53-af2f-67d04e0cd992', 'c785573d-016b-4b53-af2f-67d04e0cd998', null),
+       ('1a4682d3-30f6-4625-880f-92fd93b7a1ac', now(), now(), null,
+        'Сергей', 60, 'Сергеевич', 'Сергеевич', 'PART_TIME', 'c785573d-016b-4b53-af2f-67d04e0cd996',
+        'c785573d-016b-4b53-af2f-67d04e0cd992', 'c685573d-016b-4b53-af2f-88d04e0cd993', null)
+ON CONFLICT DO NOTHING;
+
+
+INSERT INTO public.teachers_discipline_groups (teacher_id, discipline_group_id)
+VALUES ('8895d062-6a50-4639-a3f4-9d192b01fbae', '26da3d4b-f9f8-483f-ad66-294509f041ad'),
+       ('8895d062-6a50-4639-a3f4-9d192b01fbae', '4a6a0b5d-7995-4f2d-8f87-3a8c548caaab'),
+       ('fa6ec145-533e-4f90-93c9-cab78499272c', '26da3d4b-f9f8-483f-ad66-294509f041ad'),
+       ('fa6ec145-533e-4f90-93c9-cab78499272c', '4a6a0b5d-7995-4f2d-8f87-3a8c548caaab'),
+       ('ebad78f5-8fe3-4371-947d-fe01a38c96d6', 'd812a820-8407-4fb8-a97a-0a72f67130a3'),
+       ('b461e5d5-ce61-49fe-9624-e6fe9c6d52eb', '26da3d4b-f9f8-483f-ad66-294509f041ad'),
+       ('1a4682d3-30f6-4625-880f-92fd93b7a1ac', '26da3d4b-f9f8-483f-ad66-294509f041ad'),
+       ('1a4682d3-30f6-4625-880f-92fd93b7a1ac', '4a6a0b5d-7995-4f2d-8f87-3a8c548caaab')
 ON CONFLICT DO NOTHING;
