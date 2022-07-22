@@ -3,10 +3,14 @@ package com.bntu.timetable.entity.timetable;
 import com.bntu.timetable.entity.BaseEntity;
 import com.bntu.timetable.entity.Group;
 import com.bntu.timetable.entity.Subgroup;
+import com.bntu.timetable.entity.classroom.Building;
+import com.bntu.timetable.entity.classroom.Classroom;
 import com.bntu.timetable.entity.studyplan.structure.Discipline;
 import com.bntu.timetable.entity.studyplan.structure.EducationForm;
+import com.bntu.timetable.entity.teacher.Teacher;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,9 +28,8 @@ import java.util.Set;
 @Table(name = "lesson")
 public class Lesson extends BaseEntity {
 
-    @ManyToOne
-    @JoinColumn(name = "discipline_id")
-    private Discipline discipline;
+    @JoinColumn(name = "name")
+    private String name;
 
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -50,6 +53,11 @@ public class Lesson extends BaseEntity {
     @JoinColumn(name = "timeline_id")
     private Timeline timeline;
 
+
+    @ManyToOne
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
+
     @ManyToOne
     @JoinColumn(name = "timetable_id")
     @JsonBackReference(value = "timetable-lesson")
@@ -67,7 +75,20 @@ public class Lesson extends BaseEntity {
     private Boolean onceInTwoWeek;
 
     // 0 - Sunday.. 6 - Saturday
-    @Column(name = "week_day")
-    private Integer weekDay;
+    @Column(name = "day")
+    private Integer day;
+
+    @ManyToOne
+    @JoinColumn(name = "building_id")
+//    @JsonManagedReference(value = "lesson-building")
+    private Building building;
+
+    @ManyToOne
+    @JoinColumn(name = "classroom_id")
+//    @JsonManagedReference(value = "lesson-classroom")
+    private Classroom classroom;
+
+//    building: Building;
+//    classroom: Classroom;
 
 }

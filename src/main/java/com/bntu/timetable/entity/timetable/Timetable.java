@@ -57,6 +57,7 @@ public class Timetable extends BaseEntity {
 //    private List<Group> groups;
 
     @OneToMany(mappedBy = "timetable", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference(value = "timetable-groupsToStudyPlans")
     private List<GroupToStudyPlan> groupsToStudyPlans;
 
 
